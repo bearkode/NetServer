@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90961AD266290057AC67 /* AppDelegate.m */; };
+		2ECD90991AD266290057AC67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90981AD266290057AC67 /* main.m */; };
+		2ECD909B1AD2662A0057AC67 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECD909A1AD2662A0057AC67 /* Images.xcassets */; };
+		2ECD909E1AD2662A0057AC67 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECD909C1AD2662A0057AC67 /* MainMenu.xib */; };
+		2ECD90AA1AD2662A0057AC67 /* NetServerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90A91AD2662A0057AC67 /* NetServerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2ECD90A41AD2662A0057AC67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ECD90881AD266290057AC67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2ECD908F1AD266290057AC67;
+			remoteInfo = NetServer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2ECD90901AD266290057AC67 /* NetServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ECD90941AD266290057AC67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ECD90951AD266290057AC67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2ECD90961AD266290057AC67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2ECD90981AD266290057AC67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2ECD909A1AD2662A0057AC67 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2ECD909D1AD2662A0057AC67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2ECD90A31AD2662A0057AC67 /* NetServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ECD90A81AD2662A0057AC67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ECD90A91AD2662A0057AC67 /* NetServerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetServerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2ECD908D1AD266290057AC67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ECD90A01AD2662A0057AC67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2ECD90871AD266290057AC67 = {
+			isa = PBXGroup;
+			children = (
+				2ECD90921AD266290057AC67 /* NetServer */,
+				2ECD90A61AD2662A0057AC67 /* NetServerTests */,
+				2ECD90911AD266290057AC67 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2ECD90911AD266290057AC67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD90901AD266290057AC67 /* NetServer.app */,
+				2ECD90A31AD2662A0057AC67 /* NetServerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2ECD90921AD266290057AC67 /* NetServer */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD90951AD266290057AC67 /* AppDelegate.h */,
+				2ECD90961AD266290057AC67 /* AppDelegate.m */,
+				2ECD909A1AD2662A0057AC67 /* Images.xcassets */,
+				2ECD909C1AD2662A0057AC67 /* MainMenu.xib */,
+				2ECD90931AD266290057AC67 /* Supporting Files */,
+			);
+			path = NetServer;
+			sourceTree = "<group>";
+		};
+		2ECD90931AD266290057AC67 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD90941AD266290057AC67 /* Info.plist */,
+				2ECD90981AD266290057AC67 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2ECD90A61AD2662A0057AC67 /* NetServerTests */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD90A91AD2662A0057AC67 /* NetServerTests.m */,
+				2ECD90A71AD2662A0057AC67 /* Supporting Files */,
+			);
+			path = NetServerTests;
+			sourceTree = "<group>";
+		};
+		2ECD90A71AD2662A0057AC67 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD90A81AD2662A0057AC67 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2ECD908F1AD266290057AC67 /* NetServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ECD90AD1AD2662A0057AC67 /* Build configuration list for PBXNativeTarget "NetServer" */;
+			buildPhases = (
+				2ECD908C1AD266290057AC67 /* Sources */,
+				2ECD908D1AD266290057AC67 /* Frameworks */,
+				2ECD908E1AD266290057AC67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NetServer;
+			productName = NetServer;
+			productReference = 2ECD90901AD266290057AC67 /* NetServer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2ECD90A21AD2662A0057AC67 /* NetServerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ECD90B01AD2662A0057AC67 /* Build configuration list for PBXNativeTarget "NetServerTests" */;
+			buildPhases = (
+				2ECD909F1AD2662A0057AC67 /* Sources */,
+				2ECD90A01AD2662A0057AC67 /* Frameworks */,
+				2ECD90A11AD2662A0057AC67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2ECD90A51AD2662A0057AC67 /* PBXTargetDependency */,
+			);
+			name = NetServerTests;
+			productName = NetServerTests;
+			productReference = 2ECD90A31AD2662A0057AC67 /* NetServerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2ECD90881AD266290057AC67 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = cgkim;
+				TargetAttributes = {
+					2ECD908F1AD266290057AC67 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					2ECD90A21AD2662A0057AC67 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 2ECD908F1AD266290057AC67;
+					};
+				};
+			};
+			buildConfigurationList = 2ECD908B1AD266290057AC67 /* Build configuration list for PBXProject "NetServer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2ECD90871AD266290057AC67;
+			productRefGroup = 2ECD90911AD266290057AC67 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2ECD908F1AD266290057AC67 /* NetServer */,
+				2ECD90A21AD2662A0057AC67 /* NetServerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2ECD908E1AD266290057AC67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ECD909B1AD2662A0057AC67 /* Images.xcassets in Resources */,
+				2ECD909E1AD2662A0057AC67 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ECD90A11AD2662A0057AC67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2ECD908C1AD266290057AC67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ECD90991AD266290057AC67 /* main.m in Sources */,
+				2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ECD909F1AD2662A0057AC67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ECD90AA1AD2662A0057AC67 /* NetServerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2ECD90A51AD2662A0057AC67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2ECD908F1AD266290057AC67 /* NetServer */;
+			targetProxy = 2ECD90A41AD2662A0057AC67 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2ECD909C1AD2662A0057AC67 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2ECD909D1AD2662A0057AC67 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2ECD90AB1AD2662A0057AC67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2ECD90AC1AD2662A0057AC67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2ECD90AE1AD2662A0057AC67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NetServer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2ECD90AF1AD2662A0057AC67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NetServer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2ECD90B11AD2662A0057AC67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NetServerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetServer.app/Contents/MacOS/NetServer";
+			};
+			name = Debug;
+		};
+		2ECD90B21AD2662A0057AC67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NetServerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetServer.app/Contents/MacOS/NetServer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2ECD908B1AD266290057AC67 /* Build configuration list for PBXProject "NetServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ECD90AB1AD2662A0057AC67 /* Debug */,
+				2ECD90AC1AD2662A0057AC67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ECD90AD1AD2662A0057AC67 /* Build configuration list for PBXNativeTarget "NetServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ECD90AE1AD2662A0057AC67 /* Debug */,
+				2ECD90AF1AD2662A0057AC67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2ECD90B01AD2662A0057AC67 /* Build configuration list for PBXNativeTarget "NetServerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ECD90B11AD2662A0057AC67 /* Debug */,
+				2ECD90B21AD2662A0057AC67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2ECD90881AD266290057AC67 /* Project object */;
+}
