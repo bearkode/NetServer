@@ -13,7 +13,22 @@
 @interface BKNetSession : NSObject <NSStreamDelegate>
 
 
+@property (nonatomic, assign) id delegate;
+
+
 - (instancetype)initWithInputStream:(NSInputStream *)aInStream outputStream:(NSOutputStream *)aOutStream;
+
+
+- (void)sendMousePosition:(NSPoint)aPosition;
+
+
+@end
+
+
+@protocol BKNetSessionDelegate <NSObject>
+
+
+- (void)netSessionDidClose:(BKNetSession *)aNetSession;
 
 
 @end

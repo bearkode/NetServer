@@ -31,13 +31,18 @@ void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aTyp
     
     CFStreamCreatePairWithSocket(NULL, sFileDesc, &aReadStream, &aWriteStream);
     
-    aInputStream  = [NSMakeCollectable(aReadStream) autorelease];
-    aOutputStream = [NSMakeCollectable(aWriteStream) autorelease];
+    aInputStream  = objc_unretainedObject(aReadStream);
+    aOutputStream = objc_unretainedObject(aWriteStream);
     
     [aInputStream setProperty:(id)kCFBooleanTrue forKey:(NSString *)kCFStreamPropertyShouldCloseNativeSocket];
+    [aOutputStream setProperty:(id)kCFBooleanTrue forKey:(NSString *)kCFStreamPropertyShouldCloseNativeSocket];
     
-    BKNetSession *sSession = [[[BKNetSession alloc] initWithInputStream:aInputStream outputStream:aOutputStream] autorelease];
+    BKNetSession *sSession = [[BKNetSession alloc] initWithInputStream:aInputStream outputStream:aOutputStream];
     [[BKNetService sharedService] addSession:sSession];
+    [sSession release];
+    
+    CFRelease(aReadStream);
+    CFRelease(aWriteStream);
 }
 
 
@@ -47,6 +52,8 @@ void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aTyp
     NSNetService   *mNetService;
     
     NSMutableArray *mSessions;
+    
+    NSPoint         mMousePosition;
 }
 
 
@@ -142,6 +149,12 @@ void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aTyp
 }
 
 
+- (void)netSessionDidClose:(BKNetSession *)aNetSession
+{
+    [mSessions removeObject:aNetSession];
+}
+
+
 #pragma mark -
 
 
@@ -149,9 +162,22 @@ void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aTyp
 {
     NSParameterAssert(aSession);
     
+    [aSession setDelegate:self];
     [mSessions addObject:aSession];
-    
-    NSLog(@"addSession = %@", mSessions);
+}
+
+
+- (void)setMousePosition:(NSPoint)aPosition
+{
+    if (!NSEqualPoints(mMousePosition, aPosition))
+    {
+        mMousePosition = aPosition;
+        
+        for (BKNetSession *sSession in mSessions)
+        {
+            [sSession sendMousePosition:mMousePosition];
+        }
+    }
 }
 
 
@@ -178,17 +204,12 @@ void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aTyp
     
     mInPort = sSockAddrIn.sin_port;
     
-    NSLog(@"err = %d", (int)err);
-    NSLog(@"inport = %d", (int)mInPort);
-    
     return sFileDesc;
 }
 
 
 - (void)hookUpWithFileDesc:(int)aFileDesc
 {
-    NSLog(@"filedesc = %d", (int)aFileDesc);
-    
     CFSocketContext    sContext = { 0, NULL, NULL, NULL, NULL };
     CFSocketRef        sSocketRef;
     CFRunLoopSourceRef sRunLoopSourceRef;
@@ -196,12 +217,7 @@ void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aTyp
     sSocketRef        = CFSocketCreateWithNative(NULL, aFileDesc, kCFSocketAcceptCallBack, BKSocketListeningCallback, &sContext);
     sRunLoopSourceRef = CFSocketCreateRunLoopSource(NULL, sSocketRef, 0);
     
-    NSLog(@"sScoketRef        = %p", sSocketRef);
-    NSLog(@"sRunLoopSourceRef = %p", sRunLoopSourceRef);
-
     CFRunLoopAddSource(CFRunLoopGetCurrent(), sRunLoopSourceRef, kCFRunLoopCommonModes);
-    
-    NSLog(@"current run loop = %p", CFRunLoopGetCurrent());
     
     CFRelease(sRunLoopSourceRef);
     CFRelease(sSocketRef);

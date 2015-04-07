@@ -20,12 +20,20 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [BKNetService sharedService];
+    
+    [NSTimer scheduledTimerWithTimeInterval:(1.0 / 30.0) target:self selector:@selector(detectMousePosition:) userInfo:nil repeats:YES];
 }
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
 
+}
+
+
+- (void)detectMousePosition:(NSTimer *)aTimer
+{
+    [[BKNetService sharedService] setMousePosition:[NSEvent mouseLocation]];
 }
 
 

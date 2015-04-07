@@ -16,7 +16,13 @@
     NSOutputStream *mOutStream;
     
     NSMutableData  *mInputBuffer;
+    NSMutableData  *mSendBuffer;
+    
+    id              mDelegate;
 }
+
+
+@synthesize delegate = mDelegate;
 
 
 - (instancetype)initWithInputStream:(NSInputStream *)aInStream outputStream:(NSOutputStream *)aOutStream
@@ -31,13 +37,14 @@
         [mInStream setDelegate:self];
         [mOutStream setDelegate:self];
         
-        [mInStream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
-        [mOutStream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+        [mInStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        [mOutStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         
         [mInStream open];
         [mOutStream open];
         
         mInputBuffer = [[NSMutableData alloc] init];
+        mSendBuffer  = [[NSMutableData alloc] init];
     }
     
     return self;
@@ -50,6 +57,7 @@
     [mOutStream release];
     
     [mInputBuffer release];
+    [mSendBuffer release];
     
     [super dealloc];
 }
@@ -57,15 +65,38 @@
 
 - (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)aStreamEvent
 {
-    if (aStream == mInStream)
-    {
-        [self inputStreamHandleEvent:aStreamEvent];
-    }
-    else if (aStream == mOutStream)
-    {
-        [self outputStreamHandleEvent:aStreamEvent];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (aStream == mInStream)
+        {
+            [self inputStreamHandleEvent:aStreamEvent];
+        }
+        else if (aStream == mOutStream)
+        {
+            [self outputStreamHandleEvent:aStreamEvent];
+        }
+    });
 }
+
+
+#pragma mark -
+
+
+- (void)sendMousePosition:(NSPoint)aPosition
+{
+    NSDictionary *sDict    = @{ @"type" : @"mousePosition",
+                                @"x"    : [NSNumber numberWithFloat:aPosition.x],
+                                @"y"    : [NSNumber numberWithFloat:aPosition.y] };
+    NSData       *sPayload = [NSJSONSerialization dataWithJSONObject:sDict options:0 error:nil];
+    uint16_t      sLength  = htons([sPayload length]);
+    
+    [mSendBuffer appendBytes:&sLength length:2];
+    [mSendBuffer appendData:sPayload];
+    
+    [self sendPayload];
+}
+
+
+#pragma mark -
 
 
 - (void)inputStreamHandleEvent:(NSStreamEvent)aStreamEvent
@@ -81,13 +112,18 @@
     else if (aStreamEvent == NSStreamEventHasBytesAvailable)
     {
         uint8_t   sBuffer[1024];
-        NSInteger sReadBytes = [mInStream read:sBuffer maxLength:1024];
+        NSInteger sReadBytes = NSIntegerMax;
         
-        if (sReadBytes)
+        while ([mInStream hasBytesAvailable])
         {
-            [mInputBuffer appendBytes:sBuffer length:sReadBytes];
+            sReadBytes = [mInStream read:sBuffer maxLength:1024];
+            
+            if (sReadBytes)
+            {
+                [mInputBuffer appendBytes:sBuffer length:sReadBytes];
+            }
         }
-        
+
         [self parseInputPackets];
     }
     else if (aStreamEvent == NSStreamEventHasSpaceAvailable)
@@ -101,6 +137,26 @@
     else if (aStreamEvent == NSStreamEventEndEncountered)
     {
         NSLog(@"in NSStreamEventEndEncountered");
+        
+        [mInStream close];
+        [mOutStream close];
+        
+        [mInStream setDelegate:nil];
+        [mOutStream setDelegate:nil];
+
+        [mInStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        [mOutStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        
+        [mInStream release];
+        [mOutStream release];
+        
+        mInStream = nil;
+        mOutStream = nil;
+
+        if ([mDelegate respondsToSelector:@selector(netSessionDidClose:)])
+        {
+            [mDelegate netSessionDidClose:self];
+        }
     }
 }
 
@@ -144,8 +200,8 @@
         NSData  *sPayload = nil;
         
         [mInputBuffer getBytes:&sLength length:2];
-        
-        sLength  = ntohs(sLength);
+
+        sLength = ntohs(sLength);
         NSInteger sHandledLength = sLength + 2;
         
         if ([mInputBuffer length] >= sHandledLength)
@@ -154,10 +210,25 @@
             [mInputBuffer replaceBytesInRange:NSMakeRange(0, sHandledLength) withBytes:NULL length:0];
             
             id sJSONObject = [NSJSONSerialization JSONObjectWithData:sPayload options:0 error:NULL];
+            NSLog(@"sJSONObject = %@", sJSONObject);
         }
         else
         {
             sWait = YES;
+        }
+    }
+}
+
+
+- (void)sendPayload
+{
+    if ([mOutStream hasSpaceAvailable] && [mSendBuffer length])
+    {
+        NSInteger sWrittenLength = [(NSOutputStream *)mOutStream write:[mSendBuffer bytes] maxLength:[mSendBuffer length]];
+        
+        if (sWrittenLength > 0)
+        {
+            [mSendBuffer replaceBytesInRange:NSMakeRange(0, sWrittenLength) withBytes:NULL length:0];
         }
     }
 }

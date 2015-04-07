@@ -17,6 +17,9 @@
 - (void)addSession:(BKNetSession *)aSession;
 
 
+- (void)setMousePosition:(NSPoint)aPosition;
+
+
 @end
 
 
