@@ -8,6 +8,7 @@
  */
 
 #import "BKNetSession.h"
+#import "BKTemp.h"
 
 
 @implementation BKNetSession
@@ -37,8 +38,8 @@
         [mInStream setDelegate:self];
         [mOutStream setDelegate:self];
         
-        [mInStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-        [mOutStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        [mInStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+        [mOutStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         
         [mInStream open];
         [mOutStream open];
@@ -65,6 +66,8 @@
 
 - (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)aStreamEvent
 {
+    BKTemp *sTemp = [[[BKTemp alloc] init] autorelease];
+
     dispatch_async(dispatch_get_main_queue(), ^{
         if (aStream == mInStream)
         {
@@ -144,8 +147,8 @@
         [mInStream setDelegate:nil];
         [mOutStream setDelegate:nil];
 
-        [mInStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-        [mOutStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        [mInStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+        [mOutStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         
         [mInStream release];
         [mOutStream release];
