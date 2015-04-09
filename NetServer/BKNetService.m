@@ -19,6 +19,7 @@ static NSString *const kServiceType = @"_myservice._tcp.";
 
 void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aType, CFDataRef aAddress, const void *aData, void *aInfo);
 
+
 void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aType, CFDataRef aAddress, const void *aData, void *aInfo)
 {
     NSLog(@"BKSocketListeningCallback");
@@ -98,12 +99,13 @@ void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aTyp
 }
 
 
-- (void)netServiceDidPublish:(NSNetService *)sender
+- (void)netServiceDidPublish:(NSNetService *)aNetService
 {
     NSLog(@"netServiceDidPublish:");
     
-    NSString *name = [sender name];
-    NSLog(@"My name is: %@", name);
+    NSString *sName = [aNetService name];
+    
+    NSLog(@"My name is: %@", sName);
 }
 
 
@@ -119,15 +121,17 @@ void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aTyp
 }
 
 
-- (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
+- (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)aErrorDict
 {
     NSLog(@"netService:didNotResolve:");
+    NSLog(@"aErrorDict = %@", aErrorDict);
 }
 
 
-- (void)netServiceDidResolveAddress:(NSNetService *)sender
+- (void)netServiceDidResolveAddress:(NSNetService *)aNetService
 {
     NSLog(@"netServiceDidResolveAddress");
+    NSLog(@"addresses = %@", [aNetService addresses]);
 }
 
 

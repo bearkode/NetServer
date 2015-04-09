@@ -33,16 +33,14 @@
     if (self)
     {
         mInStream  = [aInStream retain];
-        mOutStream = [aOutStream retain];
-        
         [mInStream setDelegate:self];
-        [mOutStream setDelegate:self];
-        
-        [mInStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        [mOutStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        
         [mInStream open];
+        [mInStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+
+        mOutStream = [aOutStream retain];
+        [mOutStream setDelegate:self];
         [mOutStream open];
+        [mOutStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         
         mInputBuffer = [[NSMutableData alloc] init];
         mSendBuffer  = [[NSMutableData alloc] init];
@@ -66,9 +64,8 @@
 
 - (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)aStreamEvent
 {
-    BKTemp *sTemp = [[[BKTemp alloc] init] autorelease];
-
-    dispatch_async(dispatch_get_main_queue(), ^{
+    @autoreleasepool
+    {
         if (aStream == mInStream)
         {
             [self inputStreamHandleEvent:aStreamEvent];
@@ -77,7 +74,7 @@
         {
             [self outputStreamHandleEvent:aStreamEvent];
         }
-    });
+    }
 }
 
 
