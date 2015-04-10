@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E5FACAD1AD52B8000E3C771 /* BKTemp.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FACAC1AD52B8000E3C771 /* BKTemp.m */; };
 		2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90961AD266290057AC67 /* AppDelegate.m */; };
 		2ECD90991AD266290057AC67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90981AD266290057AC67 /* main.m */; };
 		2ECD909B1AD2662A0057AC67 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECD909A1AD2662A0057AC67 /* Images.xcassets */; };
@@ -17,6 +16,7 @@
 		2ECD90B81AD276460057AC67 /* BKNetSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90B71AD276460057AC67 /* BKNetSession.m */; };
 		2ECD90BA1AD279410057AC67 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECD90B91AD279410057AC67 /* CoreFoundation.framework */; };
 		2ECD90BE1AD27D9C0057AC67 /* BKNetService+Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90BD1AD27D9C0057AC67 /* BKNetService+Singleton.m */; };
+		2EDC68E71AD67B2D0072B21F /* BKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC68E61AD67B2D0072B21F /* BKStream.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,8 +30,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2E5FACAB1AD52B8000E3C771 /* BKTemp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTemp.h; sourceTree = "<group>"; };
-		2E5FACAC1AD52B8000E3C771 /* BKTemp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKTemp.m; sourceTree = "<group>"; };
 		2ECD90901AD266290057AC67 /* NetServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ECD90941AD266290057AC67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ECD90951AD266290057AC67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -49,6 +47,8 @@
 		2ECD90B91AD279410057AC67 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		2ECD90BC1AD27D9C0057AC67 /* BKNetService+Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BKNetService+Singleton.h"; sourceTree = "<group>"; };
 		2ECD90BD1AD27D9C0057AC67 /* BKNetService+Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BKNetService+Singleton.m"; sourceTree = "<group>"; };
+		2EDC68E51AD67B2D0072B21F /* BKStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKStream.h; sourceTree = "<group>"; };
+		2EDC68E61AD67B2D0072B21F /* BKStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKStream.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +100,8 @@
 				2ECD90BD1AD27D9C0057AC67 /* BKNetService+Singleton.m */,
 				2ECD90B61AD276460057AC67 /* BKNetSession.h */,
 				2ECD90B71AD276460057AC67 /* BKNetSession.m */,
-				2E5FACAB1AD52B8000E3C771 /* BKTemp.h */,
-				2E5FACAC1AD52B8000E3C771 /* BKTemp.m */,
+				2EDC68E51AD67B2D0072B21F /* BKStream.h */,
+				2EDC68E61AD67B2D0072B21F /* BKStream.m */,
 				2ECD909A1AD2662A0057AC67 /* Images.xcassets */,
 				2ECD909C1AD2662A0057AC67 /* MainMenu.xib */,
 				2ECD90931AD266290057AC67 /* Supporting Files */,
@@ -244,9 +244,9 @@
 			files = (
 				2ECD90991AD266290057AC67 /* main.m in Sources */,
 				2ECD90B81AD276460057AC67 /* BKNetSession.m in Sources */,
-				2E5FACAD1AD52B8000E3C771 /* BKTemp.m in Sources */,
 				2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */,
 				2ECD90B51AD266C50057AC67 /* BKNetService.m in Sources */,
+				2EDC68E71AD67B2D0072B21F /* BKStream.m in Sources */,
 				2ECD90BE1AD27D9C0057AC67 /* BKNetService+Singleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

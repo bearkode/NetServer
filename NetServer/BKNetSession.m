@@ -8,18 +8,13 @@
  */
 
 #import "BKNetSession.h"
-#import "BKTemp.h"
+#import "BKStream.h"
 
 
 @implementation BKNetSession
 {
-    NSInputStream  *mInStream;
-    NSOutputStream *mOutStream;
-    
-    NSMutableData  *mInputBuffer;
-    NSMutableData  *mSendBuffer;
-    
-    id              mDelegate;
+    BKStream *mStream;
+    id        mDelegate;
 }
 
 
@@ -32,18 +27,8 @@
     
     if (self)
     {
-        mInStream  = [aInStream retain];
-        [mInStream setDelegate:self];
-        [mInStream open];
-        [mInStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-
-        mOutStream = [aOutStream retain];
-        [mOutStream setDelegate:self];
-        [mOutStream open];
-        [mOutStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-        
-        mInputBuffer = [[NSMutableData alloc] init];
-        mSendBuffer  = [[NSMutableData alloc] init];
+        mStream = [[BKStream alloc] initWithInputStream:aInStream outputStream:aOutStream delegate:self];
+        [mStream open];
     }
     
     return self;
@@ -52,30 +37,64 @@
 
 - (void)dealloc
 {
-    [mInStream release];
-    [mOutStream release];
-    
-    [mInputBuffer release];
-    [mSendBuffer release];
+    [mStream close];
+    [mStream release];
     
     [super dealloc];
 }
 
 
-- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)aStreamEvent
+- (void)streamDidOpen:(BKStream *)aStream
 {
-    @autoreleasepool
+
+}
+
+
+- (void)streamDidClose:(BKStream *)aStream
+{
+    if ([mDelegate respondsToSelector:@selector(netSessionDidClose:)])
     {
-        if (aStream == mInStream)
-        {
-            [self inputStreamHandleEvent:aStreamEvent];
-        }
-        else if (aStream == mOutStream)
-        {
-            [self outputStreamHandleEvent:aStreamEvent];
-        }
+        [mDelegate netSessionDidClose:self];
     }
 }
+
+
+- (void)stream:(BKStream *)aStream didWriteData:(NSData *)aData
+{
+
+}
+
+
+- (void)stream:(BKStream *)aStream didReadData:(NSData *)aData
+{
+    [mStream handleDataUsingBlock:^NSInteger(NSData *aData) {
+        NSInteger sResult = 0;
+        
+        if ([aData length] > 2)
+        {
+            uint16_t sLength  = 0;
+            NSData  *sPayload = nil;
+            
+            [aData getBytes:&sLength length:2];
+            
+            sLength = ntohs(sLength);
+            NSInteger sHandledLength = sLength + 2;
+            
+            if ([aData length] >= sHandledLength)
+            {
+                sPayload = [aData subdataWithRange:NSMakeRange(2, sLength)];
+                
+                id sJSONObject = [NSJSONSerialization JSONObjectWithData:sPayload options:0 error:NULL];
+                NSLog(@"sJSONObject = %@", sJSONObject);
+                
+                sResult = sHandledLength;
+            }
+        }
+        
+        return sResult;
+    }];
+}
+
 
 
 #pragma mark -
@@ -83,154 +102,17 @@
 
 - (void)sendMousePosition:(NSPoint)aPosition
 {
-    NSDictionary *sDict    = @{ @"type" : @"mousePosition",
-                                @"x"    : [NSNumber numberWithFloat:aPosition.x],
-                                @"y"    : [NSNumber numberWithFloat:aPosition.y] };
-    NSData       *sPayload = [NSJSONSerialization dataWithJSONObject:sDict options:0 error:nil];
-    uint16_t      sLength  = htons([sPayload length]);
+    NSDictionary  *sDict    = @{ @"type" : @"mousePosition",
+                                 @"x"    : [NSNumber numberWithFloat:aPosition.x],
+                                 @"y"    : [NSNumber numberWithFloat:aPosition.y] };
+    NSData        *sPayload = [NSJSONSerialization dataWithJSONObject:sDict options:0 error:nil];
+    uint16_t       sLength  = htons([sPayload length]);
+    NSMutableData *sPacket  = [NSMutableData data];
     
-    [mSendBuffer appendBytes:&sLength length:2];
-    [mSendBuffer appendData:sPayload];
-    
-    [self sendPayload];
-}
+    [sPacket appendBytes:&sLength length:2];
+    [sPacket appendData:sPayload];
 
-
-#pragma mark -
-
-
-- (void)inputStreamHandleEvent:(NSStreamEvent)aStreamEvent
-{
-    if (aStreamEvent == NSStreamEventNone)
-    {
-        NSLog(@"in NSStreamEventNone");
-    }
-    else if (aStreamEvent == NSStreamEventOpenCompleted)
-    {
-        NSLog(@"in NSStreamEventOpenCompleted");
-    }
-    else if (aStreamEvent == NSStreamEventHasBytesAvailable)
-    {
-        uint8_t   sBuffer[1024];
-        NSInteger sReadBytes = NSIntegerMax;
-        
-        while ([mInStream hasBytesAvailable])
-        {
-            sReadBytes = [mInStream read:sBuffer maxLength:1024];
-            
-            if (sReadBytes)
-            {
-                [mInputBuffer appendBytes:sBuffer length:sReadBytes];
-            }
-        }
-
-        [self parseInputPackets];
-    }
-    else if (aStreamEvent == NSStreamEventHasSpaceAvailable)
-    {
-        NSLog(@"in NSStreamEventHasSpaceAvailable");
-    }
-    else if (aStreamEvent == NSStreamEventErrorOccurred)
-    {
-        NSLog(@"in NSStreamEventErrorOccurred");
-    }
-    else if (aStreamEvent == NSStreamEventEndEncountered)
-    {
-        NSLog(@"in NSStreamEventEndEncountered");
-        
-        [mInStream close];
-        [mOutStream close];
-        
-        [mInStream setDelegate:nil];
-        [mOutStream setDelegate:nil];
-
-        [mInStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        [mOutStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        
-        [mInStream release];
-        [mOutStream release];
-        
-        mInStream = nil;
-        mOutStream = nil;
-
-        if ([mDelegate respondsToSelector:@selector(netSessionDidClose:)])
-        {
-            [mDelegate netSessionDidClose:self];
-        }
-    }
-}
-
-
-- (void)outputStreamHandleEvent:(NSStreamEvent)aStreamEvent
-{
-    if (aStreamEvent == NSStreamEventNone)
-    {
-        NSLog(@"out NSStreamEventNone");
-    }
-    else if (aStreamEvent == NSStreamEventOpenCompleted)
-    {
-        NSLog(@"out NSStreamEventOpenCompleted");
-    }
-    else if (aStreamEvent == NSStreamEventHasBytesAvailable)
-    {
-        NSLog(@"out NSStreamEventHasBytesAvailable");
-    }
-    else if (aStreamEvent == NSStreamEventHasSpaceAvailable)
-    {
-        NSLog(@"out NSStreamEventHasSpaceAvailable");
-    }
-    else if (aStreamEvent == NSStreamEventErrorOccurred)
-    {
-        NSLog(@"out NSStreamEventErrorOccurred");
-    }
-    else if (aStreamEvent == NSStreamEventEndEncountered)
-    {
-        NSLog(@"out NSStreamEventEndEncountered");
-    }
-}
-
-
-- (void)parseInputPackets
-{
-    BOOL sWait = NO;
-
-    while ([mInputBuffer length] && sWait == NO)
-    {
-        uint16_t sLength  = 0;
-        NSData  *sPayload = nil;
-        
-        [mInputBuffer getBytes:&sLength length:2];
-
-        sLength = ntohs(sLength);
-        NSInteger sHandledLength = sLength + 2;
-        
-        if ([mInputBuffer length] >= sHandledLength)
-        {
-            sPayload = [mInputBuffer subdataWithRange:NSMakeRange(2, sLength)];
-            [mInputBuffer replaceBytesInRange:NSMakeRange(0, sHandledLength) withBytes:NULL length:0];
-            
-            id sJSONObject = [NSJSONSerialization JSONObjectWithData:sPayload options:0 error:NULL];
-            NSLog(@"sJSONObject = %@", sJSONObject);
-        }
-        else
-        {
-            sWait = YES;
-        }
-    }
-}
-
-
-- (void)sendPayload
-{
-    if ([mOutStream hasSpaceAvailable] && [mSendBuffer length])
-    {
-        NSInteger sWrittenLength = [(NSOutputStream *)mOutStream write:[mSendBuffer bytes] maxLength:[mSendBuffer length]];
-        
-        if (sWrittenLength > 0)
-        {
-            [mSendBuffer replaceBytesInRange:NSMakeRange(0, sWrittenLength) withBytes:NULL length:0];
-        }
-    }
+    [mStream writeData:sPacket];
 }
 
 
