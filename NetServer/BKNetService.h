@@ -2,8 +2,8 @@
  *  BKNetService.h
  *  NetServer
  *
- *  Created by cgkim on 2015. 4. 6..
- *  Copyright (c) 2015 cgkim. All rights reserved.
+ *  Created by bearkode on 2015. 4. 6..
+ *  Copyright (c) 2015 bearkode. All rights reserved.
  *
  */
 
@@ -18,6 +18,7 @@
 
 
 - (void)setMousePosition:(NSPoint)aPosition;
+- (void)sendJSONObject:(id)aJSONObject;
 
 
 @end

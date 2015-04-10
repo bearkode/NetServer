@@ -2,8 +2,8 @@
  *  BKNetSession.m
  *  NetServer
  *
- *  Created by cgkim on 2015. 4. 6..
- *  Copyright (c) 2015 cgkim. All rights reserved.
+ *  Created by bearkode on 2015. 4. 6..
+ *  Copyright (c) 2015 bearkode. All rights reserved.
  *
  */
 
@@ -102,16 +102,23 @@
 
 - (void)sendMousePosition:(NSPoint)aPosition
 {
-    NSDictionary  *sDict    = @{ @"type" : @"mousePosition",
-                                 @"x"    : [NSNumber numberWithFloat:aPosition.x],
-                                 @"y"    : [NSNumber numberWithFloat:aPosition.y] };
-    NSData        *sPayload = [NSJSONSerialization dataWithJSONObject:sDict options:0 error:nil];
+    NSDictionary  *sDict = @{ @"type" : @"mousePosition",
+                              @"x"    : [NSNumber numberWithFloat:aPosition.x],
+                              @"y"    : [NSNumber numberWithFloat:aPosition.y] };
+
+    [self sendJSONObject:sDict];
+}
+
+
+- (void)sendJSONObject:(id)aJSONObject
+{
+    NSData        *sPayload = [NSJSONSerialization dataWithJSONObject:aJSONObject options:0 error:nil];
     uint16_t       sLength  = htons([sPayload length]);
     NSMutableData *sPacket  = [NSMutableData data];
     
     [sPacket appendBytes:&sLength length:2];
     [sPacket appendData:sPayload];
-
+    
     [mStream writeData:sPacket];
 }
 

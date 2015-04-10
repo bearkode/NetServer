@@ -17,6 +17,13 @@
 		2ECD90BA1AD279410057AC67 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECD90B91AD279410057AC67 /* CoreFoundation.framework */; };
 		2ECD90BE1AD27D9C0057AC67 /* BKNetService+Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90BD1AD27D9C0057AC67 /* BKNetService+Singleton.m */; };
 		2EDC68E71AD67B2D0072B21F /* BKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC68E61AD67B2D0072B21F /* BKStream.m */; };
+		2EDC68EE1AD794C30072B21F /* LeapObjectiveC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC68EC1AD794C30072B21F /* LeapObjectiveC.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		2EDC68EF1AD794C30072B21F /* libLeap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDC68ED1AD794C30072B21F /* libLeap.dylib */; };
+		2EDC68F11AD795030072B21F /* libLeap.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2EDC68ED1AD794C30072B21F /* libLeap.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		2EDC68F41AD7969B0072B21F /* BKMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC68F31AD7969B0072B21F /* BKMotionManager.m */; };
+		2EDC68F71AD7A11D0072B21F /* BKMotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC68F61AD7A11D0072B21F /* BKMotion.m */; };
+		2EDC68FA1AD7ABCB0072B21F /* BKVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC68F91AD7ABCB0072B21F /* BKVector.m */; };
+		2EDC68FD1AD7AF480072B21F /* LeapHand+BKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC68FC1AD7AF480072B21F /* LeapHand+BKAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +35,19 @@
 			remoteInfo = NetServer;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2EDC68F01AD794F90072B21F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				2EDC68F11AD795030072B21F /* libLeap.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2ECD90901AD266290057AC67 /* NetServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +69,19 @@
 		2ECD90BD1AD27D9C0057AC67 /* BKNetService+Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BKNetService+Singleton.m"; sourceTree = "<group>"; };
 		2EDC68E51AD67B2D0072B21F /* BKStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKStream.h; sourceTree = "<group>"; };
 		2EDC68E61AD67B2D0072B21F /* BKStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKStream.m; sourceTree = "<group>"; };
+		2EDC68E91AD794C30072B21F /* Leap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leap.h; sourceTree = "<group>"; };
+		2EDC68EA1AD794C30072B21F /* LeapMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapMath.h; sourceTree = "<group>"; };
+		2EDC68EB1AD794C30072B21F /* LeapObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapObjectiveC.h; sourceTree = "<group>"; };
+		2EDC68EC1AD794C30072B21F /* LeapObjectiveC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LeapObjectiveC.mm; sourceTree = "<group>"; };
+		2EDC68ED1AD794C30072B21F /* libLeap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libLeap.dylib; sourceTree = "<group>"; };
+		2EDC68F21AD7969B0072B21F /* BKMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKMotionManager.h; sourceTree = "<group>"; };
+		2EDC68F31AD7969B0072B21F /* BKMotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKMotionManager.m; sourceTree = "<group>"; };
+		2EDC68F51AD7A11D0072B21F /* BKMotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKMotion.h; sourceTree = "<group>"; };
+		2EDC68F61AD7A11D0072B21F /* BKMotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKMotion.m; sourceTree = "<group>"; };
+		2EDC68F81AD7ABCB0072B21F /* BKVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKVector.h; sourceTree = "<group>"; };
+		2EDC68F91AD7ABCB0072B21F /* BKVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKVector.m; sourceTree = "<group>"; };
+		2EDC68FB1AD7AF480072B21F /* LeapHand+BKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LeapHand+BKAdditions.h"; sourceTree = "<group>"; };
+		2EDC68FC1AD7AF480072B21F /* LeapHand+BKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LeapHand+BKAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDC68EF1AD794C30072B21F /* libLeap.dylib in Frameworks */,
 				2ECD90BA1AD279410057AC67 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				2ECD90921AD266290057AC67 /* NetServer */,
+				2EDC68E81AD794C30072B21F /* ExternalLib */,
 				2ECD90BB1AD2794C0057AC67 /* Frameworks */,
 				2ECD90A61AD2662A0057AC67 /* NetServerTests */,
 				2ECD90911AD266290057AC67 /* Products */,
@@ -102,6 +137,14 @@
 				2ECD90B71AD276460057AC67 /* BKNetSession.m */,
 				2EDC68E51AD67B2D0072B21F /* BKStream.h */,
 				2EDC68E61AD67B2D0072B21F /* BKStream.m */,
+				2EDC68F21AD7969B0072B21F /* BKMotionManager.h */,
+				2EDC68F31AD7969B0072B21F /* BKMotionManager.m */,
+				2EDC68F51AD7A11D0072B21F /* BKMotion.h */,
+				2EDC68F61AD7A11D0072B21F /* BKMotion.m */,
+				2EDC68F81AD7ABCB0072B21F /* BKVector.h */,
+				2EDC68F91AD7ABCB0072B21F /* BKVector.m */,
+				2EDC68FB1AD7AF480072B21F /* LeapHand+BKAdditions.h */,
+				2EDC68FC1AD7AF480072B21F /* LeapHand+BKAdditions.m */,
 				2ECD909A1AD2662A0057AC67 /* Images.xcassets */,
 				2ECD909C1AD2662A0057AC67 /* MainMenu.xib */,
 				2ECD90931AD266290057AC67 /* Supporting Files */,
@@ -143,6 +186,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2EDC68E81AD794C30072B21F /* ExternalLib */ = {
+			isa = PBXGroup;
+			children = (
+				2EDC68E91AD794C30072B21F /* Leap.h */,
+				2EDC68EA1AD794C30072B21F /* LeapMath.h */,
+				2EDC68EB1AD794C30072B21F /* LeapObjectiveC.h */,
+				2EDC68EC1AD794C30072B21F /* LeapObjectiveC.mm */,
+				2EDC68ED1AD794C30072B21F /* libLeap.dylib */,
+			);
+			path = ExternalLib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,6 +208,7 @@
 				2ECD908C1AD266290057AC67 /* Sources */,
 				2ECD908D1AD266290057AC67 /* Frameworks */,
 				2ECD908E1AD266290057AC67 /* Resources */,
+				2EDC68F01AD794F90072B21F /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -243,11 +299,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ECD90991AD266290057AC67 /* main.m in Sources */,
+				2EDC68EE1AD794C30072B21F /* LeapObjectiveC.mm in Sources */,
+				2EDC68F71AD7A11D0072B21F /* BKMotion.m in Sources */,
+				2EDC68F41AD7969B0072B21F /* BKMotionManager.m in Sources */,
 				2ECD90B81AD276460057AC67 /* BKNetSession.m in Sources */,
 				2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */,
+				2EDC68FD1AD7AF480072B21F /* LeapHand+BKAdditions.m in Sources */,
 				2ECD90B51AD266C50057AC67 /* BKNetService.m in Sources */,
 				2EDC68E71AD67B2D0072B21F /* BKStream.m in Sources */,
 				2ECD90BE1AD27D9C0057AC67 /* BKNetService+Singleton.m in Sources */,
+				2EDC68FA1AD7ABCB0072B21F /* BKVector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +426,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = NetServer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ExternalLib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -377,6 +442,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = NetServer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ExternalLib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
