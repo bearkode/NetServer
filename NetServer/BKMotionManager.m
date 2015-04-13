@@ -93,8 +93,41 @@
 
 - (void)onFrame:(NSNotification *)aNotification
 {
-    LeapHand *sHand   = [self firstHand];
-    
+    static float sPrevX = 0;
+    LeapHand *sHand= [self firstHand];
+
+    if (sHand)
+    {
+//        LeapVector *sHandDir     = [sHand direction];
+//        LeapVector *sHandNormal  = [sHand palmNormal];
+        LeapVector *sHandPositon = [sHand palmPosition];
+        
+        float sDelta = sPrevX - [sHandPositon x];
+        
+        if (fabsf(sDelta) > 5)
+        {
+            NSLog(@"%f", sDelta);
+        }
+        
+        sPrevX = [sHandPositon x];
+        
+//        NSLog(@"%2.1f, %2.1f, %2.1f - %2.1f, %2.1f, %2.1f", [sHandDir x], [sHandDir y], [sHandDir z], [sHandNormal x], [sHandNormal y], [sHandNormal z]);
+//        
+//        NSMutableString *sLog     = [NSMutableString stringWithString:@"["];
+//        NSArray         *sFingers = [sHand fingers];
+//        
+//        for (LeapFinger *sFinger in sFingers)
+//        {
+//            LeapVector *sDir   = [sFinger direction];
+//            float       sAngle = [sHandDir angleTo:sDir];
+//            
+//            [sLog appendFormat:@"%2.1f ", sAngle];
+//        }
+//        [sLog appendString:@"]"];
+//        
+//        NSLog(@"angle = %@", sLog);
+    }
+
     [self setMotion:[sHand motion]];
 }
 

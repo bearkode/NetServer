@@ -17,6 +17,7 @@
 {
     BKMotion *sResult = [[[BKMotion alloc] init] autorelease];
 
+    [sResult setTimeInterval:[[NSDate date] timeIntervalSince1970]];
     [sResult setExtenedFingerCount:[self bkExtendedFingerCount]];
     [sResult setPalmPosition:[self bkPalmPosition]];
     [sResult setPalmNormal:[self bkPalmNormal]];
@@ -49,7 +50,7 @@
 {
     LeapVector *sPalmPosition = [self palmPosition];
 
-    return [[[BKVector alloc] initWithX:[sPalmPosition x] y:[sPalmPosition y] z:[sPalmPosition y]] autorelease];
+    return [[[BKVector alloc] initWithX:[sPalmPosition x] y:[sPalmPosition y] z:[sPalmPosition z]] autorelease];
 }
 
 
