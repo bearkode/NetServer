@@ -8,19 +8,8 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "BKTypes.h"
 #import "BKVector.h"
-
-
-typedef NS_ENUM(NSInteger, BKPositionType)
-{
-    BKPositionInBox = 0,
-    BKPositionOverBox,
-    BKPositionUnderBox,
-    BKPositionLeftOfBox,
-    BKPositionRightOfBox,
-    BKPositionFrontOfBox,
-    BKPositionBackOfBox
-};
 
 
 @interface BKPrepareBox : NSObject
