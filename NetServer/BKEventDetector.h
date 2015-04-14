@@ -8,13 +8,13 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "BKMotion.h"
+#import "BKHand.h"
 
 
 @interface BKEventDetector : NSObject
 
 
-- (void)addMotion:(BKMotion *)aMotion;
+- (void)addHand:(BKHand *)aHand;
 
 
 @end

@@ -32,7 +32,7 @@
 }
 
 
-- (void)addMotion:(BKMotion *)aMotion
+- (void)addHand:(BKHand *)aHand
 {
 
 }

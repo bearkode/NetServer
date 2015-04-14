@@ -8,13 +8,13 @@
  */
 
 #import "LeapObjectiveC.h"
-#import "BKMotion.h"
+#import "BKHand.h"
 
 
 @interface LeapHand (BKAdditions)
 
 
-- (BKMotion *)motion;
+- (BKHand *)bkHand;
 
 
 @end

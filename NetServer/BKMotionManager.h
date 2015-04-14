@@ -8,7 +8,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "BKMotion.h"
+#import "BKHand.h"
 
 
 @interface BKMotionManager : NSObject
@@ -22,6 +22,6 @@
 
 @protocol BKMotionManagerDelegate <NSObject>
 
-- (void)motionManager:(BKMotionManager *)aMotionManager didUpdateMotion:(BKMotion *)aMotion;
+- (void)motionManager:(BKMotionManager *)aMotionManager didUpdateHand:(BKHand *)aHand;
 
 @end

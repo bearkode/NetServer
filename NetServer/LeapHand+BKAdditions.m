@@ -13,9 +13,9 @@
 @implementation LeapHand (BKAdditions)
 
 
-- (BKMotion *)motion
+- (BKHand *)bkHand
 {
-    BKMotion *sResult = [[[BKMotion alloc] init] autorelease];
+    BKHand *sResult = [[[BKHand alloc] init] autorelease];
 
     [sResult setTimeInterval:[[NSDate date] timeIntervalSince1970]];
     [sResult setExtenedFingerCount:[self bkExtendedFingerCount]];

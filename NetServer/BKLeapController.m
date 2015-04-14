@@ -118,9 +118,9 @@
     }
     
 //    [self setMotion:[sHand motion]];
-    if ([mDelegate respondsToSelector:@selector(leapController:updateMotion:)])
+    if ([mDelegate respondsToSelector:@selector(leapController:updateHand:)])
     {
-        [mDelegate leapController:self updateMotion:[sHand motion]];
+        [mDelegate leapController:self updateHand:[sHand bkHand]];
     }
 }
 

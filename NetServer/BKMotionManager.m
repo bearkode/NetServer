@@ -16,7 +16,7 @@
 {
     BKLeapController *mLeapController;
     BKEventDetector  *mEventDetector;
-    BKMotion         *mMotion;
+    BKHand         *mMotion;
     id                mDelegate;
 }
 
@@ -31,7 +31,7 @@
     if (self)
     {
         mLeapController = [[BKLeapController alloc] initWithDelegate:self];
-        mMotion  = [[BKMotion alloc] init];
+        mMotion  = [[BKHand alloc] init];
     }
     
     return self;
@@ -50,7 +50,7 @@
 #pragma mark -
 
 
-- (void)leapController:(BKLeapController *)aLeapController updateMotion:(BKMotion *)aMotion
+- (void)leapController:(BKLeapController *)aLeapController updateMotion:(BKHand *)aMotion
 {
     [self setMotion:aMotion];
 }
@@ -59,11 +59,11 @@
 #pragma mark -
 
 
-- (void)setMotion:(BKMotion *)aMotion
+- (void)setMotion:(BKHand *)aMotion
 {
     if (mMotion && aMotion)
     {
-        if (![aMotion isEqualToMotion:mMotion])
+        if (![aMotion isEqualToHand:mMotion])
         {
             [mMotion autorelease];
             mMotion = [aMotion retain];
@@ -76,9 +76,9 @@
 
 - (void)didChangeMotion
 {
-    if ([mDelegate respondsToSelector:@selector(motionManager:didUpdateMotion:)])
+    if ([mDelegate respondsToSelector:@selector(motionManager:didUpdateHand:)])
     {
-        [mDelegate motionManager:self didUpdateMotion:mMotion];
+        [mDelegate motionManager:self didUpdateHand:mMotion];
     }
 }
 
