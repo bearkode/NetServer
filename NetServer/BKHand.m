@@ -11,15 +11,10 @@
 
 
 @implementation BKHand
-{
-    NSTimeInterval mTimeInterval;
-    NSInteger      mExtendedFingerCount;
-    BKVector      *mPalmPosition;
-    BKVector      *mPalmNormal;
-}
 
 
 @synthesize timeInterval       = mTimeInterval;
+@synthesize enabled            = mEnabled;
 @synthesize extenedFingerCount = mExtendedFingerCount;
 @synthesize palmPosition       = mPalmPosition;
 @synthesize palmNormal         = mPalmNormal;
@@ -31,7 +26,7 @@
     
     if (self)
     {
-    
+        mTimeInterval = [[NSDate date] timeIntervalSince1970];
     }
     
     return self;
@@ -71,11 +66,21 @@
 
 - (NSDictionary *)JSONObject
 {
-    return @{ @"class" : @"hand",
-              @"ti" : [NSNumber numberWithDouble:mTimeInterval],
-              @"extendedFingerCount" : [NSNumber numberWithInteger:mExtendedFingerCount],
-              @"palmPosition" : [mPalmPosition JSONObject],
-              @"palmNormal" : [mPalmNormal JSONObject] };
+    if (mEnabled)
+    {
+        return @{ @"class" : @"hand",
+                  @"ti" : [NSNumber numberWithDouble:mTimeInterval],
+                  @"enabled" : @YES,
+                  @"extendedFingerCount" : [NSNumber numberWithInteger:mExtendedFingerCount],
+                  @"palmPosition" : [mPalmPosition JSONObject],
+                  @"palmNormal" : [mPalmNormal JSONObject] };
+    }
+    else
+    {
+        return @{ @"class" : @"hand",
+                  @"ti" : [NSNumber numberWithDouble:mTimeInterval],
+                  @"enabled" : @NO };
+    }
 }
 
 

@@ -9,19 +9,23 @@
 
 #import "BKEventManager.h"
 #import "BKLeapController.h"
+#import "BKNetService.h"
 #import "BKEventDetector.h"
 
 
 @implementation BKEventManager
 {
     BKLeapController *mLeapController;
+    
+    BOOL              mNetServiceEnabled;
     BKEventDetector  *mEventDetector;
-    BKHand           *mMotion;
+    
     id                mDelegate;
 }
 
 
-@synthesize delegate = mDelegate;
+@synthesize delegate          = mDelegate;
+@synthesize netServiceEnabled = mNetServiceEnabled;
 
 
 - (instancetype)init
@@ -31,7 +35,7 @@
     if (self)
     {
         mLeapController = [[BKLeapController alloc] initWithDelegate:self];
-        mMotion         = [[BKHand alloc] init];
+        mEventDetector  = [[BKEventDetector alloc] init];
     }
     
     return self;
@@ -41,7 +45,7 @@
 - (void)dealloc
 {
     [mLeapController release];
-    [mMotion release];
+    [mEventDetector release];
     
     [super dealloc];
 }
@@ -52,33 +56,17 @@
 
 - (void)leapController:(BKLeapController *)aLeapController didUpdateHand:(BKHand *)aHand
 {
-    [self setMotion:aHand];
-}
-
-
-#pragma mark -
-
-
-- (void)setMotion:(BKHand *)aMotion
-{
-    if (mMotion && aMotion)
+    if ([mEventDetector addHand:aHand])
     {
-        if (![aMotion isEqualToHand:mMotion])
+        if ([mDelegate respondsToSelector:@selector(eventManager:didUpdateHand:)])
         {
-            [mMotion autorelease];
-            mMotion = [aMotion retain];
-            
-            [self didChangeMotion];
+            [mDelegate eventManager:self didUpdateHand:aHand];
         }
     }
-}
-
-
-- (void)didChangeMotion
-{
-    if ([mDelegate respondsToSelector:@selector(motionManager:didUpdateHand:)])
+    
+    if (mNetServiceEnabled)
     {
-        [mDelegate motionManager:self didUpdateHand:mMotion];
+        [[BKNetService sharedService] sendJSONObject:[aHand JSONObject]];
     }
 }
 

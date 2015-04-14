@@ -14,7 +14,7 @@
 @interface BKEventDetector : NSObject
 
 
-- (void)addHand:(BKHand *)aHand;
+- (BOOL)addHand:(BKHand *)aHand;
 
 
 @end

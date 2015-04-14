@@ -11,6 +11,11 @@
 
 
 @interface BKVector : NSObject
+{
+    CGFloat mX;
+    CGFloat mY;
+    CGFloat mZ;
+}
 
 
 @property (nonatomic, readonly) CGFloat x;

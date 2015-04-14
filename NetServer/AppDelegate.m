@@ -8,14 +8,14 @@
  */
 
 #import "AppDelegate.h"
-#import "BKNetService.h"
 #import "BKEventManager.h"
+#import "BKNEtService.h"
 #import "BKPrepareBox.h"
 
 
 @implementation AppDelegate
 {
-    BKEventManager *mMotionManager;
+    BKEventManager *mEventManager;
 
     NSTextField     *mPrevLabel;
     NSTextField     *mNextLabel;
@@ -36,8 +36,9 @@
 {
     [BKNetService sharedService];
 
-    mMotionManager = [[BKEventManager alloc] init];
-    [mMotionManager setDelegate:self];
+    mEventManager = [[BKEventManager alloc] init];
+    [mEventManager setNetServiceEnabled:YES];
+    [mEventManager setDelegate:self];
 }
 
 
@@ -47,42 +48,43 @@
 }
 
 
-- (void)motionManager:(BKEventManager *)aMotionManager didUpdateHand:(BKHand *)aHand
+- (void)eventManager:(BKEventManager *)aEventManager didUpdateHand:(BKHand *)aHand
 {
-    if ([BKPrepareBox containsPosition:[aHand palmPosition]])
+    if ([aHand isEnabled])
     {
-        NSLog(@"in");
+        if ([BKPrepareBox containsPosition:[aHand palmPosition]])
+        {
+            NSLog(@"in");
+        }
+        else
+        {
+            BKPositionType sPositionType = [BKPrepareBox typeForPosition:[aHand palmPosition]];
+            if (sPositionType == BKPositionLeftOfBox)
+            {
+                NSLog(@"left");
+            }
+            else if (sPositionType == BKPositionRightOfBox)
+            {
+                NSLog(@"right");
+            }
+            else if (sPositionType == BKPositionUnderBox)
+            {
+                NSLog(@"under");
+            }
+            else if (sPositionType == BKPositionOverBox)
+            {
+                NSLog(@"over");
+            }
+            else if (sPositionType == BKPositionFrontOfBox)
+            {
+                NSLog(@"front");
+            }
+            else if (sPositionType == BKPositionBackOfBox)
+            {
+                NSLog(@"back");
+            }
+        }
     }
-    else
-    {
-        BKPositionType sPositionType = [BKPrepareBox typeForPosition:[aHand palmPosition]];
-        if (sPositionType == BKPositionLeftOfBox)
-        {
-            NSLog(@"left");
-        }
-        else if (sPositionType == BKPositionRightOfBox)
-        {
-            NSLog(@"right");
-        }
-        else if (sPositionType == BKPositionUnderBox)
-        {
-            NSLog(@"under");
-        }
-        else if (sPositionType == BKPositionOverBox)
-        {
-            NSLog(@"over");
-        }
-        else if (sPositionType == BKPositionFrontOfBox)
-        {
-            NSLog(@"front");
-        }
-        else if (sPositionType == BKPositionBackOfBox)
-        {
-            NSLog(@"back");
-        }
-    }
-
-    [[BKNetService sharedService] sendJSONObject:[aHand JSONObject]];
 }
 
 

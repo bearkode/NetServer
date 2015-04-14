@@ -14,14 +14,17 @@
 @interface BKEventManager : NSObject
 
 
-@property (nonatomic, assign) id delegate;
+@property (nonatomic, assign)                             id   delegate;
+@property (nonatomic, assign, getter=isNetServiceEnabled) BOOL netServiceEnabled;
 
 
 @end
 
 
-@protocol BKMotionManagerDelegate <NSObject>
+@protocol BKEventManagerDelegate <NSObject>
 
-- (void)motionManager:(BKEventManager *)aMotionManager didUpdateHand:(BKHand *)aHand;
+
+- (void)eventManager:(BKEventManager *)aEventManager didUpdateHand:(BKHand *)aHand;
+
 
 @end

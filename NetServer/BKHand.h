@@ -12,12 +12,20 @@
 
 
 @interface BKHand : NSObject
+{
+    NSTimeInterval mTimeInterval;
+    BOOL           mEnabled;
+    NSInteger      mExtendedFingerCount;
+    BKVector      *mPalmPosition;
+    BKVector      *mPalmNormal;
+}
 
 
-@property (nonatomic, assign) NSTimeInterval timeInterval;
-@property (nonatomic, assign) NSInteger      extenedFingerCount;
-@property (nonatomic, retain) BKVector      *palmPosition;
-@property (nonatomic, retain) BKVector      *palmNormal;
+@property (nonatomic, readonly)                   NSTimeInterval timeInterval;
+@property (nonatomic, readonly, getter=isEnabled) BOOL           enabled;
+@property (nonatomic, readonly)                   NSInteger      extenedFingerCount;
+@property (nonatomic, readonly)                   BKVector      *palmPosition;
+@property (nonatomic, readonly)                   BKVector      *palmNormal;
 
 
 - (BOOL)isEqualToHand:(BKHand *)aHand;

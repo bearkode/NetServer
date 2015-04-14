@@ -14,11 +14,6 @@ CGFloat const kRoundFactor = 1.0;
 
 
 @implementation BKVector
-{
-    CGFloat mX;
-    CGFloat mY;
-    CGFloat mZ;
-}
 
 
 @synthesize x = mX;

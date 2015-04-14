@@ -11,6 +11,9 @@
 
 
 @implementation BKEventDetector
+{
+    NSMutableArray *mHands;
+}
 
 
 - (instancetype)init
@@ -19,7 +22,7 @@
     
     if (self)
     {
-    
+        mHands = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -28,13 +31,36 @@
 
 - (void)dealloc
 {
+    [mHands release];
+    
     [super dealloc];
 }
 
 
-- (void)addHand:(BKHand *)aHand
+- (BOOL)addHand:(BKHand *)aHand
 {
-
+    if (!aHand)
+    {
+        return NO;
+    }
+    
+    BKHand *sLastHand = [mHands lastObject];
+    
+    if (![aHand isEqualToHand:sLastHand])
+    {
+        [mHands addObject:aHand];
+        
+        if ([mHands count] > 100)
+        {
+            [mHands removeObjectAtIndex:0];
+        }
+        
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 
