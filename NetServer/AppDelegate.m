@@ -9,13 +9,13 @@
 
 #import "AppDelegate.h"
 #import "BKNetService.h"
-#import "BKMotionManager.h"
+#import "BKEventManager.h"
 #import "BKPrepareBox.h"
 
 
 @implementation AppDelegate
 {
-    BKMotionManager *mMotionManager;
+    BKEventManager *mMotionManager;
 
     NSTextField     *mPrevLabel;
     NSTextField     *mNextLabel;
@@ -36,7 +36,7 @@
 {
     [BKNetService sharedService];
 
-    mMotionManager = [[BKMotionManager alloc] init];
+    mMotionManager = [[BKEventManager alloc] init];
     [mMotionManager setDelegate:self];
 }
 
@@ -47,15 +47,15 @@
 }
 
 
-- (void)motionManager:(BKMotionManager *)aMotionManager didUpdateMotion:(BKHand *)aMotion
+- (void)motionManager:(BKEventManager *)aMotionManager didUpdateMotion:(BKHand *)aHand
 {
-    if ([BKPrepareBox containsPosition:[aMotion palmPosition]])
+    if ([BKPrepareBox containsPosition:[aHand palmPosition]])
     {
         NSLog(@"in");
     }
     else
     {
-        BKPositionType sPositionType = [BKPrepareBox typeForPosition:[aMotion palmPosition]];
+        BKPositionType sPositionType = [BKPrepareBox typeForPosition:[aHand palmPosition]];
         if (sPositionType == BKPositionLeftOfBox)
         {
             NSLog(@"left");
@@ -82,7 +82,7 @@
         }
     }
 
-    [[BKNetService sharedService] sendJSONObject:[aMotion JSONObject]];
+    [[BKNetService sharedService] sendJSONObject:[aHand JSONObject]];
 }
 
 
