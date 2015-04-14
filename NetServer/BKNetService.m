@@ -171,20 +171,6 @@ void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aTyp
 }
 
 
-- (void)setMousePosition:(NSPoint)aPosition
-{
-    if (!NSEqualPoints(mMousePosition, aPosition))
-    {
-        mMousePosition = aPosition;
-        
-        for (BKNetSession *sSession in mSessions)
-        {
-            [sSession sendMousePosition:mMousePosition];
-        }
-    }
-}
-
-
 - (void)sendJSONObject:(id)aJSONObject
 {
     for (BKNetSession *sSession in mSessions)

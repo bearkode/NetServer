@@ -96,18 +96,7 @@
 }
 
 
-
 #pragma mark -
-
-
-- (void)sendMousePosition:(NSPoint)aPosition
-{
-    NSDictionary  *sDict = @{ @"type" : @"mousePosition",
-                              @"x"    : [NSNumber numberWithFloat:aPosition.x],
-                              @"y"    : [NSNumber numberWithFloat:aPosition.y] };
-
-    [self sendJSONObject:sDict];
-}
 
 
 - (void)sendJSONObject:(id)aJSONObject

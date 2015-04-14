@@ -93,23 +93,15 @@
 
 - (void)onFrame:(NSNotification *)aNotification
 {
-    static float sPrevX = 0;
     LeapHand *sHand= [self firstHand];
 
     if (sHand)
     {
 //        LeapVector *sHandDir     = [sHand direction];
 //        LeapVector *sHandNormal  = [sHand palmNormal];
-        LeapVector *sHandPositon = [sHand palmPosition];
-        
-        float sDelta = sPrevX - [sHandPositon x];
-        
-        if (fabsf(sDelta) > 5)
-        {
-            NSLog(@"%f", sDelta);
-        }
-        
-        sPrevX = [sHandPositon x];
+//        LeapVector *sHandPositon = [sHand palmPosition];
+
+//        NSLog(@"position = %1.2f, %1.2f, %1.2f", [sHandPositon x], [sHandPositon y], [sHandPositon z]);
         
 //        NSLog(@"%2.1f, %2.1f, %2.1f - %2.1f, %2.1f, %2.1f", [sHandDir x], [sHandDir y], [sHandDir z], [sHandNormal x], [sHandNormal y], [sHandNormal z]);
 //        
@@ -129,6 +121,21 @@
     }
 
     [self setMotion:[sHand motion]];
+}
+
+
+- (BOOL)isInPrepareZone:(LeapVector *)aVector
+{
+    if ([aVector x] >= -70 && [aVector x] <= 70 &&
+        [aVector y] >= 100 && [aVector y] <= 200 &&
+        [aVector z] >= -70 && [aVector z] <= 70)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 

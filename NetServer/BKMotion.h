@@ -22,7 +22,6 @@
 
 - (BOOL)isEqualToMotion:(BKMotion *)aMotion;
 
-
 - (NSDictionary *)JSONObject;
 
 

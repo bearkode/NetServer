@@ -10,12 +10,26 @@
 #import "AppDelegate.h"
 #import "BKNetService.h"
 #import "BKMotionManager.h"
+#import "BKPrepareBox.h"
 
 
 @implementation AppDelegate
 {
     BKMotionManager *mMotionManager;
+
+    NSTextField     *mPrevLabel;
+    NSTextField     *mNextLabel;
+    NSTextField     *mStatusLabel;
+    NSTextField     *mUpLabel;
+    NSTextField     *mDownLabel;
 }
+
+
+@synthesize prevLabel   = mPrevLabel;
+@synthesize nextLabel   = mNextLabel;
+@synthesize statusLabel = mStatusLabel;
+@synthesize upLabel     = mUpLabel;
+@synthesize downLabel   = mDownLabel;
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -24,8 +38,6 @@
 
     mMotionManager = [[BKMotionManager alloc] init];
     [mMotionManager setDelegate:self];
-    
-//    [NSTimer scheduledTimerWithTimeInterval:(1.0 / 30.0) target:self selector:@selector(detectMousePosition:) userInfo:nil repeats:YES];
 }
 
 
@@ -35,15 +47,17 @@
 }
 
 
-- (void)detectMousePosition:(NSTimer *)aTimer
-{
-    [[BKNetService sharedService] setMousePosition:[NSEvent mouseLocation]];
-}
-
-
 - (void)motionManager:(BKMotionManager *)aMotionManager didUpdateMotion:(BKMotion *)aMotion
 {
-//    NSLog(@"motion updated = %@", [aMotion JSONObject]);
+    if ([BKPrepareBox containsPosition:[aMotion palmPosition]])
+    {
+        NSLog(@"in");
+    }
+    else
+    {
+        NSLog(@"out");
+    }
+
     [[BKNetService sharedService] sendJSONObject:[aMotion JSONObject]];
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E9F71351ADCAE3C00133483 /* BKPrepareBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */; };
 		2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90961AD266290057AC67 /* AppDelegate.m */; };
 		2ECD90991AD266290057AC67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90981AD266290057AC67 /* main.m */; };
 		2ECD909B1AD2662A0057AC67 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECD909A1AD2662A0057AC67 /* Images.xcassets */; };
@@ -50,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E9F71331ADCAE3C00133483 /* BKPrepareBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKPrepareBox.h; sourceTree = "<group>"; };
+		2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKPrepareBox.m; sourceTree = "<group>"; };
 		2ECD90901AD266290057AC67 /* NetServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ECD90941AD266290057AC67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ECD90951AD266290057AC67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +107,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E9F71301ADC9EDA00133483 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2EDC68F21AD7969B0072B21F /* BKMotionManager.h */,
+				2EDC68F31AD7969B0072B21F /* BKMotionManager.m */,
+				2EDC68F51AD7A11D0072B21F /* BKMotion.h */,
+				2EDC68F61AD7A11D0072B21F /* BKMotion.m */,
+				2EDC68F81AD7ABCB0072B21F /* BKVector.h */,
+				2EDC68F91AD7ABCB0072B21F /* BKVector.m */,
+				2E9F71331ADCAE3C00133483 /* BKPrepareBox.h */,
+				2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2E9F71311ADCADFD00133483 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				2EDC68FB1AD7AF480072B21F /* LeapHand+BKAdditions.h */,
+				2EDC68FC1AD7AF480072B21F /* LeapHand+BKAdditions.m */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
+		2E9F71321ADCAE0D00133483 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD90B31AD266C50057AC67 /* BKNetService.h */,
+				2ECD90B41AD266C50057AC67 /* BKNetService.m */,
+				2ECD90BC1AD27D9C0057AC67 /* BKNetService+Singleton.h */,
+				2ECD90BD1AD27D9C0057AC67 /* BKNetService+Singleton.m */,
+				2ECD90B61AD276460057AC67 /* BKNetSession.h */,
+				2ECD90B71AD276460057AC67 /* BKNetSession.m */,
+				2EDC68E51AD67B2D0072B21F /* BKStream.h */,
+				2EDC68E61AD67B2D0072B21F /* BKStream.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		2ECD90871AD266290057AC67 = {
 			isa = PBXGroup;
 			children = (
@@ -127,24 +169,11 @@
 		2ECD90921AD266290057AC67 /* NetServer */ = {
 			isa = PBXGroup;
 			children = (
+				2E9F71311ADCADFD00133483 /* Additions */,
+				2E9F71321ADCAE0D00133483 /* Service */,
+				2E9F71301ADC9EDA00133483 /* Model */,
 				2ECD90951AD266290057AC67 /* AppDelegate.h */,
 				2ECD90961AD266290057AC67 /* AppDelegate.m */,
-				2ECD90B31AD266C50057AC67 /* BKNetService.h */,
-				2ECD90B41AD266C50057AC67 /* BKNetService.m */,
-				2ECD90BC1AD27D9C0057AC67 /* BKNetService+Singleton.h */,
-				2ECD90BD1AD27D9C0057AC67 /* BKNetService+Singleton.m */,
-				2ECD90B61AD276460057AC67 /* BKNetSession.h */,
-				2ECD90B71AD276460057AC67 /* BKNetSession.m */,
-				2EDC68E51AD67B2D0072B21F /* BKStream.h */,
-				2EDC68E61AD67B2D0072B21F /* BKStream.m */,
-				2EDC68F21AD7969B0072B21F /* BKMotionManager.h */,
-				2EDC68F31AD7969B0072B21F /* BKMotionManager.m */,
-				2EDC68F51AD7A11D0072B21F /* BKMotion.h */,
-				2EDC68F61AD7A11D0072B21F /* BKMotion.m */,
-				2EDC68F81AD7ABCB0072B21F /* BKVector.h */,
-				2EDC68F91AD7ABCB0072B21F /* BKVector.m */,
-				2EDC68FB1AD7AF480072B21F /* LeapHand+BKAdditions.h */,
-				2EDC68FC1AD7AF480072B21F /* LeapHand+BKAdditions.m */,
 				2ECD909A1AD2662A0057AC67 /* Images.xcassets */,
 				2ECD909C1AD2662A0057AC67 /* MainMenu.xib */,
 				2ECD90931AD266290057AC67 /* Supporting Files */,
@@ -304,6 +333,7 @@
 				2EDC68F41AD7969B0072B21F /* BKMotionManager.m in Sources */,
 				2ECD90B81AD276460057AC67 /* BKNetSession.m in Sources */,
 				2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */,
+				2E9F71351ADCAE3C00133483 /* BKPrepareBox.m in Sources */,
 				2EDC68FD1AD7AF480072B21F /* LeapHand+BKAdditions.m in Sources */,
 				2ECD90B51AD266C50057AC67 /* BKNetService.m in Sources */,
 				2EDC68E71AD67B2D0072B21F /* BKStream.m in Sources */,

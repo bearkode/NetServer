@@ -19,7 +19,6 @@
 - (instancetype)initWithInputStream:(NSInputStream *)aInStream outputStream:(NSOutputStream *)aOutStream;
 
 
-- (void)sendMousePosition:(NSPoint)aPosition;
 - (void)sendJSONObject:(id)aJSONObject;
 
 

@@ -17,7 +17,6 @@
 - (void)addSession:(BKNetSession *)aSession;
 
 
-- (void)setMousePosition:(NSPoint)aPosition;
 - (void)sendJSONObject:(id)aJSONObject;
 
 
