@@ -23,7 +23,7 @@
 @protocol BKLeapControllerDelegate <NSObject>
 
 
-- (void)leapController:(BKLeapController *)aLeapController updateHand:(BKHand *)aHand;
+- (void)leapController:(BKLeapController *)aLeapController didUpdateHand:(BKHand *)aHand;
 
 
 @end

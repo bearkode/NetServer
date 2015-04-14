@@ -16,7 +16,7 @@
 {
     BKLeapController *mLeapController;
     BKEventDetector  *mEventDetector;
-    BKHand         *mMotion;
+    BKHand           *mMotion;
     id                mDelegate;
 }
 
@@ -31,7 +31,7 @@
     if (self)
     {
         mLeapController = [[BKLeapController alloc] initWithDelegate:self];
-        mMotion  = [[BKHand alloc] init];
+        mMotion         = [[BKHand alloc] init];
     }
     
     return self;
@@ -50,9 +50,9 @@
 #pragma mark -
 
 
-- (void)leapController:(BKLeapController *)aLeapController updateMotion:(BKHand *)aMotion
+- (void)leapController:(BKLeapController *)aLeapController didUpdateHand:(BKHand *)aHand
 {
-    [self setMotion:aMotion];
+    [self setMotion:aHand];
 }
 
 

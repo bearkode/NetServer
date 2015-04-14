@@ -47,7 +47,7 @@
 }
 
 
-- (void)motionManager:(BKEventManager *)aMotionManager didUpdateMotion:(BKHand *)aHand
+- (void)motionManager:(BKEventManager *)aMotionManager didUpdateHand:(BKHand *)aHand
 {
     if ([BKPrepareBox containsPosition:[aHand palmPosition]])
     {
