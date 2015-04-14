@@ -55,7 +55,31 @@
     }
     else
     {
-        NSLog(@"out");
+        BKPositionType sPositionType = [BKPrepareBox typeForPosition:[aMotion palmPosition]];
+        if (sPositionType == BKPositionLeftOfBox)
+        {
+            NSLog(@"left");
+        }
+        else if (sPositionType == BKPositionRightOfBox)
+        {
+            NSLog(@"right");
+        }
+        else if (sPositionType == BKPositionUnderBox)
+        {
+            NSLog(@"under");
+        }
+        else if (sPositionType == BKPositionOverBox)
+        {
+            NSLog(@"over");
+        }
+        else if (sPositionType == BKPositionFrontOfBox)
+        {
+            NSLog(@"front");
+        }
+        else if (sPositionType == BKPositionBackOfBox)
+        {
+            NSLog(@"back");
+        }
     }
 
     [[BKNetService sharedService] sendJSONObject:[aMotion JSONObject]];

@@ -11,10 +11,23 @@
 #import "BKVector.h"
 
 
+typedef NS_ENUM(NSInteger, BKPositionType)
+{
+    BKPositionInBox = 0,
+    BKPositionOverBox,
+    BKPositionUnderBox,
+    BKPositionLeftOfBox,
+    BKPositionRightOfBox,
+    BKPositionFrontOfBox,
+    BKPositionBackOfBox
+};
+
+
 @interface BKPrepareBox : NSObject
 
 
-+ (BOOL)containsPosition:(BKVector *)aVector;
++ (BOOL)containsPosition:(BKVector *)aPosition;
++ (BKPositionType)typeForPosition:(BKVector *)aPosition;
 
 
 @end

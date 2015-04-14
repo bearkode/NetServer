@@ -21,11 +21,9 @@ static CGFloat const kMaxZ = 70;
 @implementation BKPrepareBox
 
 
-+ (BOOL)containsPosition:(BKVector *)aVector
++ (BOOL)containsPosition:(BKVector *)aPosition
 {
-    if ([aVector x] >= kMinX && [aVector x] <= kMaxX &&
-        [aVector y] >= kMinY && [aVector y] <= kMaxY &&
-        [aVector z] >= kMinZ && [aVector z] <= kMaxZ)
+    if ([self typeForPosition:aPosition] == BKPositionInBox)
     {
         return YES;
     }
@@ -33,6 +31,39 @@ static CGFloat const kMaxZ = 70;
     {
         return NO;
     }
+}
+
+
++ (BKPositionType)typeForPosition:(BKVector *)aPosition
+{
+    BKPositionType sResult = BKPositionInBox;
+    
+    if ([aPosition x] < kMinX)
+    {
+        sResult = BKPositionLeftOfBox;
+    }
+    else if ([aPosition x] > kMaxX)
+    {
+        sResult = BKPositionRightOfBox;
+    }
+    else if ([aPosition y] < kMinY)
+    {
+        sResult = BKPositionUnderBox;
+    }
+    else if ([aPosition y] > kMaxY)
+    {
+        sResult = BKPositionOverBox;
+    }
+    else if ([aPosition z] < kMinZ)
+    {
+        sResult = BKPositionFrontOfBox;
+    }
+    else if ([aPosition z] > kMaxZ)
+    {
+        sResult = BKPositionBackOfBox;
+    }
+    
+    return sResult;
 }
 
 
