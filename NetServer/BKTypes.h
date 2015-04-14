@@ -26,8 +26,11 @@ typedef NS_ENUM(NSInteger, BKPositionType)
 typedef NS_ENUM(NSInteger, BKEventType)
 {
     BKEventTypeUnknown = 0,
-    BKEventTypeEnter,
-    BKEventTypeLeave,
+    BKEventTypeOnline,
+    BKEventTypeOffline,
+    BKEventTypeEnterBox,
+    BKEventTypeLeaveBox,
+    BKEventTypeStandby,
     BKEventTypeSwipe,
     BKEventTypeUpDown,
     BKEventTypeClasp,
