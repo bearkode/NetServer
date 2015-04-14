@@ -8,16 +8,16 @@
  */
 
 #import "BKMotionManager.h"
-#import "LeapObjectiveC.h"
-#import "LeapHand+BKAdditions.h"
+#import "BKLeapController.h"
+#import "BKEventDetector.h"
 
 
 @implementation BKMotionManager
 {
-    LeapController *mLeapController;
-    BKMotion       *mMotion;
-    
-    id              mDelegate;
+    BKLeapController *mLeapController;
+    BKEventDetector  *mEventDetector;
+    BKMotion         *mMotion;
+    id                mDelegate;
 }
 
 
@@ -30,10 +30,8 @@
     
     if (self)
     {
-        mLeapController = [[LeapController alloc] init];
-        [mLeapController addListener:self];
-
-        mMotion = [[BKMotion alloc] init];
+        mLeapController = [[BKLeapController alloc] initWithDelegate:self];
+        mMotion  = [[BKMotion alloc] init];
     }
     
     return self;
@@ -42,130 +40,23 @@
 
 - (void)dealloc
 {
-    [mMotion release];
     [mLeapController release];
+    [mMotion release];
     
     [super dealloc];
-}
-
-
-- (void)onInit:(NSNotification *)aNotification
-{
-    NSLog(@"onInit");
-}
-
-
-- (void)onConnect:(NSNotification *)aNotification
-{
-    NSLog(@"onConnect");
-}
-
-
-- (void)onDeviceChange:(NSNotification *)aNotification
-{
-    NSLog(@"onDeviceChange");
-}
-
-
-- (void)onDisconnect:(NSNotification *)aNotification
-{
-    NSLog(@"onDisconnect");
-}
-
-
-- (void)onExit:(NSNotification *)aNotification
-{
-    NSLog(@"onExit");
-}
-
-
-- (void)onFocusGained:(NSNotification *)aNotification
-{
-    NSLog(@"onFocusGained");
-}
-
-
-- (void)onFocusLost:(NSNotification *)aNotification
-{
-    NSLog(@"onFocusLost");
-}
-
-
-- (void)onFrame:(NSNotification *)aNotification
-{
-    LeapHand *sHand= [self firstHand];
-
-    if (sHand)
-    {
-//        LeapVector *sHandDir     = [sHand direction];
-//        LeapVector *sHandNormal  = [sHand palmNormal];
-//        LeapVector *sHandPositon = [sHand palmPosition];
-
-//        NSLog(@"position = %1.2f, %1.2f, %1.2f", [sHandPositon x], [sHandPositon y], [sHandPositon z]);
-        
-//        NSLog(@"%2.1f, %2.1f, %2.1f - %2.1f, %2.1f, %2.1f", [sHandDir x], [sHandDir y], [sHandDir z], [sHandNormal x], [sHandNormal y], [sHandNormal z]);
-//        
-//        NSMutableString *sLog     = [NSMutableString stringWithString:@"["];
-//        NSArray         *sFingers = [sHand fingers];
-//        
-//        for (LeapFinger *sFinger in sFingers)
-//        {
-//            LeapVector *sDir   = [sFinger direction];
-//            float       sAngle = [sHandDir angleTo:sDir];
-//            
-//            [sLog appendFormat:@"%2.1f ", sAngle];
-//        }
-//        [sLog appendString:@"]"];
-//        
-//        NSLog(@"angle = %@", sLog);
-    }
-
-    [self setMotion:[sHand motion]];
-}
-
-
-- (BOOL)isInPrepareZone:(LeapVector *)aVector
-{
-    if ([aVector x] >= -70 && [aVector x] <= 70 &&
-        [aVector y] >= 100 && [aVector y] <= 200 &&
-        [aVector z] >= -70 && [aVector z] <= 70)
-    {
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
-}
-
-
-- (void)onImages:(NSNotification *)aNotification
-{
-    NSLog(@"onImages");
-}
-
-
-- (void)onServiceConnect:(NSNotification *)aNotification
-{
-    NSLog(@"onServiceConnect");
-}
-
-
-- (void)onServiceDisconnect:(NSNotification *)aNotification
-{
-    NSLog(@"onServiceDisconnect");
 }
 
 
 #pragma mark -
 
 
-- (LeapHand *)firstHand
+- (void)leapController:(BKLeapController *)aLeapController updateMotion:(BKMotion *)aMotion
 {
-    LeapFrame *sFrame = [mLeapController frame:0];
-    
-    return [[sFrame hands] firstObject];
+    [self setMotion:aMotion];
 }
+
+
+#pragma mark -
 
 
 - (void)setMotion:(BKMotion *)aMotion
@@ -185,8 +76,6 @@
 
 - (void)didChangeMotion
 {
-//    NSLog(@"didChangeMotion = %@", mMotion);
-    
     if ([mDelegate respondsToSelector:@selector(motionManager:didUpdateMotion:)])
     {
         [mDelegate motionManager:self didUpdateMotion:mMotion];

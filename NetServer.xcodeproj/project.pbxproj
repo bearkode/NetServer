@@ -15,6 +15,8 @@
 		2E9F714E1ADCDAB700133483 /* BKClaspEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F714D1ADCDAB700133483 /* BKClaspEvent.m */; };
 		2E9F71511ADCDAC700133483 /* BKCountEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71501ADCDAC700133483 /* BKCountEvent.m */; };
 		2E9F71541ADCDAEB00133483 /* BKEnterEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71531ADCDAEB00133483 /* BKEnterEvent.m */; };
+		2E9F715B1ADCE26400133483 /* BKEventDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F715A1ADCE26400133483 /* BKEventDetector.m */; };
+		2E9F715E1ADCE40100133483 /* BKLeapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F715D1ADCE40100133483 /* BKLeapController.m */; };
 		2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90961AD266290057AC67 /* AppDelegate.m */; };
 		2ECD90991AD266290057AC67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90981AD266290057AC67 /* main.m */; };
 		2ECD909B1AD2662A0057AC67 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECD909A1AD2662A0057AC67 /* Images.xcassets */; };
@@ -75,6 +77,10 @@
 		2E9F71521ADCDAEB00133483 /* BKEnterEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEnterEvent.h; sourceTree = "<group>"; };
 		2E9F71531ADCDAEB00133483 /* BKEnterEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKEnterEvent.m; sourceTree = "<group>"; };
 		2E9F71581ADCDD6900133483 /* BKTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKTypes.h; sourceTree = "<group>"; };
+		2E9F71591ADCE26400133483 /* BKEventDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEventDetector.h; sourceTree = "<group>"; };
+		2E9F715A1ADCE26400133483 /* BKEventDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKEventDetector.m; sourceTree = "<group>"; };
+		2E9F715C1ADCE40100133483 /* BKLeapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKLeapController.h; sourceTree = "<group>"; };
+		2E9F715D1ADCE40100133483 /* BKLeapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKLeapController.m; sourceTree = "<group>"; };
 		2ECD90901AD266290057AC67 /* NetServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ECD90941AD266290057AC67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ECD90951AD266290057AC67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -132,27 +138,27 @@
 		2E9F71301ADC9EDA00133483 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E9F71391ADCDA1400133483 /* Event */,
 				2E9F71581ADCDD6900133483 /* BKTypes.h */,
-				2EDC68F21AD7969B0072B21F /* BKMotionManager.h */,
-				2EDC68F31AD7969B0072B21F /* BKMotionManager.m */,
-				2EDC68F51AD7A11D0072B21F /* BKMotion.h */,
-				2EDC68F61AD7A11D0072B21F /* BKMotion.m */,
-				2EDC68F81AD7ABCB0072B21F /* BKVector.h */,
-				2EDC68F91AD7ABCB0072B21F /* BKVector.m */,
 				2E9F71331ADCAE3C00133483 /* BKPrepareBox.h */,
 				2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */,
-				2E9F71391ADCDA1400133483 /* Event */,
+				2E9F71591ADCE26400133483 /* BKEventDetector.h */,
+				2E9F715A1ADCE26400133483 /* BKEventDetector.m */,
+				2EDC68F21AD7969B0072B21F /* BKMotionManager.h */,
+				2EDC68F31AD7969B0072B21F /* BKMotionManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		2E9F71311ADCADFD00133483 /* Additions */ = {
+		2E9F71311ADCADFD00133483 /* LEAP */ = {
 			isa = PBXGroup;
 			children = (
 				2EDC68FB1AD7AF480072B21F /* LeapHand+BKAdditions.h */,
 				2EDC68FC1AD7AF480072B21F /* LeapHand+BKAdditions.m */,
+				2E9F715C1ADCE40100133483 /* BKLeapController.h */,
+				2E9F715D1ADCE40100133483 /* BKLeapController.m */,
 			);
-			name = Additions;
+			name = LEAP;
 			sourceTree = "<group>";
 		};
 		2E9F71321ADCAE0D00133483 /* Service */ = {
@@ -191,6 +197,17 @@
 			name = Event;
 			sourceTree = "<group>";
 		};
+		2E9F715F1ADCE54600133483 /* ValueObject */ = {
+			isa = PBXGroup;
+			children = (
+				2EDC68F51AD7A11D0072B21F /* BKMotion.h */,
+				2EDC68F61AD7A11D0072B21F /* BKMotion.m */,
+				2EDC68F81AD7ABCB0072B21F /* BKVector.h */,
+				2EDC68F91AD7ABCB0072B21F /* BKVector.m */,
+			);
+			name = ValueObject;
+			sourceTree = "<group>";
+		};
 		2ECD90871AD266290057AC67 = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +231,8 @@
 		2ECD90921AD266290057AC67 /* NetServer */ = {
 			isa = PBXGroup;
 			children = (
-				2E9F71311ADCADFD00133483 /* Additions */,
+				2E9F715F1ADCE54600133483 /* ValueObject */,
+				2E9F71311ADCADFD00133483 /* LEAP */,
 				2E9F71321ADCAE0D00133483 /* Service */,
 				2E9F71301ADC9EDA00133483 /* Model */,
 				2ECD90951AD266290057AC67 /* AppDelegate.h */,
@@ -380,6 +398,7 @@
 				2ECD90991AD266290057AC67 /* main.m in Sources */,
 				2EDC68EE1AD794C30072B21F /* LeapObjectiveC.mm in Sources */,
 				2E9F71421ADCDA5F00133483 /* BKLeaveEvent.m in Sources */,
+				2E9F715E1ADCE40100133483 /* BKLeapController.m in Sources */,
 				2EDC68F71AD7A11D0072B21F /* BKMotion.m in Sources */,
 				2EDC68F41AD7969B0072B21F /* BKMotionManager.m in Sources */,
 				2ECD90B81AD276460057AC67 /* BKNetSession.m in Sources */,
@@ -389,6 +408,7 @@
 				2ECD90B51AD266C50057AC67 /* BKNetService.m in Sources */,
 				2EDC68E71AD67B2D0072B21F /* BKStream.m in Sources */,
 				2ECD90BE1AD27D9C0057AC67 /* BKNetService+Singleton.m in Sources */,
+				2E9F715B1ADCE26400133483 /* BKEventDetector.m in Sources */,
 				2E9F71541ADCDAEB00133483 /* BKEnterEvent.m in Sources */,
 				2EDC68FA1AD7ABCB0072B21F /* BKVector.m in Sources */,
 			);
