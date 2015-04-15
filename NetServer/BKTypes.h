@@ -13,7 +13,8 @@
 
 typedef NS_ENUM(NSInteger, BKPositionType)
 {
-    BKPositionInBox = 0,
+    BKPositionUnknown = 0,
+    BKPositionInBox,
     BKPositionOverBox,
     BKPositionUnderBox,
     BKPositionLeftOfBox,

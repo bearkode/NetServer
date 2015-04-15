@@ -50,41 +50,41 @@
 
 - (void)eventManager:(BKEventManager *)aEventManager didUpdateHand:(BKHand *)aHand
 {
-    if ([aHand isEnabled])
-    {
-        if ([BKPrepareBox containsPosition:[aHand palmPosition]])
-        {
-            NSLog(@"in");
-        }
-        else
-        {
-            BKPositionType sPositionType = [BKPrepareBox typeForPosition:[aHand palmPosition]];
-            if (sPositionType == BKPositionLeftOfBox)
-            {
-                NSLog(@"left");
-            }
-            else if (sPositionType == BKPositionRightOfBox)
-            {
-                NSLog(@"right");
-            }
-            else if (sPositionType == BKPositionUnderBox)
-            {
-                NSLog(@"under");
-            }
-            else if (sPositionType == BKPositionOverBox)
-            {
-                NSLog(@"over");
-            }
-            else if (sPositionType == BKPositionFrontOfBox)
-            {
-                NSLog(@"front");
-            }
-            else if (sPositionType == BKPositionBackOfBox)
-            {
-                NSLog(@"back");
-            }
-        }
-    }
+//    if ([aHand isEnabled])
+//    {
+//        if ([BKPrepareBox containsPosition:[aHand palmPosition]])
+//        {
+//            NSLog(@"in");
+//        }
+//        else
+//        {
+//            BKPositionType sPositionType = [BKPrepareBox typeForPosition:[aHand palmPosition]];
+//            if (sPositionType == BKPositionLeftOfBox)
+//            {
+//                NSLog(@"left");
+//            }
+//            else if (sPositionType == BKPositionRightOfBox)
+//            {
+//                NSLog(@"right");
+//            }
+//            else if (sPositionType == BKPositionUnderBox)
+//            {
+//                NSLog(@"under");
+//            }
+//            else if (sPositionType == BKPositionOverBox)
+//            {
+//                NSLog(@"over");
+//            }
+//            else if (sPositionType == BKPositionFrontOfBox)
+//            {
+//                NSLog(@"front");
+//            }
+//            else if (sPositionType == BKPositionBackOfBox)
+//            {
+//                NSLog(@"back");
+//            }
+//        }
+//    }
 }
 
 

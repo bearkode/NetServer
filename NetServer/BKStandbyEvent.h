@@ -13,4 +13,7 @@
 @interface BKStandbyEvent : BKEvent
 
 
++ (instancetype)standbyEvent;
+
+
 @end

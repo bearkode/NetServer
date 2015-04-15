@@ -11,6 +11,34 @@
 
 
 @implementation BKOfflineEvent
+{
+    BKPositionType mPosition;
+}
+
+
++ (instancetype)offlineEventWithPosition:(BKPositionType)aPosition
+{
+    return [[[self alloc] initWithPosition:aPosition] autorelease];
+}
+
+
+- (instancetype)initWithPosition:(BKPositionType)aPosition
+{
+    self = [super init];
+    
+    if (self)
+    {
+        mPosition = aPosition;
+    }
+    
+    return self;
+}
+
+
+- (void)dealloc
+{
+    [super dealloc];
+}
 
 
 #pragma mark -

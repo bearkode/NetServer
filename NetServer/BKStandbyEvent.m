@@ -13,6 +13,31 @@
 @implementation BKStandbyEvent
 
 
++ (instancetype)standbyEvent
+{
+    return [[[self alloc] init] autorelease];
+}
+
+
+- (instancetype)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+    
+    }
+    
+    return self;
+}
+
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+
 #pragma mark -
 
 

@@ -13,4 +13,7 @@
 @interface BKOfflineEvent : BKEvent
 
 
++ (instancetype)offlineEventWithPosition:(BKPositionType)aPosition;
+
+
 @end
