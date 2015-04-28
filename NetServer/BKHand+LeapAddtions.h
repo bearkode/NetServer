@@ -7,14 +7,14 @@
  *
  */
 
-#import "BKHand.h"
+#import "BKFrame.h"
 #import "LeapObjectiveC.h"
 
 
-@interface BKHand (LeapAddtions)
+@interface BKFrame (LeapAddtions)
 
 
-+ (instancetype)handWithLeapHand:(LeapHand *)aLeapHand;
++ (instancetype)frameWithLeapHand:(LeapHand *)aLeapHand;
 
 - (instancetype)initWithLeapHand:(LeapHand *)aLeapHand;
 

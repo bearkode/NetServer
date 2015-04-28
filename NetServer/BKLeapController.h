@@ -8,7 +8,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "BKHand.h"
+#import "BKFrame.h"
 
 
 @interface BKLeapController : NSObject
@@ -23,7 +23,7 @@
 @protocol BKLeapControllerDelegate <NSObject>
 
 
-- (void)leapController:(BKLeapController *)aLeapController didUpdateHand:(BKHand *)aHand;
+- (void)leapController:(BKLeapController *)aLeapController didUpdateHand:(BKFrame *)aHand;
 
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E39E5C51AEFA3C200D13B00 /* BKEventState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E39E5C41AEFA3C200D13B00 /* BKEventState.m */; };
+		2E39E5C81AEFAC3D00D13B00 /* BKFrameBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E39E5C71AEFAC3D00D13B00 /* BKFrameBuffer.m */; };
 		2E9F71351ADCAE3C00133483 /* BKPrepareBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */; };
 		2E9F71381ADCD74D00133483 /* BKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71371ADCD74D00133483 /* BKEvent.m */; };
 		2E9F71421ADCDA5F00133483 /* BKLeaveBoxEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71411ADCDA5F00133483 /* BKLeaveBoxEvent.m */; };
@@ -36,7 +38,7 @@
 		2EDC68EF1AD794C30072B21F /* libLeap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDC68ED1AD794C30072B21F /* libLeap.dylib */; };
 		2EDC68F11AD795030072B21F /* libLeap.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2EDC68ED1AD794C30072B21F /* libLeap.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2EDC68F41AD7969B0072B21F /* BKEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC68F31AD7969B0072B21F /* BKEventManager.m */; };
-		2EDC68F71AD7A11D0072B21F /* BKHand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC68F61AD7A11D0072B21F /* BKHand.m */; };
+		2EDC68F71AD7A11D0072B21F /* BKFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC68F61AD7A11D0072B21F /* BKFrame.m */; };
 		2EDC68FA1AD7ABCB0072B21F /* BKVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC68F91AD7ABCB0072B21F /* BKVector.m */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E39E5C31AEFA3C200D13B00 /* BKEventState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEventState.h; sourceTree = "<group>"; };
+		2E39E5C41AEFA3C200D13B00 /* BKEventState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKEventState.m; sourceTree = "<group>"; };
+		2E39E5C61AEFAC3D00D13B00 /* BKFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKFrameBuffer.h; sourceTree = "<group>"; };
+		2E39E5C71AEFAC3D00D13B00 /* BKFrameBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKFrameBuffer.m; sourceTree = "<group>"; };
 		2E9F71331ADCAE3C00133483 /* BKPrepareBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKPrepareBox.h; sourceTree = "<group>"; };
 		2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKPrepareBox.m; sourceTree = "<group>"; };
 		2E9F71361ADCD74D00133483 /* BKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEvent.h; sourceTree = "<group>"; };
@@ -121,8 +127,8 @@
 		2EDC68ED1AD794C30072B21F /* libLeap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libLeap.dylib; sourceTree = "<group>"; };
 		2EDC68F21AD7969B0072B21F /* BKEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEventManager.h; sourceTree = "<group>"; };
 		2EDC68F31AD7969B0072B21F /* BKEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKEventManager.m; sourceTree = "<group>"; };
-		2EDC68F51AD7A11D0072B21F /* BKHand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKHand.h; sourceTree = "<group>"; };
-		2EDC68F61AD7A11D0072B21F /* BKHand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKHand.m; sourceTree = "<group>"; };
+		2EDC68F51AD7A11D0072B21F /* BKFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKFrame.h; sourceTree = "<group>"; };
+		2EDC68F61AD7A11D0072B21F /* BKFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKFrame.m; sourceTree = "<group>"; };
 		2EDC68F81AD7ABCB0072B21F /* BKVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKVector.h; sourceTree = "<group>"; };
 		2EDC68F91AD7ABCB0072B21F /* BKVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKVector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,11 +153,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E39E5C21AEFA3A200D13B00 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				2E39E5C31AEFA3C200D13B00 /* BKEventState.h */,
+				2E39E5C41AEFA3C200D13B00 /* BKEventState.m */,
+			);
+			name = State;
+			sourceTree = "<group>";
+		};
 		2E9F71301ADC9EDA00133483 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				2E9F71581ADCDD6900133483 /* BKTypes.h */,
+				2E39E5C61AEFAC3D00D13B00 /* BKFrameBuffer.h */,
+				2E39E5C71AEFAC3D00D13B00 /* BKFrameBuffer.m */,
 				2E9F71391ADCDA1400133483 /* Event */,
+				2E39E5C21AEFA3A200D13B00 /* State */,
 				2E9F71331ADCAE3C00133483 /* BKPrepareBox.h */,
 				2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */,
 				2E9F71591ADCE26400133483 /* BKEventDetector.h */,
@@ -216,8 +234,8 @@
 		2E9F715F1ADCE54600133483 /* ValueObject */ = {
 			isa = PBXGroup;
 			children = (
-				2EDC68F51AD7A11D0072B21F /* BKHand.h */,
-				2EDC68F61AD7A11D0072B21F /* BKHand.m */,
+				2EDC68F51AD7A11D0072B21F /* BKFrame.h */,
+				2EDC68F61AD7A11D0072B21F /* BKFrame.m */,
 				2EDC68F81AD7ABCB0072B21F /* BKVector.h */,
 				2EDC68F91AD7ABCB0072B21F /* BKVector.m */,
 				2E9F71601ADD04CA00133483 /* BKHand+LeapAddtions.h */,
@@ -421,12 +439,13 @@
 				2E9F71421ADCDA5F00133483 /* BKLeaveBoxEvent.m in Sources */,
 				2E9F71651ADD0C9C00133483 /* BKVector+LeapAdditions.m in Sources */,
 				2E9F715E1ADCE40100133483 /* BKLeapController.m in Sources */,
-				2EDC68F71AD7A11D0072B21F /* BKHand.m in Sources */,
+				2EDC68F71AD7A11D0072B21F /* BKFrame.m in Sources */,
 				2EDC68F41AD7969B0072B21F /* BKEventManager.m in Sources */,
 				2E9F716B1ADD153F00133483 /* BKOfflineEvent.m in Sources */,
 				2ECD90B81AD276460057AC67 /* BKNetSession.m in Sources */,
 				2E9F716E1ADD154E00133483 /* BKStandbyEvent.m in Sources */,
 				2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */,
+				2E39E5C51AEFA3C200D13B00 /* BKEventState.m in Sources */,
 				2E9F71351ADCAE3C00133483 /* BKPrepareBox.m in Sources */,
 				2ECD90B51AD266C50057AC67 /* BKNetService.m in Sources */,
 				2EDC68E71AD67B2D0072B21F /* BKStream.m in Sources */,
@@ -434,6 +453,7 @@
 				2ECD90BE1AD27D9C0057AC67 /* BKNetService+Singleton.m in Sources */,
 				2E9F715B1ADCE26400133483 /* BKEventDetector.m in Sources */,
 				2E9F71541ADCDAEB00133483 /* BKEnterBoxEvent.m in Sources */,
+				2E39E5C81AEFAC3D00D13B00 /* BKFrameBuffer.m in Sources */,
 				2EDC68FA1AD7ABCB0072B21F /* BKVector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

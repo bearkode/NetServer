@@ -28,10 +28,10 @@ NSUInteger BKGetExtendedFingerCount(LeapHand *aHand)
 }
 
 
-@implementation BKHand (LeapAddtions)
+@implementation BKFrame (LeapAddtions)
 
 
-+ (instancetype)handWithLeapHand:(LeapHand *)aLeapHand
++ (instancetype)frameWithLeapHand:(LeapHand *)aLeapHand
 {
     return [[[self alloc] initWithLeapHand:aLeapHand] autorelease];
 }

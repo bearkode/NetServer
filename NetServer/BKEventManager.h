@@ -8,7 +8,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "BKHand.h"
+#import "BKFrame.h"
 
 
 @interface BKEventManager : NSObject
@@ -24,7 +24,7 @@
 @protocol BKEventManagerDelegate <NSObject>
 
 
-- (void)eventManager:(BKEventManager *)aEventManager didUpdateHand:(BKHand *)aHand;
+- (void)eventManager:(BKEventManager *)aEventManager didUpdateFrame:(BKFrame *)aFrame;
 
 
 @end

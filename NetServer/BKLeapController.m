@@ -120,7 +120,7 @@
 //    [self setMotion:[sHand motion]];
     if ([mDelegate respondsToSelector:@selector(leapController:didUpdateHand:)])
     {
-        [mDelegate leapController:self didUpdateHand:[BKHand handWithLeapHand:sHand]];
+        [mDelegate leapController:self didUpdateHand:[BKFrame frameWithLeapHand:sHand]];
     }
 }
 

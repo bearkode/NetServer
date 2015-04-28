@@ -54,19 +54,19 @@
 #pragma mark -
 
 
-- (void)leapController:(BKLeapController *)aLeapController didUpdateHand:(BKHand *)aHand
+- (void)leapController:(BKLeapController *)aLeapController didUpdateFrame:(BKFrame *)aFrame
 {
-    if ([mEventDetector addHand:aHand])
+    if ([mEventDetector addFrame:aFrame])
     {
-        if ([mDelegate respondsToSelector:@selector(eventManager:didUpdateHand:)])
+        if ([mDelegate respondsToSelector:@selector(eventManager:didUpdateFrame:)])
         {
-            [mDelegate eventManager:self didUpdateHand:aHand];
+            [mDelegate eventManager:self didUpdateFrame:aFrame];
         }
     }
     
     if (mNetServiceEnabled)
     {
-        [[BKNetService sharedService] sendJSONObject:[aHand JSONObject]];
+        [[BKNetService sharedService] sendJSONObject:[aFrame JSONObject]];
     }
 }
 

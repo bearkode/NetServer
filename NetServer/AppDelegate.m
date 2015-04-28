@@ -48,7 +48,7 @@
 }
 
 
-- (void)eventManager:(BKEventManager *)aEventManager didUpdateHand:(BKHand *)aHand
+- (void)eventManager:(BKEventManager *)aEventManager didUpdateFrame:(BKFrame *)aFrame
 {
 //    if ([aHand isEnabled])
 //    {
