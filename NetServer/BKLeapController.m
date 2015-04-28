@@ -9,7 +9,7 @@
 
 #import "BKLeapController.h"
 #import "LeapObjectiveC.h"
-#import "BKHand+LeapAddtions.h"
+#import "BKFrame+LeapAddtions.h"
 
 
 @implementation BKLeapController
@@ -118,9 +118,9 @@
     }
     
 //    [self setMotion:[sHand motion]];
-    if ([mDelegate respondsToSelector:@selector(leapController:didUpdateHand:)])
+    if ([mDelegate respondsToSelector:@selector(leapController:didUpdateFrame:)])
     {
-        [mDelegate leapController:self didUpdateHand:[BKFrame frameWithLeapHand:sHand]];
+        [mDelegate leapController:self didUpdateFrame:[BKFrame frameWithLeapHand:sHand]];
     }
 }
 

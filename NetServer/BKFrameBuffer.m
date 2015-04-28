@@ -74,7 +74,7 @@ static NSUInteger const kBufferSize = 100;
 
 - (BKFrame *)lastFrame
 {
-    return [mBuffer lastObject];
+    return [mBuffer firstObject];
 }
 
 
@@ -123,7 +123,7 @@ static NSUInteger const kBufferSize = 100;
 
 - (void)frameDidAdd
 {
-    BKFrame *sLastFrame = [mBuffer lastObject];
+    BKFrame *sLastFrame = [self lastFrame];
     
     mLastPosition     = [BKPrepareBox typeForPosition:[sLastFrame palmPosition]];
     mLastFrameEnabled = [sLastFrame isEnabled];

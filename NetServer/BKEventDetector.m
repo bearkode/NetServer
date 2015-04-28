@@ -79,7 +79,11 @@
 {
     BKEvent *sEvent = nil;
     
-    if (!mLastEvent || [mLastEvent type] == BKEventTypeUnknown || [mLastEvent type] == BKEventTypeOffline)
+    if ([mLastEvent type] == BKEventTypeUnknown)
+    {
+        sEvent = [self detectAfterUnknownEvent];
+    }
+    if ([mLastEvent type] == BKEventTypeOffline)
     {
         sEvent = [self detectAfterOfflineEvent];
     }
@@ -125,6 +129,9 @@
 }
 
 
+#pragma mark -
+
+
 - (BKEvent *)detectAfterUnknownEvent
 {
     return [self detectAfterOfflineEvent];
@@ -135,7 +142,7 @@
 {
     BKEvent *sResult = nil;
     
-    if ([mFrameBuffer isLastFrameEnabled])
+    if ([self detectOnline])
     {
         sResult = [BKOnlineEvent onlineEventWithEntrancePosition:[mFrameBuffer lastPostion]];
     }
@@ -150,14 +157,11 @@
     
     BKEvent *sResult = nil;
 
-    if ([mFrameBuffer isLastFrameEnabled])
+    if ([self detectEnterBox])
     {
-        if ([mFrameBuffer lastPostion] == BKPositionInBox)
-        {
-            sResult = [BKEnterBoxEvent enterBoxEventWithEntrancePosition:mLastPosition];
-        }
+        sResult = [BKEnterBoxEvent enterBoxEventWithEntrancePosition:mLastPosition];
     }
-    else
+    else if ([self detectOffline])
     {
         sResult = [BKOfflineEvent offlineEventWithPosition:mLastPosition];
     }
@@ -172,7 +176,7 @@
 
     BKEvent *sResult = nil;
     
-    if ([mFrameBuffer lastPostion] != BKPositionInBox)
+    if ([self detectLeaveBox])
     {
         sResult = [BKLeaveBoxEvent leaveEventWithLeavePosition:[mFrameBuffer lastPostion]];
     }
@@ -210,14 +214,11 @@
     
     BKEvent *sResult = nil;
     
-    if ([mFrameBuffer isLastFrameEnabled])
+    if ([self detectEnterBox])
     {
-        if ([mFrameBuffer lastPostion] == BKPositionInBox)
-        {
-            sResult = [BKEnterBoxEvent enterBoxEventWithEntrancePosition:mLastPosition];
-        }
+        sResult = [BKEnterBoxEvent enterBoxEventWithEntrancePosition:mLastPosition];
     }
-    else
+    else if ([self detectOffline])
     {
         sResult = [BKOfflineEvent offlineEventWithPosition:mLastPosition];
     }
@@ -232,7 +233,7 @@
     
     BKEvent *sResult = nil;
     
-    if ([mFrameBuffer lastPostion] != BKPositionInBox)
+    if ([self detectLeaveBox])
     {
         sResult = [BKLeaveBoxEvent leaveEventWithLeavePosition:[mFrameBuffer lastPostion]];
     }
@@ -325,6 +326,58 @@
     mLastEvent = [aEvent retain];
     
     NSLog(@"%@", NSStringFromClass([mLastEvent class]));
+}
+
+
+- (BOOL)detectOnline
+{
+    if ([mFrameBuffer isLastFrameEnabled])
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+
+- (BOOL)detectEnterBox
+{
+    if ([mFrameBuffer isLastFrameEnabled] && [mFrameBuffer lastPostion] == BKPositionInBox)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+
+- (BOOL)detectLeaveBox
+{
+    if ([mFrameBuffer lastPostion] != BKPositionInBox)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+
+- (BOOL)detectOffline
+{
+    if (![mFrameBuffer isLastFrameEnabled])
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 
