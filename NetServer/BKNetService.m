@@ -195,11 +195,19 @@ void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aTyp
     sSockAddrIn.sin_len    = sizeof(sSockAddrIn);
     sSockAddrIn.sin_port   = 0;
     
-    int err = bind(sFileDesc, (const struct sockaddr *)&sSockAddrIn, sSockAddrIn.sin_len);
+    int sError = bind(sFileDesc, (const struct sockaddr *)&sSockAddrIn, sSockAddrIn.sin_len);
+    if (sError != 0)
+    {
+        NSLog(@"bind error");
+    }
     
     sSockAddrLen = sizeof(sSockAddrIn);
-    err = getsockname(sFileDesc, (struct sockaddr *)&sSockAddrIn, &sSockAddrLen);
-    err = listen(sFileDesc, 5);
+    sError = getsockname(sFileDesc, (struct sockaddr *)&sSockAddrIn, &sSockAddrLen);
+    sError = listen(sFileDesc, 5);
+    if (sError != 0)
+    {
+        NSLog(@"listen error");
+    }
     
     mInPort = sSockAddrIn.sin_port;
     
