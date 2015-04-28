@@ -9,12 +9,24 @@
 
 #import <Foundation/Foundation.h>
 #import "BKEvent.h"
+#import "BKFrameBuffer.h"
 
 
 @interface BKEventState : NSObject
 
 
-+ (BKEvent *)detectEvent;
+- (void)setFrameBuffer:(BKFrameBuffer *)aFrameBuffer;
+
+- (BKEvent *)detectEvent;
+
+
+- (BOOL)detectOnline;
+- (BOOL)detectOffline;
+- (BOOL)detectEnterBox;
+- (BOOL)detectLeaveBox;
+- (BOOL)detectStandby;
+- (NSInteger)detectFingerCount;
+- (BOOL)detectClasp;
 
 
 @end

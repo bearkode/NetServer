@@ -10,6 +10,7 @@
 #import "BKEventDetector.h"
 #import "BKFrameBuffer.h"
 #import "BKTypes.h"
+#import "BKEventState.h"
 
 #import "BKOnlineEvent.h"
 #import "BKOfflineEvent.h"
@@ -25,6 +26,8 @@
 @implementation BKEventDetector
 {
     BKFrameBuffer  *mFrameBuffer;
+    
+    BKEventState   *mEventState;
     
     BKEvent        *mLastEvent;
     BKPositionType  mLastPosition;
@@ -42,6 +45,9 @@
     if (self)
     {
         mFrameBuffer = [[BKFrameBuffer alloc] init];
+        mEventState  = [[BKEventState alloc] init];
+        
+        [mEventState setFrameBuffer:mFrameBuffer];
     }
     
     return self;
@@ -51,6 +57,7 @@
 - (void)dealloc
 {
     [mFrameBuffer release];
+    [mEventState release];
     
     [super dealloc];
 }
@@ -142,7 +149,7 @@
 {
     BKEvent *sResult = nil;
     
-    if ([self detectOnline])
+    if ([mEventState detectOnline])
     {
         sResult = [BKOnlineEvent onlineEventWithEntrancePosition:[mFrameBuffer lastPostion]];
     }
@@ -157,11 +164,11 @@
     
     BKEvent *sResult = nil;
 
-    if ([self detectEnterBox])
+    if ([mEventState detectEnterBox])
     {
         sResult = [BKEnterBoxEvent enterBoxEventWithEntrancePosition:mLastPosition];
     }
-    else if ([self detectOffline])
+    else if ([mEventState detectOffline])
     {
         sResult = [BKOfflineEvent offlineEventWithPosition:mLastPosition];
     }
@@ -176,17 +183,17 @@
 
     BKEvent *sResult = nil;
     
-    if ([self detectLeaveBox])
+    if ([mEventState detectLeaveBox])
     {
         sResult = [BKLeaveBoxEvent leaveEventWithLeavePosition:[mFrameBuffer lastPostion]];
     }
     else
     {
-        if ([self detectStandby])
+        if ([mEventState detectStandby])
         {
             sResult = [BKStandbyEvent standbyEvent];
         }
-        else if ([self detectClasp])
+        else if ([mEventState detectClasp])
         {
             sResult = [BKClaspEvent claspEventWithCount:1];
             
@@ -194,7 +201,7 @@
         }
         else
         {
-            NSInteger sFingerCount = [self detectFingerCount];
+            NSInteger sFingerCount = [mEventState detectFingerCount];
             if (sFingerCount != -1 && sFingerCount != mLastFingerCount)
             {
                 sResult = [BKCountEvent countEventWithCount:sFingerCount];
@@ -214,11 +221,11 @@
     
     BKEvent *sResult = nil;
     
-    if ([self detectEnterBox])
+    if ([mEventState detectEnterBox])
     {
         sResult = [BKEnterBoxEvent enterBoxEventWithEntrancePosition:mLastPosition];
     }
-    else if ([self detectOffline])
+    else if ([mEventState detectOffline])
     {
         sResult = [BKOfflineEvent offlineEventWithPosition:mLastPosition];
     }
@@ -233,11 +240,11 @@
     
     BKEvent *sResult = nil;
     
-    if ([self detectLeaveBox])
+    if ([mEventState detectLeaveBox])
     {
         sResult = [BKLeaveBoxEvent leaveEventWithLeavePosition:[mFrameBuffer lastPostion]];
     }
-    else if ([self detectClasp])
+    else if ([mEventState detectClasp])
     {
         sResult = [BKClaspEvent claspEventWithCount:1];
         
@@ -245,7 +252,7 @@
     }
     else
     {
-        NSInteger sFingerCount = [self detectFingerCount];
+        NSInteger sFingerCount = [mEventState detectFingerCount];
 
         if (sFingerCount != -1 && sFingerCount != mLastFingerCount)
         {
@@ -263,7 +270,7 @@
 {
     BKEvent *sResult = nil;
     
-    if ([self detectStandby])
+    if ([mEventState detectStandby])
     {
         sResult = [BKStandbyEvent standbyEvent];
     }
@@ -276,7 +283,7 @@
 {
     BKEvent *sResult = nil;
     
-    if ([self detectStandby])
+    if ([mEventState detectStandby])
     {
         sResult = [BKStandbyEvent standbyEvent];
     }
@@ -289,7 +296,7 @@
 {
     BKEvent *sResult = nil;
     
-    if ([self detectStandby])
+    if ([mEventState detectStandby])
     {
         sResult = [BKStandbyEvent standbyEvent];
     }
@@ -302,11 +309,11 @@
 {
     BKEvent *sResult = nil;
     
-    if ([self detectStandby])
+    if ([mEventState detectStandby])
     {
         sResult = [BKStandbyEvent standbyEvent];
     }
-    else if ([self detectClasp])
+    else if ([mEventState detectClasp])
     {
         sResult = [BKClaspEvent claspEventWithCount:1];
         
@@ -326,134 +333,6 @@
     mLastEvent = [aEvent retain];
     
     NSLog(@"%@", NSStringFromClass([mLastEvent class]));
-}
-
-
-- (BOOL)detectOnline
-{
-    if ([mFrameBuffer isLastFrameEnabled])
-    {
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
-}
-
-
-- (BOOL)detectEnterBox
-{
-    if ([mFrameBuffer isLastFrameEnabled] && [mFrameBuffer lastPostion] == BKPositionInBox)
-    {
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
-}
-
-
-- (BOOL)detectLeaveBox
-{
-    if ([mFrameBuffer lastPostion] != BKPositionInBox)
-    {
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
-}
-
-
-- (BOOL)detectOffline
-{
-    if (![mFrameBuffer isLastFrameEnabled])
-    {
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
-}
-
-
-- (BOOL)detectStandby
-{
-    __block BOOL sResult       = YES;
-    BKVector    *sLastPosition = [[mFrameBuffer lastFrame] palmPosition];
-    
-    [mFrameBuffer enumerateFramesUsingBlock:^(BKFrame *aHand, BOOL *aStop) {
-        BKVector *sPosition = [aHand palmPosition];
-        
-        CGFloat sDeltaX   = fabs([sLastPosition x] - [sPosition x]);
-        CGFloat sDeltaY   = fabs([sLastPosition y] - [sPosition y]);
-        CGFloat sDeltaZ   = fabs([sLastPosition z] - [sPosition z]);
-        CGFloat sCritical = 10.0;
-        
-        //        NSLog(@"%f, %f, %f", sDeltaX, sDeltaY, sDeltaZ);
-        
-        if (sDeltaX > sCritical || sDeltaY > sCritical || sDeltaZ > sCritical)
-        {
-            sResult = NO;
-            *aStop  = YES;
-        }
-
-    } timeout:0.5];
-
-    return sResult;
-}
-
-
-- (NSInteger)detectFingerCount
-{
-    __block BOOL sDetected  = YES;
-    NSInteger    sLastCount = [[mFrameBuffer lastFrame] extenedFingerCount];
-    
-    [mFrameBuffer enumerateFramesUsingBlock:^(BKFrame *aHand, BOOL *aStop) {
-        if ([aHand extenedFingerCount] != sLastCount)
-        {
-            sDetected = NO;
-            *aStop    = YES;
-            return;
-        }
-    } timeout:0.5];
-
-    return (sDetected) ? sLastCount : -1;
-}
-
-
-- (BOOL)detectClasp
-{
-    __block BOOL sDetected     = NO;
-    __block BOOL sZeroDetected = NO;
-    __block BOOL sFiveDetected = NO;
-    
-    if ([[mFrameBuffer lastFrame] extenedFingerCount] == 5)
-    {
-        [mFrameBuffer enumerateFramesUsingBlock:^(BKFrame *aHand, BOOL *aStop) {
-            NSInteger sFingerCount = [aHand extenedFingerCount];
-            
-            if (!sZeroDetected && sFingerCount == 0)
-            {
-                sZeroDetected = YES;
-            }
-            
-            if (sZeroDetected && !sFiveDetected && sFingerCount == 5)
-            {
-                sFiveDetected = YES;
-                sDetected     = YES;
-                *aStop        = YES;
-                
-                return;
-            }
-        } timeout:1.0];
-    }
-    
-    return sDetected;
 }
 
 
