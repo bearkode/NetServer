@@ -18,6 +18,7 @@ static NSUInteger const kBufferSize = 100;
 {
     NSMutableArray *mBuffer;
     
+    BKPositionType  mPrevPosition;
     BKPositionType  mLastPosition;
     BOOL            mLastFrameEnabled;
 }
@@ -78,9 +79,15 @@ static NSUInteger const kBufferSize = 100;
 }
 
 
-- (BKPositionType)lastPostion
+- (BKPositionType)lastPosition
 {
     return mLastPosition;
+}
+
+
+- (BKPositionType)prevPosition
+{
+    return mPrevPosition;
 }
 
 
@@ -125,6 +132,7 @@ static NSUInteger const kBufferSize = 100;
 {
     BKFrame *sLastFrame = [self lastFrame];
     
+    mPrevPosition     = mLastPosition;
     mLastPosition     = [BKPrepareBox typeForPosition:[sLastFrame palmPosition]];
     mLastFrameEnabled = [sLastFrame isEnabled];
     

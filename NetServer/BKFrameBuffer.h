@@ -20,7 +20,8 @@
 
 
 - (BKFrame *)lastFrame;
-- (BKPositionType)lastPostion;
+- (BKPositionType)lastPosition;
+- (BKPositionType)prevPosition;
 - (BOOL)isLastFrameEnabled;
 
 

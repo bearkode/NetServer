@@ -24,6 +24,7 @@
 		2E9F71681ADD128000133483 /* BKOnlineEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71671ADD128000133483 /* BKOnlineEvent.m */; };
 		2E9F716B1ADD153F00133483 /* BKOfflineEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F716A1ADD153F00133483 /* BKOfflineEvent.m */; };
 		2E9F716E1ADD154E00133483 /* BKStandbyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F716D1ADD154E00133483 /* BKStandbyEvent.m */; };
+		2EC068AD1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC068AC1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m */; };
 		2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90961AD266290057AC67 /* AppDelegate.m */; };
 		2ECD90991AD266290057AC67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90981AD266290057AC67 /* main.m */; };
 		2ECD909B1AD2662A0057AC67 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECD909A1AD2662A0057AC67 /* Images.xcassets */; };
@@ -101,6 +102,8 @@
 		2E9F716A1ADD153F00133483 /* BKOfflineEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKOfflineEvent.m; sourceTree = "<group>"; };
 		2E9F716C1ADD154E00133483 /* BKStandbyEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKStandbyEvent.h; sourceTree = "<group>"; };
 		2E9F716D1ADD154E00133483 /* BKStandbyEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKStandbyEvent.m; sourceTree = "<group>"; };
+		2EC068AB1AF0CEC90054C6EC /* BKFrameBuffer+Detector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BKFrameBuffer+Detector.h"; sourceTree = "<group>"; };
+		2EC068AC1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BKFrameBuffer+Detector.m"; sourceTree = "<group>"; };
 		2ECD90901AD266290057AC67 /* NetServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ECD90941AD266290057AC67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ECD90951AD266290057AC67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 		2E39E5C21AEFA3A200D13B00 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				2EC068AB1AF0CEC90054C6EC /* BKFrameBuffer+Detector.h */,
+				2EC068AC1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m */,
 				2E39E5C31AEFA3C200D13B00 /* BKEventState.h */,
 				2E39E5C41AEFA3C200D13B00 /* BKEventState.m */,
 			);
@@ -446,6 +451,7 @@
 				2E9F716E1ADD154E00133483 /* BKStandbyEvent.m in Sources */,
 				2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */,
 				2E39E5C51AEFA3C200D13B00 /* BKEventState.m in Sources */,
+				2EC068AD1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m in Sources */,
 				2E9F71351ADCAE3C00133483 /* BKPrepareBox.m in Sources */,
 				2ECD90B51AD266C50057AC67 /* BKNetService.m in Sources */,
 				2EDC68E71AD67B2D0072B21F /* BKStream.m in Sources */,
