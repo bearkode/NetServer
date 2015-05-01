@@ -20,6 +20,42 @@
 @implementation BKFrameBuffer (Detector)
 
 
+- (BKEvent *)detectEvents:(NSArray *)aEvents
+{
+    static NSDictionary   *sSelectorTable;
+    static dispatch_once_t sOnceToken;
+    
+    dispatch_once(&sOnceToken, ^{
+        sSelectorTable = [@{ [BKOnlineEvent className]   : NSStringFromSelector(@selector(detectOnlineEvent)),
+                             [BKOfflineEvent className]  : NSStringFromSelector(@selector(detectOfflineEvent)),
+                             [BKEnterBoxEvent className] : NSStringFromSelector(@selector(detectEnterBoxEvent)),
+                             [BKLeaveBoxEvent className] : NSStringFromSelector(@selector(detectLeaveBoxEvent)),
+                             [BKStandbyEvent className]  : NSStringFromSelector(@selector(detectStandbyEvent)),
+                             [BKCountEvent className]    : NSStringFromSelector(@selector(detectFingerCountEvent)),
+                             [BKClaspEvent className]    : NSStringFromSelector(@selector(detectClaspEvent))} retain];
+    });
+    
+    BKEvent *sResult = nil;
+    
+    for (NSString *sEventClassName in aEvents)
+    {
+        SEL sSelector = NSSelectorFromString([sSelectorTable objectForKey:sEventClassName]);
+        
+        if (sSelector)
+        {
+            sResult = [self performSelector:sSelector withObject:nil];
+        }
+        
+        if (sResult)
+        {
+            break;
+        }
+    }
+    
+    return sResult;
+}
+
+
 - (BKEvent *)detectOnlineEvent
 {
     if ([self isLastFrameEnabled])

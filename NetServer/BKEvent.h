@@ -14,6 +14,7 @@
 @interface BKEvent : NSObject
 
 
++ (NSString *)className;
 - (BKEventType)type;
 
 

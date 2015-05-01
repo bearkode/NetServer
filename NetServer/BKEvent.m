@@ -13,6 +13,12 @@
 @implementation BKEvent
 
 
++ (NSString *)className
+{
+    return NSStringFromClass(self);
+}
+
+
 - (BKEventType)type
 {
     return BKEventTypeUnknown;

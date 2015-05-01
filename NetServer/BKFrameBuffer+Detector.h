@@ -14,6 +14,9 @@
 @interface BKFrameBuffer (Detector)
 
 
+- (BKEvent *)detectEvents:(NSArray *)aEvents;
+
+
 - (BKEvent *)detectOnlineEvent;
 - (BKEvent *)detectOfflineEvent;
 - (BKEvent *)detectEnterBoxEvent;

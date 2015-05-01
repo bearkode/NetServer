@@ -21,71 +21,58 @@
 #import "BKCountEvent.h"
 
 
+static NSArray *gOfflineEventNames = nil;
+static NSArray *gOutboxEventNames  = nil;
+static NSArray *gInboxEventNames   = nil;
+
+
 @implementation BKEventState
 {
+    NSArray       *mDetectEventNames;
     BKEvent       *mLastEvent;
     BKPositionType mLastPosition;
     BKEvent       *mLastCountEvent;
 }
 
 
++ (void)initialize
+{
+    gOfflineEventNames = [@[[BKOnlineEvent className]] retain];
+    gOutboxEventNames  = [@[[BKEnterBoxEvent className],
+                            [BKOfflineEvent className]] retain];
+    gInboxEventNames   = [@[[BKLeaveBoxEvent className],
+                            [BKClaspEvent className],
+                            [BKCountEvent className]] retain];
+}
+
+
+- (instancetype)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        mDetectEventNames = gOfflineEventNames;
+    }
+    
+    return self;
+}
+
+
 - (void)dealloc
 {
+    [mLastEvent release];
+    [mLastCountEvent release];
+    
     [super dealloc];
 }
 
 
 - (BKEvent *)detectEventFromBuffer:(BKFrameBuffer *)aFrameBuffer
 {
-    BKEvent *sEvent = nil;
+    BKEvent *sEvent = [aFrameBuffer detectEvents:mDetectEventNames];
     
-    if ([mLastEvent type] == BKEventTypeUnknown)
-    {
-        sEvent = [self detectAfterUnknownEventWithBuffer:aFrameBuffer];
-    }
-    if ([mLastEvent type] == BKEventTypeOffline)
-    {
-        sEvent = [self detectAfterOfflineEventWithBuffer:aFrameBuffer];
-    }
-    else if ([mLastEvent type] == BKEventTypeOnline)
-    {
-        sEvent = [self detectAfterOnlineEventWithBuffer:aFrameBuffer];
-    }
-    else if ([mLastEvent type] == BKEventTypeEnterBox)
-    {
-        sEvent = [self detectAfterEnterBoxEventWithBuffer:aFrameBuffer];
-    }
-    else if ([mLastEvent type] == BKEventTypeLeaveBox)
-    {
-        sEvent = [self detectAfterLeaveBoxEventWithBuffer:aFrameBuffer];
-    }
-    else if ([mLastEvent type] == BKEventTypeStandby)
-    {
-        sEvent = [self detectAfterStandbyEventWithBuffer:aFrameBuffer];
-    }
-    else if ([mLastEvent type] == BKEventTypeSwipe)
-    {
-        sEvent = [self detectAfterSwipeEventWithBuffer:aFrameBuffer];
-    }
-    else if ([mLastEvent type] == BKEventTypeUpDown)
-    {
-        sEvent = [self detectAfterUpDownEventWithBuffer:aFrameBuffer];
-    }
-    else if ([mLastEvent type] == BKEventTypeClasp)
-    {
-        sEvent = [self detectAfterClaspEventWithBuffer:aFrameBuffer];
-    }
-    else if ([mLastEvent type] == BKEventTypeCount)
-    {
-        sEvent = [self detectAfterCountEventWithBuffer:aFrameBuffer];
-    }
-    
-    if (sEvent)
-    {
-        [mLastEvent autorelease];
-        mLastEvent = [sEvent retain];
-    }
-    
+    sEvent        = [self postProcess:sEvent];
     mLastPosition = [aFrameBuffer lastPosition];
     
     return sEvent;
@@ -94,145 +81,64 @@
 
 #pragma mark -
 
-
-- (BKEvent *)detectAfterUnknownEventWithBuffer:(BKFrameBuffer *)aBuffer
+- (BKEvent *)postProcess:(BKEvent *)aEvent
 {
-    return [aBuffer detectOnlineEvent];
-}
-
-
-- (BKEvent *)detectAfterOfflineEventWithBuffer:(BKFrameBuffer *)aBuffer
-{
-    return [aBuffer detectOnlineEvent];
-}
-
-
-- (BKEvent *)detectAfterOnlineEventWithBuffer:(BKFrameBuffer *)aBuffer
-{
-    //  detect enterBox or offline
+    BKEvent *sResult = aEvent;
     
-    BKEvent *sResult = [aBuffer detectEnterBoxEvent];
-    
-    if (!sResult)
+    if ([sResult isKindOfClass:[BKCountEvent class]])
     {
-        sResult = [aBuffer detectOfflineEvent];
+        sResult = [self postProcessForCountEvent:sResult];
+    }
+
+    if (sResult)
+    {
+        [self setLastEvent:sResult];
     }
     
     return sResult;
 }
 
 
-- (BKEvent *)detectAfterEnterBoxEventWithBuffer:(BKFrameBuffer *)aBuffer
+- (BKEvent *)postProcessForCountEvent:(BKEvent *)aEvent
 {
-    //  detect leaveBox, standby, clasp, count, swipe, updown
-    
-    BKEvent *sResult = [aBuffer detectLeaveBoxEvent];
-    
-    if (!sResult)
+    if (mLastCountEvent == aEvent)
     {
-        sResult = [aBuffer detectStandbyEvent];
+        return nil;
     }
-    
-    if (!sResult)
+    else
     {
-        sResult = [aBuffer detectClaspEvent];
+        [mLastCountEvent autorelease];
+        mLastCountEvent = [aEvent retain];
+        
+        return aEvent;
     }
-    
-    if (!sResult)
-    {
-        sResult = [aBuffer detectFingerCountEvent];
-        if (mLastCountEvent == sResult)
-        {
-            sResult = nil;
-        }
-        else
-        {
-            [mLastCountEvent autorelease];
-            mLastCountEvent = [sResult retain];
-        }
-    }
-    
-    return sResult;
 }
 
 
-- (BKEvent *)detectAfterLeaveBoxEventWithBuffer:(BKFrameBuffer *)aBuffer
+- (void)setLastEvent:(BKEvent *)aEvent
 {
-    //  detect offline, enterBox,
+    static NSDictionary   *sTable;
+    static dispatch_once_t sOnceToken;
+
+    dispatch_once(&sOnceToken, ^{
+        sTable = @{ [BKOnlineEvent className]   : gOutboxEventNames,
+                    [BKOfflineEvent className]  : gOfflineEventNames,
+                    [BKEnterBoxEvent className] : gInboxEventNames,
+                    [BKLeaveBoxEvent className] : gOutboxEventNames,
+                    [BKStandbyEvent className]  : gInboxEventNames,
+                    [BKSwipeEvent className]    : gInboxEventNames,
+                    [BKUpDownEvent className]   : gInboxEventNames,
+                    [BKClaspEvent className]    : gInboxEventNames,
+                    [BKCountEvent className]    : gInboxEventNames };
+        
+        [sTable retain];
+    });
     
-    BKEvent *sResult = [aBuffer detectEnterBoxEvent];
-    
-    if (!sResult)
-    {
-        sResult = [aBuffer detectOfflineEvent];
-    }
-    
-    return sResult;
-}
+    [mLastEvent autorelease];
+    mLastEvent = [aEvent retain];
 
-
-- (BKEvent *)detectAfterStandbyEventWithBuffer:(BKFrameBuffer *)aBuffer
-{
-    //  detect clasp, count, leaveBox
-    
-    BKEvent *sResult = [aBuffer detectLeaveBoxEvent];
-    
-    if (!sResult)
-    {
-        sResult = [aBuffer detectClaspEvent];
-    }
-
-    if (!sResult)
-    {
-        sResult = [aBuffer detectFingerCountEvent];
-        if (mLastCountEvent == sResult)
-        {
-            sResult = nil;
-        }
-        else
-        {
-            [mLastCountEvent autorelease];
-            mLastCountEvent = [sResult retain];
-        }
-    }
-    
-    return sResult;
-}
-
-
-- (BKEvent *)detectAfterSwipeEventWithBuffer:(BKFrameBuffer *)aBuffer
-{
-    return [aBuffer detectStandbyEvent];
-}
-
-
-- (BKEvent *)detectAfterUpDownEventWithBuffer:(BKFrameBuffer *)aBuffer
-{
-    return [aBuffer detectStandbyEvent];
-}
-
-
-- (BKEvent *)detectAfterClaspEventWithBuffer:(BKFrameBuffer *)aBuffer
-{
-    return [aBuffer detectStandbyEvent];
-}
-
-
-- (BKEvent *)detectAfterCountEventWithBuffer:(BKFrameBuffer *)aBuffer
-{
-    BKEvent *sResult = [aBuffer detectClaspEvent];
-    
-    if (!sResult)
-    {
-        sResult = [aBuffer detectStandbyEvent];
-    }
-    
-    if (!sResult)
-    {
-        sResult = [aBuffer detectLeaveBoxEvent];
-    }
-
-    return sResult;
+    mDetectEventNames = [sTable objectForKey:[[aEvent class] className]];
+    NSAssert(mDetectEventNames, @"");
 }
 
 
