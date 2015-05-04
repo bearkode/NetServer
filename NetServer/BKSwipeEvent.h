@@ -16,4 +16,8 @@
 + (instancetype)swipeEventWithPosition:(BKPositionType)aPosition;
 
 
+- (BOOL)isNext;
+- (BOOL)isPrev;
+
+
 @end

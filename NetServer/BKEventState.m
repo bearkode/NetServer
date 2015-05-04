@@ -81,6 +81,7 @@ static NSArray *gInboxEventNames   = nil;
 
 #pragma mark -
 
+
 - (BKEvent *)postProcess:(BKEvent *)aEvent
 {
     BKEvent *sResult = aEvent;

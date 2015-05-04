@@ -13,6 +13,9 @@
 @interface BKLeaveBoxEvent : BKEvent
 
 
+@property (nonatomic, readonly) NSDate *timestamp;
+
+
 + (instancetype)leaveEventWithLeavePosition:(BKPositionType)aPosition;
 
 

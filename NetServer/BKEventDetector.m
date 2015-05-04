@@ -12,13 +12,20 @@
 #import "BKTypes.h"
 #import "BKEventState.h"
 
+#import "BKEnterBoxEvent.h"
+#import "BKLeaveBoxEvent.h"
+#import "BKUpDownEvent.h"
+#import "BKSwipeEvent.h"
 #import "BKClaspEvent.h"
 
 
 @implementation BKEventDetector
 {
-    BKFrameBuffer *mFrameBuffer;
-    BKEventState  *mEventState;
+    BKFrameBuffer   *mFrameBuffer;
+    BKEventState    *mEventState;
+    
+    BKLeaveBoxEvent *mLastLeaveBoxEvent;
+    BKUpDownEvent   *mLastUpDownEvent;
 }
 
 
@@ -43,6 +50,8 @@
 {
     [mFrameBuffer release];
     [mEventState release];
+    
+    [mLastLeaveBoxEvent release];
     
     [super dealloc];
 }
@@ -83,13 +92,57 @@
 
 - (void)eventDidDetect:(BKEvent *)aEvent
 {
+    NSLog(@"%@", NSStringFromClass([aEvent class]));
+    
     if ([aEvent isKindOfClass:[BKClaspEvent class]])
     {
-        NSLog(@"clear buffer");
         [mFrameBuffer clear];
     }
     
-    NSLog(@"%@", NSStringFromClass([aEvent class]));
+    if ([aEvent isKindOfClass:[BKLeaveBoxEvent class]])
+    {
+        [mLastLeaveBoxEvent autorelease];
+        mLastLeaveBoxEvent = (BKLeaveBoxEvent *)[aEvent retain];
+    }
+    
+    [self detectSwipeUpDownEvent:aEvent];
+}
+
+
+- (void)detectSwipeUpDownEvent:(BKEvent *)aEvent
+{
+    if ([aEvent isKindOfClass:[BKEnterBoxEvent class]] && mLastLeaveBoxEvent)
+    {
+        BKEnterBoxEvent *sEnterEvent = (BKEnterBoxEvent *)aEvent;
+        NSTimeInterval   sTimeGap    = [[sEnterEvent timestamp] timeIntervalSince1970] - [[mLastLeaveBoxEvent timestamp] timeIntervalSince1970];
+        
+        if (sTimeGap < 1.0)
+        {
+            BKEvent *sEvent = nil;
+            
+            if ([sEnterEvent entrancePosition] == BKPositionLeftOfBox)
+            {
+                sEvent = [BKSwipeEvent swipeEventWithPosition:BKPositionLeftOfBox];
+            }
+            else if ([sEnterEvent entrancePosition] == BKPositionRightOfBox)
+            {
+                sEvent = [BKSwipeEvent swipeEventWithPosition:BKPositionRightOfBox];
+            }
+            else if ([sEnterEvent entrancePosition] == BKPositionOverBox)
+            {
+                sEvent = [BKUpDownEvent upDownEventWithPosition:BKPositionOverBox];
+            }
+            else if ([sEnterEvent entrancePosition] == BKPositionUnderBox)
+            {
+                sEvent = [BKUpDownEvent upDownEventWithPosition:BKPositionUnderBox];
+            }
+            
+            if (sEvent)
+            {
+                [self eventDidDetect:sEvent];
+            }
+        }
+    }
 }
 
 

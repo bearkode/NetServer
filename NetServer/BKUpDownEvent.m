@@ -50,4 +50,16 @@
 }
 
 
+- (BOOL)isUp
+{
+    return (mPosition == BKPositionOverBox) ? YES : NO;
+}
+
+
+- (BOOL)isDown
+{
+    return (mPosition == BKPositionUnderBox) ? YES : NO;
+}
+
+
 @end

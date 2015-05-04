@@ -53,4 +53,16 @@
 }
 
 
+- (BOOL)isNext
+{
+    return (mPosition == BKPositionLeftOfBox) ? YES : NO;
+}
+
+
+- (BOOL)isPrev
+{
+    return (mPosition == BKPositionRightOfBox) ? YES : NO;
+}
+
+
 @end

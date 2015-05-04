@@ -16,4 +16,8 @@
 + (instancetype)upDownEventWithPosition:(BKPositionType)aPosition;
 
 
+- (BOOL)isUp;
+- (BOOL)isDown;
+
+
 @end

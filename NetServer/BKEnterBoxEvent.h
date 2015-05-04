@@ -13,6 +13,10 @@
 @interface BKEnterBoxEvent : BKEvent
 
 
+@property (nonatomic, readonly) BKPositionType entrancePosition;
+@property (nonatomic, readonly) NSDate        *timestamp;
+
+
 + (instancetype)enterBoxEventWithEntrancePosition:(BKPositionType)aPosition;
 
 

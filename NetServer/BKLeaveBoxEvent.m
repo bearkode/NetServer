@@ -13,7 +13,11 @@
 @implementation BKLeaveBoxEvent
 {
     BKPositionType mLeavePosition;
+    NSDate        *mTimestamp;
 }
+
+
+@synthesize timestamp = mTimestamp;
 
 
 + (instancetype)leaveEventWithLeavePosition:(BKPositionType)aPosition
@@ -29,6 +33,7 @@
     if (self)
     {
         mLeavePosition = aPosition;
+        mTimestamp = [[NSDate date] retain];
     }
     
     return self;
@@ -37,6 +42,8 @@
 
 - (void)dealloc
 {
+    [mTimestamp release];
+
     [super dealloc];
 }
 

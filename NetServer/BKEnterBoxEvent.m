@@ -13,7 +13,12 @@
 @implementation BKEnterBoxEvent
 {
     BKPositionType mEntrancePosition;
+    NSDate        *mTimestamp;
 }
+
+
+@synthesize entrancePosition = mEntrancePosition;
+@synthesize timestamp        = mTimeStamp;
 
 
 + (instancetype)enterBoxEventWithEntrancePosition:(BKPositionType)aPosition
@@ -32,6 +37,7 @@
     if (self)
     {
         mEntrancePosition = aPosition;
+        mTimeStamp = [[NSDate date] retain];
     }
     
     return self;
@@ -40,6 +46,8 @@
 
 - (void)dealloc
 {
+    [mTimeStamp release];
+    
     [super dealloc];
 }
 
