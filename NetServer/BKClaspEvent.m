@@ -16,6 +16,9 @@
 }
 
 
+@synthesize count = mCount;
+
+
 + (instancetype)claspEventWithCount:(NSInteger)aCount
 {
     return [[[self alloc] initWithCount:aCount] autorelease];

@@ -21,12 +21,17 @@
 
 @implementation BKEventDetector
 {
+    id               mDelegate;
+    
     BKFrameBuffer   *mFrameBuffer;
     BKEventState    *mEventState;
     
     BKLeaveBoxEvent *mLastLeaveBoxEvent;
     BKUpDownEvent   *mLastUpDownEvent;
 }
+
+
+@synthesize delegate = mDelegate;
 
 
 #pragma mark -
@@ -92,7 +97,10 @@
 
 - (void)eventDidDetect:(BKEvent *)aEvent
 {
-    NSLog(@"%@", NSStringFromClass([aEvent class]));
+    if ([mDelegate respondsToSelector:@selector(eventDetector:didDetectEvent:)])
+    {
+        [mDelegate eventDetector:self didDetectEvent:aEvent];
+    }
     
     if ([aEvent isKindOfClass:[BKClaspEvent class]])
     {

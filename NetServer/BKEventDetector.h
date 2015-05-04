@@ -9,12 +9,25 @@
 
 #import <Foundation/Foundation.h>
 #import "BKFrame.h"
+#import "BKEvent.h"
 
 
 @interface BKEventDetector : NSObject
 
 
+@property (nonatomic, assign) id delegate;
+
+
 - (BOOL)addFrame:(BKFrame *)aFrame;
+
+
+@end
+
+
+@protocol BKEventDetectorDelegate <NSObject>
+
+
+- (void)eventDetector:(BKEventDetector *)aDetector didDetectEvent:(BKEvent *)aEvent;
 
 
 @end

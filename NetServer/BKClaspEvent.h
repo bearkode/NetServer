@@ -13,6 +13,9 @@
 @interface BKClaspEvent : BKEvent
 
 
+@property (nonatomic, readonly) NSInteger count;
+
+
 + (instancetype)claspEventWithCount:(NSInteger)aCount;
 
 

@@ -134,6 +134,7 @@
 		2EDC68F61AD7A11D0072B21F /* BKFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKFrame.m; sourceTree = "<group>"; };
 		2EDC68F81AD7ABCB0072B21F /* BKVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKVector.h; sourceTree = "<group>"; };
 		2EDC68F91AD7ABCB0072B21F /* BKVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKVector.m; sourceTree = "<group>"; };
+		4A8801EE1AF795650072AC3A /* BKEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKEvents.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +213,7 @@
 		2E9F71391ADCDA1400133483 /* Event */ = {
 			isa = PBXGroup;
 			children = (
+				4A8801EE1AF795650072AC3A /* BKEvents.h */,
 				2E9F71361ADCD74D00133483 /* BKEvent.h */,
 				2E9F71371ADCD74D00133483 /* BKEvent.m */,
 				2E9F71661ADD128000133483 /* BKOnlineEvent.h */,

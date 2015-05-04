@@ -9,6 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BKFrame.h"
+#import "BKEvent.h"
 
 
 @interface BKEventManager : NSObject
@@ -25,6 +26,7 @@
 
 
 - (void)eventManager:(BKEventManager *)aEventManager didUpdateFrame:(BKFrame *)aFrame;
+- (void)eventManager:(BKEventManager *)aEventManager didDetectEvent:(BKEvent *)aEvent;
 
 
 @end

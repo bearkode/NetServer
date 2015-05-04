@@ -11,6 +11,7 @@
 #import "BKEventManager.h"
 #import "BKNEtService.h"
 #import "BKPrepareBox.h"
+#import "BKEvents.h"
 
 
 @implementation AppDelegate
@@ -48,43 +49,37 @@
 }
 
 
-- (void)eventManager:(BKEventManager *)aEventManager didUpdateFrame:(BKFrame *)aFrame
+- (void)eventManager:(BKEventManager *)aEventManager didDetectEvent:(BKEvent *)aEvent
 {
-//    if ([aHand isEnabled])
-//    {
-//        if ([BKPrepareBox containsPosition:[aHand palmPosition]])
-//        {
-//            NSLog(@"in");
-//        }
-//        else
-//        {
-//            BKPositionType sPositionType = [BKPrepareBox typeForPosition:[aHand palmPosition]];
-//            if (sPositionType == BKPositionLeftOfBox)
-//            {
-//                NSLog(@"left");
-//            }
-//            else if (sPositionType == BKPositionRightOfBox)
-//            {
-//                NSLog(@"right");
-//            }
-//            else if (sPositionType == BKPositionUnderBox)
-//            {
-//                NSLog(@"under");
-//            }
-//            else if (sPositionType == BKPositionOverBox)
-//            {
-//                NSLog(@"over");
-//            }
-//            else if (sPositionType == BKPositionFrontOfBox)
-//            {
-//                NSLog(@"front");
-//            }
-//            else if (sPositionType == BKPositionBackOfBox)
-//            {
-//                NSLog(@"back");
-//            }
-//        }
-//    }
+    if ([aEvent type] == BKEventTypeSwipe)
+    {
+        BKSwipeEvent *sSwipeEvent = (BKSwipeEvent *)aEvent;
+        if ([sSwipeEvent isNext])
+        {
+            NSLog(@"next");
+        }
+        else if ([sSwipeEvent isPrev])
+        {
+            NSLog(@"prev");
+        }
+    }
+    else if ([aEvent type] == BKEventTypeUpDown)
+    {
+        BKUpDownEvent *sUpDownEvent = (BKUpDownEvent *)aEvent;
+        if ([sUpDownEvent isUp])
+        {
+            NSLog(@"up");
+        }
+        else if ([sUpDownEvent isDown])
+        {
+            NSLog(@"down");
+        }
+    }
+    else if ([aEvent type] == BKEventTypeClasp)
+    {
+        BKClaspEvent *sClaspEvent = (BKClaspEvent *)aEvent;
+        NSLog(@"clasp [%d]", (int)[sClaspEvent count]);
+    }
 }
 
 

@@ -36,6 +36,8 @@
     {
         mLeapController = [[BKLeapController alloc] initWithDelegate:self];
         mEventDetector  = [[BKEventDetector alloc] init];
+        
+        [mEventDetector setDelegate:self];
     }
     
     return self;
@@ -67,6 +69,15 @@
     if (mNetServiceEnabled)
     {
         [[BKNetService sharedService] sendJSONObject:[aFrame JSONObject]];
+    }
+}
+
+
+- (void)eventDetector:(BKEventDetector *)aDetector didDetectEvent:(BKEvent *)aEvent
+{
+    if ([mDelegate respondsToSelector:@selector(eventManager:didDetectEvent:)])
+    {
+        [mDelegate eventManager:self didDetectEvent:aEvent];
     }
 }
 
