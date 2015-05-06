@@ -17,7 +17,7 @@
 @property (nonatomic, assign) id delegate;
 
 
-- (instancetype)initWithDelegate:(id)aDelegate;
++ (instancetype)sharedController;
 
 
 - (void)start;

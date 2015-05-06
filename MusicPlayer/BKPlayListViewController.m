@@ -13,8 +13,7 @@
 
 @implementation BKPlayListViewController
 {
-    UIImageView        *mHandView;
-    BKMotionController *mMotionController;
+
 }
 
 
@@ -24,8 +23,7 @@
     
     if (self)
     {
-        mMotionController = [[BKMotionController alloc] init];
-        [mMotionController setDelegate:self];
+
     }
     
     return self;
@@ -34,8 +32,6 @@
 
 - (void)dealloc
 {
-    [mMotionController release];
-    
     [super dealloc];
 }
 
@@ -49,23 +45,31 @@
     
     [[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
-    mHandView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 45)]autorelease];
-    [[self view] addSubview:mHandView];
-    
-    [mMotionController start];
+    [[BKMotionController sharedController] start];
     
     [[self view] setBackgroundColor:[UIColor whiteColor]];
+}
+
+
+- (void)viewWillAppear:(BOOL)aAnimated
+{
+    [super viewWillAppear:aAnimated];
+    
+    [[BKMotionController sharedController] setDelegate:self];
+}
+
+
+- (void)viewWillDisappear:(BOOL)aAnimated
+{
+    [super viewWillDisappear:aAnimated];
+    
+    [[BKMotionController sharedController] setDelegate:nil];
 }
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    
-    if ([self isViewLoaded] && ![[self view] window])
-    {
-        mHandView = nil;
-    }
 }
 
 
@@ -90,32 +94,6 @@
     
     return sCell;
 }
-
-
-//- (void)motionController:(BKMotionController *)aMotionController didReceiveMotion:(BKFrame *)aFrame
-//{
-//    NSLog(@"sFrame = %@", aFrame);
-//    
-//    NSInteger sCount     = [aFrame extenedFingerCount];
-//    NSString *sImageName = [NSString stringWithFormat:@"%d", (int)sCount];
-//    
-//    [mHandView setImage:[UIImage imageNamed:sImageName]];
-//    
-//    CGRect  sBounds   = [[self view] bounds];
-//    CGPoint sPosition = CGPointMake([[aFrame palmPosition] x], [[aFrame palmPosition] z]);
-//    CGPoint sMid      = CGPointMake(CGRectGetMidX(sBounds), CGRectGetMidY(sBounds));
-//    
-//    sPosition.x *= 3.0;
-//    sPosition.y *= 3.0;
-//    sPosition.x += sMid.x;
-//    sPosition.y += sMid.y;
-//    
-//    CGRect sFrame = [mHandView frame];
-//    sFrame.origin.x = 100;
-//    sFrame.origin.y = 100;
-//    [mHandView setFrame:sFrame];
-//    [mHandView setCenter:sPosition];
-//}
 
 
 @end

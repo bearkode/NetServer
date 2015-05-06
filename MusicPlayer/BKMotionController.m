@@ -8,6 +8,7 @@
  */
 
 #import "BKMotionController.h"
+#import "BKObjCUtils.h"
 #import "BKStream.h"
 #import "BKPacket.h"
 #import "BKFrame.h"
@@ -29,6 +30,9 @@
 @synthesize delegate = mDelegate;
 
 
+SYNTHESIZE_SHARED_INSTANCE(BKMotionController, sharedController)
+
+
 - (instancetype)init
 {
     self = [super init];
@@ -40,19 +44,6 @@
         
         mEventDetector = [[BKEventDetector alloc] init];
         [mEventDetector setDelegate:self];
-    }
-    
-    return self;
-}
-
-
-- (instancetype)initWithDelegate:(id)aDelegate
-{
-    self = [self init];
-    
-    if (self)
-    {
-        [self setDelegate:aDelegate];
     }
     
     return self;

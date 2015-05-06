@@ -190,6 +190,7 @@
 		4AF62EC61AFA0F2900BA378B /* BKPrepareBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKPrepareBox.m; path = Common/BKPrepareBox.m; sourceTree = "<group>"; };
 		4AF62EC91AFA107300BA378B /* BKEventDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKEventDetector.h; path = Common/BKEventDetector.h; sourceTree = "<group>"; };
 		4AF62ECA1AFA107300BA378B /* BKEventDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKEventDetector.m; path = Common/BKEventDetector.m; sourceTree = "<group>"; };
+		4AFAD5E41AFA19FE00ACAD9D /* BKObjCUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKObjCUtils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +410,7 @@
 		4AF62E6E1AF9BCC600BA378B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4AFAD5E41AFA19FE00ACAD9D /* BKObjCUtils.h */,
 				4AF62EA71AF9DD4600BA378B /* Network */,
 				4AF62E9E1AF9D93000BA378B /* BaseObjects */,
 				4AF62E9D1AF9D7BF00BA378B /* BKTypes.h */,
