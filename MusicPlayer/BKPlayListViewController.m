@@ -9,11 +9,12 @@
 
 #import "BKPlayListViewController.h"
 #import "BKMotionController.h"
+#import "BKPlayListDataController.h"
 
 
 @implementation BKPlayListViewController
 {
-
+    BKPlayListDataController *mDataController;
 }
 
 
@@ -23,7 +24,7 @@
     
     if (self)
     {
-
+        mDataController = [[BKPlayListDataController alloc] init];
     }
     
     return self;
@@ -32,6 +33,8 @@
 
 - (void)dealloc
 {
+    [mDataController release];
+    
     [super dealloc];
 }
 
@@ -43,6 +46,7 @@
 {
     [super viewDidLoad];
     
+    [self setTitle:@"Playlists"];
     [[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
     [[BKMotionController sharedController] start];
@@ -84,7 +88,7 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)aSection
 {
-    return 5;
+    return [mDataController numberOfPlaylist];
 }
 
 
@@ -92,7 +96,16 @@
 {
     UITableViewCell *sCell = [aTableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:aIndexPath];
     
+    [sCell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    [[sCell textLabel] setText:[mDataController playlistTitleAtIndex:[aIndexPath row]]];
+    
     return sCell;
+}
+
+
+- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)aIndexPath
+{
+    [aTableView deselectRowAtIndexPath:aIndexPath animated:YES];
 }
 
 

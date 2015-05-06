@@ -71,6 +71,7 @@
 		4AF62EC81AFA0F2900BA378B /* BKPrepareBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EC61AFA0F2900BA378B /* BKPrepareBox.m */; };
 		4AF62ECB1AFA107300BA378B /* BKEventDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62ECA1AFA107300BA378B /* BKEventDetector.m */; };
 		4AF62ECC1AFA107300BA378B /* BKEventDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62ECA1AFA107300BA378B /* BKEventDetector.m */; };
+		4AFAD5E81AFA338A00ACAD9D /* BKPlayListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAD5E71AFA338A00ACAD9D /* BKPlayListDataController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,8 @@
 		4AF62EC91AFA107300BA378B /* BKEventDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKEventDetector.h; path = Common/BKEventDetector.h; sourceTree = "<group>"; };
 		4AF62ECA1AFA107300BA378B /* BKEventDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKEventDetector.m; path = Common/BKEventDetector.m; sourceTree = "<group>"; };
 		4AFAD5E41AFA19FE00ACAD9D /* BKObjCUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKObjCUtils.h; sourceTree = "<group>"; };
+		4AFAD5E61AFA338A00ACAD9D /* BKPlayListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKPlayListDataController.h; sourceTree = "<group>"; };
+		4AFAD5E71AFA338A00ACAD9D /* BKPlayListDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKPlayListDataController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				4AF62EAC1AF9DDC500BA378B /* MotionController */,
+				4AFAD5E51AFA336000ACAD9D /* Model */,
 				4A8801F91AF79BF10072AC3A /* AppDelegate.h */,
 				4A8801FA1AF79BF10072AC3A /* AppDelegate.m */,
 				4AEB2DCA1AF7A0AE0073BC14 /* BKPlayListViewController.h */,
@@ -478,6 +482,15 @@
 				4AF62EB01AF9DDD300BA378B /* BKMotionController+ServiceBrowser.m */,
 			);
 			name = MotionController;
+			sourceTree = "<group>";
+		};
+		4AFAD5E51AFA336000ACAD9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4AFAD5E61AFA338A00ACAD9D /* BKPlayListDataController.h */,
+				4AFAD5E71AFA338A00ACAD9D /* BKPlayListDataController.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -687,6 +700,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AFAD5E81AFA338A00ACAD9D /* BKPlayListDataController.m in Sources */,
 				4A8801FB1AF79BF10072AC3A /* AppDelegate.m in Sources */,
 				4AEB2DCC1AF7A0AE0073BC14 /* BKPlayListViewController.m in Sources */,
 				4AF62E9A1AF9D78100BA378B /* BKSwipeEvent.m in Sources */,
