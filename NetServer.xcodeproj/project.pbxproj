@@ -10,20 +10,10 @@
 		2E39E5C51AEFA3C200D13B00 /* BKEventState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E39E5C41AEFA3C200D13B00 /* BKEventState.m */; };
 		2E39E5C81AEFAC3D00D13B00 /* BKFrameBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E39E5C71AEFAC3D00D13B00 /* BKFrameBuffer.m */; };
 		2E9F71351ADCAE3C00133483 /* BKPrepareBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */; };
-		2E9F71381ADCD74D00133483 /* BKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71371ADCD74D00133483 /* BKEvent.m */; };
-		2E9F71421ADCDA5F00133483 /* BKLeaveBoxEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71411ADCDA5F00133483 /* BKLeaveBoxEvent.m */; };
-		2E9F71481ADCDA9300133483 /* BKSwipeEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71471ADCDA9300133483 /* BKSwipeEvent.m */; };
-		2E9F714B1ADCDAA500133483 /* BKUpDownEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F714A1ADCDAA500133483 /* BKUpDownEvent.m */; };
-		2E9F714E1ADCDAB700133483 /* BKClaspEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F714D1ADCDAB700133483 /* BKClaspEvent.m */; };
-		2E9F71511ADCDAC700133483 /* BKCountEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71501ADCDAC700133483 /* BKCountEvent.m */; };
-		2E9F71541ADCDAEB00133483 /* BKEnterBoxEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71531ADCDAEB00133483 /* BKEnterBoxEvent.m */; };
 		2E9F715B1ADCE26400133483 /* BKEventDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F715A1ADCE26400133483 /* BKEventDetector.m */; };
 		2E9F715E1ADCE40100133483 /* BKLeapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F715D1ADCE40100133483 /* BKLeapController.m */; };
 		2E9F71621ADD04CA00133483 /* BKFrame+LeapAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71611ADD04CA00133483 /* BKFrame+LeapAddtions.m */; };
 		2E9F71651ADD0C9C00133483 /* BKVector+LeapAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71641ADD0C9C00133483 /* BKVector+LeapAdditions.m */; };
-		2E9F71681ADD128000133483 /* BKOnlineEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71671ADD128000133483 /* BKOnlineEvent.m */; };
-		2E9F716B1ADD153F00133483 /* BKOfflineEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F716A1ADD153F00133483 /* BKOfflineEvent.m */; };
-		2E9F716E1ADD154E00133483 /* BKStandbyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F716D1ADD154E00133483 /* BKStandbyEvent.m */; };
 		2EC068AD1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC068AC1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m */; };
 		2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90961AD266290057AC67 /* AppDelegate.m */; };
 		2ECD90991AD266290057AC67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90981AD266290057AC67 /* main.m */; };
@@ -47,6 +37,26 @@
 		4A8802061AF79BF10072AC3A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A8802041AF79BF10072AC3A /* LaunchScreen.xib */; };
 		4A8802121AF79BF20072AC3A /* MusicPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8802111AF79BF20072AC3A /* MusicPlayerTests.m */; };
 		4AEB2DCC1AF7A0AE0073BC14 /* BKPlayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB2DCB1AF7A0AE0073BC14 /* BKPlayListViewController.m */; };
+		4AF62E871AF9D78100BA378B /* BKClaspEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E711AF9D78100BA378B /* BKClaspEvent.m */; };
+		4AF62E881AF9D78100BA378B /* BKClaspEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E711AF9D78100BA378B /* BKClaspEvent.m */; };
+		4AF62E891AF9D78100BA378B /* BKCountEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E731AF9D78100BA378B /* BKCountEvent.m */; };
+		4AF62E8A1AF9D78100BA378B /* BKCountEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E731AF9D78100BA378B /* BKCountEvent.m */; };
+		4AF62E8B1AF9D78100BA378B /* BKEnterBoxEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E751AF9D78100BA378B /* BKEnterBoxEvent.m */; };
+		4AF62E8C1AF9D78100BA378B /* BKEnterBoxEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E751AF9D78100BA378B /* BKEnterBoxEvent.m */; };
+		4AF62E8F1AF9D78100BA378B /* BKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E791AF9D78100BA378B /* BKEvent.m */; };
+		4AF62E901AF9D78100BA378B /* BKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E791AF9D78100BA378B /* BKEvent.m */; };
+		4AF62E911AF9D78100BA378B /* BKLeaveBoxEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E7C1AF9D78100BA378B /* BKLeaveBoxEvent.m */; };
+		4AF62E921AF9D78100BA378B /* BKLeaveBoxEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E7C1AF9D78100BA378B /* BKLeaveBoxEvent.m */; };
+		4AF62E931AF9D78100BA378B /* BKOfflineEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E7E1AF9D78100BA378B /* BKOfflineEvent.m */; };
+		4AF62E941AF9D78100BA378B /* BKOfflineEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E7E1AF9D78100BA378B /* BKOfflineEvent.m */; };
+		4AF62E951AF9D78100BA378B /* BKOnlineEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E801AF9D78100BA378B /* BKOnlineEvent.m */; };
+		4AF62E961AF9D78100BA378B /* BKOnlineEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E801AF9D78100BA378B /* BKOnlineEvent.m */; };
+		4AF62E971AF9D78100BA378B /* BKStandbyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E821AF9D78100BA378B /* BKStandbyEvent.m */; };
+		4AF62E981AF9D78100BA378B /* BKStandbyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E821AF9D78100BA378B /* BKStandbyEvent.m */; };
+		4AF62E991AF9D78100BA378B /* BKSwipeEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E841AF9D78100BA378B /* BKSwipeEvent.m */; };
+		4AF62E9A1AF9D78100BA378B /* BKSwipeEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E841AF9D78100BA378B /* BKSwipeEvent.m */; };
+		4AF62E9B1AF9D78100BA378B /* BKUpDownEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E861AF9D78100BA378B /* BKUpDownEvent.m */; };
+		4AF62E9C1AF9D78100BA378B /* BKUpDownEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62E861AF9D78100BA378B /* BKUpDownEvent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,21 +96,6 @@
 		2E39E5C71AEFAC3D00D13B00 /* BKFrameBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKFrameBuffer.m; sourceTree = "<group>"; };
 		2E9F71331ADCAE3C00133483 /* BKPrepareBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKPrepareBox.h; sourceTree = "<group>"; };
 		2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKPrepareBox.m; sourceTree = "<group>"; };
-		2E9F71361ADCD74D00133483 /* BKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEvent.h; sourceTree = "<group>"; };
-		2E9F71371ADCD74D00133483 /* BKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKEvent.m; sourceTree = "<group>"; };
-		2E9F71401ADCDA5F00133483 /* BKLeaveBoxEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKLeaveBoxEvent.h; sourceTree = "<group>"; };
-		2E9F71411ADCDA5F00133483 /* BKLeaveBoxEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKLeaveBoxEvent.m; sourceTree = "<group>"; };
-		2E9F71461ADCDA9300133483 /* BKSwipeEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSwipeEvent.h; sourceTree = "<group>"; };
-		2E9F71471ADCDA9300133483 /* BKSwipeEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSwipeEvent.m; sourceTree = "<group>"; };
-		2E9F71491ADCDAA500133483 /* BKUpDownEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKUpDownEvent.h; sourceTree = "<group>"; };
-		2E9F714A1ADCDAA500133483 /* BKUpDownEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKUpDownEvent.m; sourceTree = "<group>"; };
-		2E9F714C1ADCDAB700133483 /* BKClaspEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKClaspEvent.h; sourceTree = "<group>"; };
-		2E9F714D1ADCDAB700133483 /* BKClaspEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKClaspEvent.m; sourceTree = "<group>"; };
-		2E9F714F1ADCDAC700133483 /* BKCountEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKCountEvent.h; sourceTree = "<group>"; };
-		2E9F71501ADCDAC700133483 /* BKCountEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKCountEvent.m; sourceTree = "<group>"; };
-		2E9F71521ADCDAEB00133483 /* BKEnterBoxEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEnterBoxEvent.h; sourceTree = "<group>"; };
-		2E9F71531ADCDAEB00133483 /* BKEnterBoxEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKEnterBoxEvent.m; sourceTree = "<group>"; };
-		2E9F71581ADCDD6900133483 /* BKTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKTypes.h; sourceTree = "<group>"; };
 		2E9F71591ADCE26400133483 /* BKEventDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEventDetector.h; sourceTree = "<group>"; };
 		2E9F715A1ADCE26400133483 /* BKEventDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKEventDetector.m; sourceTree = "<group>"; };
 		2E9F715C1ADCE40100133483 /* BKLeapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKLeapController.h; sourceTree = "<group>"; };
@@ -109,12 +104,6 @@
 		2E9F71611ADD04CA00133483 /* BKFrame+LeapAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BKFrame+LeapAddtions.m"; sourceTree = "<group>"; };
 		2E9F71631ADD0C9C00133483 /* BKVector+LeapAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BKVector+LeapAdditions.h"; sourceTree = "<group>"; };
 		2E9F71641ADD0C9C00133483 /* BKVector+LeapAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BKVector+LeapAdditions.m"; sourceTree = "<group>"; };
-		2E9F71661ADD128000133483 /* BKOnlineEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKOnlineEvent.h; sourceTree = "<group>"; };
-		2E9F71671ADD128000133483 /* BKOnlineEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKOnlineEvent.m; sourceTree = "<group>"; };
-		2E9F71691ADD153F00133483 /* BKOfflineEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKOfflineEvent.h; sourceTree = "<group>"; };
-		2E9F716A1ADD153F00133483 /* BKOfflineEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKOfflineEvent.m; sourceTree = "<group>"; };
-		2E9F716C1ADD154E00133483 /* BKStandbyEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKStandbyEvent.h; sourceTree = "<group>"; };
-		2E9F716D1ADD154E00133483 /* BKStandbyEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKStandbyEvent.m; sourceTree = "<group>"; };
 		2EC068AB1AF0CEC90054C6EC /* BKFrameBuffer+Detector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BKFrameBuffer+Detector.h"; sourceTree = "<group>"; };
 		2EC068AC1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BKFrameBuffer+Detector.m"; sourceTree = "<group>"; };
 		2ECD90901AD266290057AC67 /* NetServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +136,6 @@
 		2EDC68F61AD7A11D0072B21F /* BKFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKFrame.m; sourceTree = "<group>"; };
 		2EDC68F81AD7ABCB0072B21F /* BKVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKVector.h; sourceTree = "<group>"; };
 		2EDC68F91AD7ABCB0072B21F /* BKVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKVector.m; sourceTree = "<group>"; };
-		4A8801EE1AF795650072AC3A /* BKEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKEvents.h; sourceTree = "<group>"; };
 		4A8801F31AF79BF10072AC3A /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8801F61AF79BF10072AC3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8801F71AF79BF10072AC3A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -160,6 +148,28 @@
 		4A8802111AF79BF20072AC3A /* MusicPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicPlayerTests.m; sourceTree = "<group>"; };
 		4AEB2DCA1AF7A0AE0073BC14 /* BKPlayListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKPlayListViewController.h; sourceTree = "<group>"; };
 		4AEB2DCB1AF7A0AE0073BC14 /* BKPlayListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKPlayListViewController.m; sourceTree = "<group>"; };
+		4AF62E701AF9D78100BA378B /* BKClaspEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKClaspEvent.h; sourceTree = "<group>"; };
+		4AF62E711AF9D78100BA378B /* BKClaspEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKClaspEvent.m; sourceTree = "<group>"; };
+		4AF62E721AF9D78100BA378B /* BKCountEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKCountEvent.h; sourceTree = "<group>"; };
+		4AF62E731AF9D78100BA378B /* BKCountEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKCountEvent.m; sourceTree = "<group>"; };
+		4AF62E741AF9D78100BA378B /* BKEnterBoxEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEnterBoxEvent.h; sourceTree = "<group>"; };
+		4AF62E751AF9D78100BA378B /* BKEnterBoxEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKEnterBoxEvent.m; sourceTree = "<group>"; };
+		4AF62E781AF9D78100BA378B /* BKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEvent.h; sourceTree = "<group>"; };
+		4AF62E791AF9D78100BA378B /* BKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKEvent.m; sourceTree = "<group>"; };
+		4AF62E7A1AF9D78100BA378B /* BKEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEvents.h; sourceTree = "<group>"; };
+		4AF62E7B1AF9D78100BA378B /* BKLeaveBoxEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKLeaveBoxEvent.h; sourceTree = "<group>"; };
+		4AF62E7C1AF9D78100BA378B /* BKLeaveBoxEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKLeaveBoxEvent.m; sourceTree = "<group>"; };
+		4AF62E7D1AF9D78100BA378B /* BKOfflineEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKOfflineEvent.h; sourceTree = "<group>"; };
+		4AF62E7E1AF9D78100BA378B /* BKOfflineEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKOfflineEvent.m; sourceTree = "<group>"; };
+		4AF62E7F1AF9D78100BA378B /* BKOnlineEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKOnlineEvent.h; sourceTree = "<group>"; };
+		4AF62E801AF9D78100BA378B /* BKOnlineEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKOnlineEvent.m; sourceTree = "<group>"; };
+		4AF62E811AF9D78100BA378B /* BKStandbyEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKStandbyEvent.h; sourceTree = "<group>"; };
+		4AF62E821AF9D78100BA378B /* BKStandbyEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKStandbyEvent.m; sourceTree = "<group>"; };
+		4AF62E831AF9D78100BA378B /* BKSwipeEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSwipeEvent.h; sourceTree = "<group>"; };
+		4AF62E841AF9D78100BA378B /* BKSwipeEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSwipeEvent.m; sourceTree = "<group>"; };
+		4AF62E851AF9D78100BA378B /* BKUpDownEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKUpDownEvent.h; sourceTree = "<group>"; };
+		4AF62E861AF9D78100BA378B /* BKUpDownEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKUpDownEvent.m; sourceTree = "<group>"; };
+		4AF62E9D1AF9D7BF00BA378B /* BKTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,10 +220,8 @@
 		2E9F71301ADC9EDA00133483 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2E9F71581ADCDD6900133483 /* BKTypes.h */,
 				2E39E5C61AEFAC3D00D13B00 /* BKFrameBuffer.h */,
 				2E39E5C71AEFAC3D00D13B00 /* BKFrameBuffer.m */,
-				2E9F71391ADCDA1400133483 /* Event */,
 				2E39E5C21AEFA3A200D13B00 /* State */,
 				2E9F71331ADCAE3C00133483 /* BKPrepareBox.h */,
 				2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */,
@@ -249,34 +257,6 @@
 			name = Service;
 			sourceTree = "<group>";
 		};
-		2E9F71391ADCDA1400133483 /* Event */ = {
-			isa = PBXGroup;
-			children = (
-				4A8801EE1AF795650072AC3A /* BKEvents.h */,
-				2E9F71361ADCD74D00133483 /* BKEvent.h */,
-				2E9F71371ADCD74D00133483 /* BKEvent.m */,
-				2E9F71661ADD128000133483 /* BKOnlineEvent.h */,
-				2E9F71671ADD128000133483 /* BKOnlineEvent.m */,
-				2E9F71691ADD153F00133483 /* BKOfflineEvent.h */,
-				2E9F716A1ADD153F00133483 /* BKOfflineEvent.m */,
-				2E9F71521ADCDAEB00133483 /* BKEnterBoxEvent.h */,
-				2E9F71531ADCDAEB00133483 /* BKEnterBoxEvent.m */,
-				2E9F71401ADCDA5F00133483 /* BKLeaveBoxEvent.h */,
-				2E9F71411ADCDA5F00133483 /* BKLeaveBoxEvent.m */,
-				2E9F716C1ADD154E00133483 /* BKStandbyEvent.h */,
-				2E9F716D1ADD154E00133483 /* BKStandbyEvent.m */,
-				2E9F71461ADCDA9300133483 /* BKSwipeEvent.h */,
-				2E9F71471ADCDA9300133483 /* BKSwipeEvent.m */,
-				2E9F71491ADCDAA500133483 /* BKUpDownEvent.h */,
-				2E9F714A1ADCDAA500133483 /* BKUpDownEvent.m */,
-				2E9F714C1ADCDAB700133483 /* BKClaspEvent.h */,
-				2E9F714D1ADCDAB700133483 /* BKClaspEvent.m */,
-				2E9F714F1ADCDAC700133483 /* BKCountEvent.h */,
-				2E9F71501ADCDAC700133483 /* BKCountEvent.m */,
-			);
-			name = Event;
-			sourceTree = "<group>";
-		};
 		2E9F715F1ADCE54600133483 /* ValueObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,11 +277,11 @@
 			children = (
 				4AF62E6E1AF9BCC600BA378B /* Common */,
 				2ECD90921AD266290057AC67 /* NetServer */,
-				2EDC68E81AD794C30072B21F /* ExternalLib */,
 				4A8801F41AF79BF10072AC3A /* MusicPlayer */,
-				4A88020E1AF79BF20072AC3A /* MusicPlayerTests */,
+				2EDC68E81AD794C30072B21F /* ExternalLib */,
 				2ECD90BB1AD2794C0057AC67 /* Frameworks */,
 				2ECD90A61AD2662A0057AC67 /* NetServerTests */,
+				4A88020E1AF79BF20072AC3A /* MusicPlayerTests */,
 				2ECD90911AD266290057AC67 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -422,8 +402,38 @@
 		4AF62E6E1AF9BCC600BA378B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4AF62E9D1AF9D7BF00BA378B /* BKTypes.h */,
+				4AF62E6F1AF9D77200BA378B /* Event */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		4AF62E6F1AF9D77200BA378B /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				4AF62E781AF9D78100BA378B /* BKEvent.h */,
+				4AF62E791AF9D78100BA378B /* BKEvent.m */,
+				4AF62E701AF9D78100BA378B /* BKClaspEvent.h */,
+				4AF62E711AF9D78100BA378B /* BKClaspEvent.m */,
+				4AF62E721AF9D78100BA378B /* BKCountEvent.h */,
+				4AF62E731AF9D78100BA378B /* BKCountEvent.m */,
+				4AF62E741AF9D78100BA378B /* BKEnterBoxEvent.h */,
+				4AF62E751AF9D78100BA378B /* BKEnterBoxEvent.m */,
+				4AF62E7A1AF9D78100BA378B /* BKEvents.h */,
+				4AF62E7B1AF9D78100BA378B /* BKLeaveBoxEvent.h */,
+				4AF62E7C1AF9D78100BA378B /* BKLeaveBoxEvent.m */,
+				4AF62E7D1AF9D78100BA378B /* BKOfflineEvent.h */,
+				4AF62E7E1AF9D78100BA378B /* BKOfflineEvent.m */,
+				4AF62E7F1AF9D78100BA378B /* BKOnlineEvent.h */,
+				4AF62E801AF9D78100BA378B /* BKOnlineEvent.m */,
+				4AF62E811AF9D78100BA378B /* BKStandbyEvent.h */,
+				4AF62E821AF9D78100BA378B /* BKStandbyEvent.m */,
+				4AF62E831AF9D78100BA378B /* BKSwipeEvent.h */,
+				4AF62E841AF9D78100BA378B /* BKSwipeEvent.m */,
+				4AF62E851AF9D78100BA378B /* BKUpDownEvent.h */,
+				4AF62E861AF9D78100BA378B /* BKUpDownEvent.m */,
+			);
+			name = Event;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -587,33 +597,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E9F714B1ADCDAA500133483 /* BKUpDownEvent.m in Sources */,
-				2E9F714E1ADCDAB700133483 /* BKClaspEvent.m in Sources */,
-				2E9F71481ADCDA9300133483 /* BKSwipeEvent.m in Sources */,
+				4AF62E951AF9D78100BA378B /* BKOnlineEvent.m in Sources */,
 				2E9F71621ADD04CA00133483 /* BKFrame+LeapAddtions.m in Sources */,
-				2E9F71381ADCD74D00133483 /* BKEvent.m in Sources */,
-				2E9F71511ADCDAC700133483 /* BKCountEvent.m in Sources */,
+				4AF62E871AF9D78100BA378B /* BKClaspEvent.m in Sources */,
 				2ECD90991AD266290057AC67 /* main.m in Sources */,
 				2EDC68EE1AD794C30072B21F /* LeapObjectiveC.mm in Sources */,
-				2E9F71421ADCDA5F00133483 /* BKLeaveBoxEvent.m in Sources */,
+				4AF62E891AF9D78100BA378B /* BKCountEvent.m in Sources */,
+				4AF62E931AF9D78100BA378B /* BKOfflineEvent.m in Sources */,
+				4AF62E8B1AF9D78100BA378B /* BKEnterBoxEvent.m in Sources */,
+				4AF62E9B1AF9D78100BA378B /* BKUpDownEvent.m in Sources */,
 				2E9F71651ADD0C9C00133483 /* BKVector+LeapAdditions.m in Sources */,
 				2E9F715E1ADCE40100133483 /* BKLeapController.m in Sources */,
 				2EDC68F71AD7A11D0072B21F /* BKFrame.m in Sources */,
+				4AF62E911AF9D78100BA378B /* BKLeaveBoxEvent.m in Sources */,
 				2EDC68F41AD7969B0072B21F /* BKEventManager.m in Sources */,
-				2E9F716B1ADD153F00133483 /* BKOfflineEvent.m in Sources */,
+				4AF62E991AF9D78100BA378B /* BKSwipeEvent.m in Sources */,
 				2ECD90B81AD276460057AC67 /* BKNetSession.m in Sources */,
-				2E9F716E1ADD154E00133483 /* BKStandbyEvent.m in Sources */,
 				2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */,
 				2E39E5C51AEFA3C200D13B00 /* BKEventState.m in Sources */,
 				2EC068AD1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m in Sources */,
+				4AF62E971AF9D78100BA378B /* BKStandbyEvent.m in Sources */,
 				2E9F71351ADCAE3C00133483 /* BKPrepareBox.m in Sources */,
 				2ECD90B51AD266C50057AC67 /* BKNetService.m in Sources */,
 				2EDC68E71AD67B2D0072B21F /* BKStream.m in Sources */,
-				2E9F71681ADD128000133483 /* BKOnlineEvent.m in Sources */,
 				2ECD90BE1AD27D9C0057AC67 /* BKNetService+Singleton.m in Sources */,
 				2E9F715B1ADCE26400133483 /* BKEventDetector.m in Sources */,
-				2E9F71541ADCDAEB00133483 /* BKEnterBoxEvent.m in Sources */,
 				2E39E5C81AEFAC3D00D13B00 /* BKFrameBuffer.m in Sources */,
+				4AF62E8F1AF9D78100BA378B /* BKEvent.m in Sources */,
 				2EDC68FA1AD7ABCB0072B21F /* BKVector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,7 +642,17 @@
 			files = (
 				4A8801FB1AF79BF10072AC3A /* AppDelegate.m in Sources */,
 				4AEB2DCC1AF7A0AE0073BC14 /* BKPlayListViewController.m in Sources */,
+				4AF62E9A1AF9D78100BA378B /* BKSwipeEvent.m in Sources */,
+				4AF62E961AF9D78100BA378B /* BKOnlineEvent.m in Sources */,
+				4AF62E901AF9D78100BA378B /* BKEvent.m in Sources */,
+				4AF62E8C1AF9D78100BA378B /* BKEnterBoxEvent.m in Sources */,
+				4AF62E941AF9D78100BA378B /* BKOfflineEvent.m in Sources */,
 				4A8801F81AF79BF10072AC3A /* main.m in Sources */,
+				4AF62E921AF9D78100BA378B /* BKLeaveBoxEvent.m in Sources */,
+				4AF62E9C1AF9D78100BA378B /* BKUpDownEvent.m in Sources */,
+				4AF62E881AF9D78100BA378B /* BKClaspEvent.m in Sources */,
+				4AF62E8A1AF9D78100BA378B /* BKCountEvent.m in Sources */,
+				4AF62E981AF9D78100BA378B /* BKStandbyEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
