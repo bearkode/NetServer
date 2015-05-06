@@ -72,6 +72,9 @@
 		4AF62ECB1AFA107300BA378B /* BKEventDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62ECA1AFA107300BA378B /* BKEventDetector.m */; };
 		4AF62ECC1AFA107300BA378B /* BKEventDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62ECA1AFA107300BA378B /* BKEventDetector.m */; };
 		4AFAD5E81AFA338A00ACAD9D /* BKPlayListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAD5E71AFA338A00ACAD9D /* BKPlayListDataController.m */; };
+		4AFAD5EB1AFA37BB00ACAD9D /* BKPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAD5EA1AFA37BB00ACAD9D /* BKPlayViewController.m */; };
+		4AFAD5EE1AFA3FDF00ACAD9D /* BKPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAD5ED1AFA3FDF00ACAD9D /* BKPlaylist.m */; };
+		4AFAD5F11AFA42BE00ACAD9D /* BKPlayListDataController+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAD5F01AFA42BE00ACAD9D /* BKPlayListDataController+Appearance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +197,12 @@
 		4AFAD5E41AFA19FE00ACAD9D /* BKObjCUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKObjCUtils.h; sourceTree = "<group>"; };
 		4AFAD5E61AFA338A00ACAD9D /* BKPlayListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKPlayListDataController.h; sourceTree = "<group>"; };
 		4AFAD5E71AFA338A00ACAD9D /* BKPlayListDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKPlayListDataController.m; sourceTree = "<group>"; };
+		4AFAD5E91AFA37BB00ACAD9D /* BKPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKPlayViewController.h; sourceTree = "<group>"; };
+		4AFAD5EA1AFA37BB00ACAD9D /* BKPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKPlayViewController.m; sourceTree = "<group>"; };
+		4AFAD5EC1AFA3FDF00ACAD9D /* BKPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKPlaylist.h; sourceTree = "<group>"; };
+		4AFAD5ED1AFA3FDF00ACAD9D /* BKPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKPlaylist.m; sourceTree = "<group>"; };
+		4AFAD5EF1AFA42BE00ACAD9D /* BKPlayListDataController+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BKPlayListDataController+Appearance.h"; sourceTree = "<group>"; };
+		4AFAD5F01AFA42BE00ACAD9D /* BKPlayListDataController+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BKPlayListDataController+Appearance.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +387,8 @@
 				4A8801FA1AF79BF10072AC3A /* AppDelegate.m */,
 				4AEB2DCA1AF7A0AE0073BC14 /* BKPlayListViewController.h */,
 				4AEB2DCB1AF7A0AE0073BC14 /* BKPlayListViewController.m */,
+				4AFAD5E91AFA37BB00ACAD9D /* BKPlayViewController.h */,
+				4AFAD5EA1AFA37BB00ACAD9D /* BKPlayViewController.m */,
 				4A8802021AF79BF10072AC3A /* Images.xcassets */,
 				4A8802041AF79BF10072AC3A /* LaunchScreen.xib */,
 				4A8801F51AF79BF10072AC3A /* Supporting Files */,
@@ -487,8 +498,12 @@
 		4AFAD5E51AFA336000ACAD9D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4AFAD5EC1AFA3FDF00ACAD9D /* BKPlaylist.h */,
+				4AFAD5ED1AFA3FDF00ACAD9D /* BKPlaylist.m */,
 				4AFAD5E61AFA338A00ACAD9D /* BKPlayListDataController.h */,
 				4AFAD5E71AFA338A00ACAD9D /* BKPlayListDataController.m */,
+				4AFAD5EF1AFA42BE00ACAD9D /* BKPlayListDataController+Appearance.h */,
+				4AFAD5F01AFA42BE00ACAD9D /* BKPlayListDataController+Appearance.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -712,6 +727,7 @@
 				4AF62E8C1AF9D78100BA378B /* BKEnterBoxEvent.m in Sources */,
 				4AF62EB41AF9DDD300BA378B /* BKMotionController+ServiceBrowser.m in Sources */,
 				4AF62EA41AF9D94D00BA378B /* BKFrame.m in Sources */,
+				4AFAD5F11AFA42BE00ACAD9D /* BKPlayListDataController+Appearance.m in Sources */,
 				4AF62E941AF9D78100BA378B /* BKOfflineEvent.m in Sources */,
 				4AF62EC01AFA0F0900BA378B /* BKFrameBuffer+Detector.m in Sources */,
 				4A8801F81AF79BF10072AC3A /* main.m in Sources */,
@@ -723,8 +739,10 @@
 				4AF62E881AF9D78100BA378B /* BKClaspEvent.m in Sources */,
 				4AF62E8A1AF9D78100BA378B /* BKCountEvent.m in Sources */,
 				4AF62ECC1AFA107300BA378B /* BKEventDetector.m in Sources */,
+				4AFAD5EB1AFA37BB00ACAD9D /* BKPlayViewController.m in Sources */,
 				4AF62E981AF9D78100BA378B /* BKStandbyEvent.m in Sources */,
 				4AF62EC41AFA0F1A00BA378B /* BKEventState.m in Sources */,
+				4AFAD5EE1AFA3FDF00ACAD9D /* BKPlaylist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

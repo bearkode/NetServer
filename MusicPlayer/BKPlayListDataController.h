@@ -8,13 +8,19 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "BKPlaylist.h"
 
 
 @interface BKPlayListDataController : NSObject
 
 
 - (NSInteger)numberOfPlaylist;
+
+- (BKPlaylist *)playlistAtIndex:(NSUInteger)aIndex;
 - (NSString *)playlistTitleAtIndex:(NSUInteger)aIndex;
+
+- (void)selectPlaylistAtIndex:(NSUInteger)aIndex;
+- (BOOL)isSelectedPlaylistAtIndex:(NSUInteger)aIndex;
 
 
 @end

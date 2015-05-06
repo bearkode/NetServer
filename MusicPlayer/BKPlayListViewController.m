@@ -8,13 +8,17 @@
  */
 
 #import "BKPlayListViewController.h"
+#import <AVFoundation/AVFoundation.h>
 #import "BKMotionController.h"
 #import "BKPlayListDataController.h"
+#import "BKPlayListDataController+Appearance.h"
 
 
 @implementation BKPlayListViewController
 {
     BKPlayListDataController *mDataController;
+    
+    AVSpeechSynthesizer      *mSpeechSynthesizer;
 }
 
 
@@ -25,6 +29,16 @@
     if (self)
     {
         mDataController = [[BKPlayListDataController alloc] init];
+        
+        NSError *setCategoryError = nil;
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&setCategoryError];
+        
+        mSpeechSynthesizer = [[AVSpeechSynthesizer alloc]init];
+
+        AVSpeechUtterance *sUtterance   = [AVSpeechUtterance speechUtteranceWithString:@"한글도 잘 읽어줍니다."];
+        [sUtterance setRate:AVSpeechUtteranceMinimumSpeechRate + 0.15];
+
+        [mSpeechSynthesizer speakUtterance:sUtterance];
     }
     
     return self;
@@ -95,8 +109,8 @@
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)aIndexPath
 {
     UITableViewCell *sCell = [aTableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:aIndexPath];
-    
-    [sCell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+
+    [sCell setAccessoryType:[mDataController accessoryTypeForPlaylistAtIndex:[aIndexPath row]]];
     [[sCell textLabel] setText:[mDataController playlistTitleAtIndex:[aIndexPath row]]];
     
     return sCell;
@@ -106,6 +120,10 @@
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)aIndexPath
 {
     [aTableView deselectRowAtIndexPath:aIndexPath animated:YES];
+    
+    [mDataController selectPlaylistAtIndex:[aIndexPath row]];
+
+    [aTableView performSelector:@selector(reloadData) withObject:nil afterDelay:0.3];
 }
 
 

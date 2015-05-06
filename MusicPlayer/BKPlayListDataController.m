@@ -9,6 +9,7 @@
 
 #import "BKPlayListDataController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "BKPlaylist.h"
 
 
 @implementation BKPlayListDataController
@@ -51,30 +52,42 @@
 }
 
 
+- (BKPlaylist *)playlistAtIndex:(NSUInteger)aIndex
+{
+    return [mPlaylists objectAtIndex:aIndex];
+}
+
+
 - (NSString *)playlistTitleAtIndex:(NSUInteger)aIndex
 {
-    MPMediaPlaylist *sPlaylist = [mPlaylists objectAtIndex:aIndex];
-    
-    return [sPlaylist valueForProperty:MPMediaPlaylistPropertyName];
+    return [[mPlaylists objectAtIndex:aIndex] title];
 }
+
+
+- (void)selectPlaylistAtIndex:(NSUInteger)aIndex
+{
+    [mPlaylists makeObjectsPerformSelector:@selector(deselect)];
+    [[mPlaylists objectAtIndex:aIndex] setSelected:YES];
+}
+
+
+- (BOOL)isSelectedPlaylistAtIndex:(NSUInteger)aIndex
+{
+    return [[mPlaylists objectAtIndex:aIndex] isSelected];
+}
+
+
+#pragma mark -
 
 
 - (void)updatePlaylists
 {
-    MPMediaQuery *sQuery     = [MPMediaQuery playlistsQuery];
-    NSArray      *sPlaylists = [sQuery collections];
+    NSArray *sPlaylists = [[MPMediaQuery playlistsQuery] collections];
     
-    for (MPMediaPlaylist *sPlaylist in sPlaylists)
+    for (MPMediaPlaylist *sMediaPlaylist in sPlaylists)
     {
+        BKPlaylist *sPlaylist = [[[BKPlaylist alloc] initWithPlaylist:sMediaPlaylist] autorelease];
         [mPlaylists addObject:sPlaylist];
-        NSLog (@"Playlist :%@", [sPlaylist valueForProperty:MPMediaPlaylistPropertyName]);
-        
-        //            NSArray *songs = [playlist items];
-        //            for (MPMediaItem *song in songs) {
-        //                NSString *strSongTitle =
-        //                [song valueForProperty: MPMediaItemPropertyTitle];
-        //                NSLog (@"Title : %@", strSongTitle);
-        //            }
     }
 }
 
