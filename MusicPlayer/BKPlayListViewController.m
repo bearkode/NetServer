@@ -92,30 +92,30 @@
 }
 
 
-- (void)motionController:(BKMotionController *)aMotionController didReceiveMotion:(BKFrame *)aFrame
-{
-    NSLog(@"sFrame = %@", aFrame);
-    
-    NSInteger sCount     = [aFrame extenedFingerCount];
-    NSString *sImageName = [NSString stringWithFormat:@"%d", (int)sCount];
-    
-    [mHandView setImage:[UIImage imageNamed:sImageName]];
-    
-    CGRect  sBounds   = [[self view] bounds];
-    CGPoint sPosition = CGPointMake([[aFrame palmPosition] x], [[aFrame palmPosition] z]);
-    CGPoint sMid      = CGPointMake(CGRectGetMidX(sBounds), CGRectGetMidY(sBounds));
-    
-    sPosition.x *= 3.0;
-    sPosition.y *= 3.0;
-    sPosition.x += sMid.x;
-    sPosition.y += sMid.y;
-    
-    CGRect sFrame = [mHandView frame];
-    sFrame.origin.x = 100;
-    sFrame.origin.y = 100;
-    [mHandView setFrame:sFrame];
-    [mHandView setCenter:sPosition];
-}
+//- (void)motionController:(BKMotionController *)aMotionController didReceiveMotion:(BKFrame *)aFrame
+//{
+//    NSLog(@"sFrame = %@", aFrame);
+//    
+//    NSInteger sCount     = [aFrame extenedFingerCount];
+//    NSString *sImageName = [NSString stringWithFormat:@"%d", (int)sCount];
+//    
+//    [mHandView setImage:[UIImage imageNamed:sImageName]];
+//    
+//    CGRect  sBounds   = [[self view] bounds];
+//    CGPoint sPosition = CGPointMake([[aFrame palmPosition] x], [[aFrame palmPosition] z]);
+//    CGPoint sMid      = CGPointMake(CGRectGetMidX(sBounds), CGRectGetMidY(sBounds));
+//    
+//    sPosition.x *= 3.0;
+//    sPosition.y *= 3.0;
+//    sPosition.x += sMid.x;
+//    sPosition.y += sMid.y;
+//    
+//    CGRect sFrame = [mHandView frame];
+//    sFrame.origin.x = 100;
+//    sFrame.origin.y = 100;
+//    [mHandView setFrame:sFrame];
+//    [mHandView setCenter:sPosition];
+//}
 
 
 @end

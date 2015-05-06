@@ -11,6 +11,7 @@
 #import "BKStream.h"
 #import "BKPacket.h"
 #import "BKFrame.h"
+#import "BKEventDetector.h"
 
 
 @implementation BKMotionController
@@ -20,7 +21,8 @@
     NSTimer             *mPingTimer;
     
     id                   mDelegate;
-    NSMutableArray      *mMotionStream;
+    
+    BKEventDetector     *mEventDetector;
 }
 
 
@@ -36,7 +38,8 @@
         mServiceBrowser = [[NSNetServiceBrowser alloc] init];
         [mServiceBrowser setDelegate:self];
         
-        mMotionStream = [[NSMutableArray alloc] init];
+        mEventDetector = [[BKEventDetector alloc] init];
+        [mEventDetector setDelegate:self];
     }
     
     return self;
@@ -61,7 +64,7 @@
     [mStream close];
     [mStream release];
     
-    [mMotionStream release];
+    [mEventDetector release];
 
     [super dealloc];
 }
@@ -103,8 +106,8 @@
             id       sJSONObject = [NSJSONSerialization JSONObjectWithData:[sPacket payload] options:0 error:NULL];
             BKFrame *sFrame      = [[[BKFrame alloc] initWithJSONObject:sJSONObject] autorelease];
             
-            [mMotionStream addObject:sFrame];
-
+            [mEventDetector addFrame:sFrame];
+            
             if (sFrame && [mDelegate respondsToSelector:@selector(motionController:didReceiveMotion:)])
             {
                 [mDelegate motionController:self didReceiveMotion:sFrame];
@@ -113,6 +116,12 @@
 
         return [sPacket length];
     }];
+}
+
+
+- (void)eventDetector:(BKEventDetector *)aDetector didDetectEvent:(BKEvent *)aEvent
+{
+    NSLog(@"aEvent = %@", aEvent);
 }
 
 
