@@ -2,7 +2,7 @@
  *  BKVector+LeapAdditions.m
  *  NetServer
  *
- *  Created by bearkide on 2015. 4. 14..
+ *  Created by bearkode on 2015. 4. 14..
  *  Copyright (c) 2015 bearkode. All rights reserved.
  *
  */

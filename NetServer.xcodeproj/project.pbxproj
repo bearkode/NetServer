@@ -295,6 +295,7 @@
 		2ECD90871AD266290057AC67 = {
 			isa = PBXGroup;
 			children = (
+				4AF62E6E1AF9BCC600BA378B /* Common */,
 				2ECD90921AD266290057AC67 /* NetServer */,
 				2EDC68E81AD794C30072B21F /* ExternalLib */,
 				4A8801F41AF79BF10072AC3A /* MusicPlayer */,
@@ -416,6 +417,13 @@
 				4A8802101AF79BF20072AC3A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AF62E6E1AF9BCC600BA378B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
