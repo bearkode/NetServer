@@ -7,27 +7,23 @@
  *
  */
 
-#if TARGET_OS_IPHONE
-#import <UIKit/UIKit.h>
-#else
 #import <Foundation/Foundation.h>
-#endif
 
 
 @interface BKVector : NSObject
 {
-    CGFloat mX;
-    CGFloat mY;
-    CGFloat mZ;
+    double mX;
+    double mY;
+    double mZ;
 }
 
 
-@property (nonatomic, readonly) CGFloat x;
-@property (nonatomic, readonly) CGFloat y;
-@property (nonatomic, readonly) CGFloat z;
+@property (nonatomic, readonly) double x;
+@property (nonatomic, readonly) double y;
+@property (nonatomic, readonly) double z;
 
 
-- (instancetype)initWithX:(CGFloat)aX y:(CGFloat)aY z:(CGFloat)aZ;
+- (instancetype)initWithX:(double)aX y:(double)aY z:(double)aZ;
 - (instancetype)initWithJSONObject:(id)aJSONObject;
 
 

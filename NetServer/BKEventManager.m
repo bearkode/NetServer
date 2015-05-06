@@ -73,6 +73,8 @@
 }
 
 
+//- (void)eventDetector:(BKEventDetector *)aDetector did
+
 - (void)eventDetector:(BKEventDetector *)aDetector didDetectEvent:(BKEvent *)aEvent
 {
     if ([mDelegate respondsToSelector:@selector(eventManager:didDetectEvent:)])

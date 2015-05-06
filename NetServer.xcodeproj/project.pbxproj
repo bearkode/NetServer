@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E39E5C51AEFA3C200D13B00 /* BKEventState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E39E5C41AEFA3C200D13B00 /* BKEventState.m */; };
-		2E39E5C81AEFAC3D00D13B00 /* BKFrameBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E39E5C71AEFAC3D00D13B00 /* BKFrameBuffer.m */; };
-		2E9F71351ADCAE3C00133483 /* BKPrepareBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */; };
 		2E9F715B1ADCE26400133483 /* BKEventDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F715A1ADCE26400133483 /* BKEventDetector.m */; };
 		2E9F715E1ADCE40100133483 /* BKLeapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F715D1ADCE40100133483 /* BKLeapController.m */; };
 		2E9F71621ADD04CA00133483 /* BKFrame+LeapAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71611ADD04CA00133483 /* BKFrame+LeapAddtions.m */; };
 		2E9F71651ADD0C9C00133483 /* BKVector+LeapAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F71641ADD0C9C00133483 /* BKVector+LeapAdditions.m */; };
-		2EC068AD1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC068AC1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m */; };
 		2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90961AD266290057AC67 /* AppDelegate.m */; };
 		2ECD90991AD266290057AC67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD90981AD266290057AC67 /* main.m */; };
 		2ECD909B1AD2662A0057AC67 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECD909A1AD2662A0057AC67 /* Images.xcassets */; };
@@ -66,6 +62,14 @@
 		4AF62EB41AF9DDD300BA378B /* BKMotionController+ServiceBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EB01AF9DDD300BA378B /* BKMotionController+ServiceBrowser.m */; };
 		4AF62EB71AF9DE5100BA378B /* BKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EB61AF9DE5100BA378B /* BKStream.m */; };
 		4AF62EB81AF9DE5100BA378B /* BKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EB61AF9DE5100BA378B /* BKStream.m */; };
+		4AF62EBB1AFA0EFB00BA378B /* BKFrameBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EBA1AFA0EFB00BA378B /* BKFrameBuffer.m */; };
+		4AF62EBC1AFA0EFB00BA378B /* BKFrameBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EBA1AFA0EFB00BA378B /* BKFrameBuffer.m */; };
+		4AF62EBF1AFA0F0900BA378B /* BKFrameBuffer+Detector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EBE1AFA0F0900BA378B /* BKFrameBuffer+Detector.m */; };
+		4AF62EC01AFA0F0900BA378B /* BKFrameBuffer+Detector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EBE1AFA0F0900BA378B /* BKFrameBuffer+Detector.m */; };
+		4AF62EC31AFA0F1A00BA378B /* BKEventState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EC21AFA0F1A00BA378B /* BKEventState.m */; };
+		4AF62EC41AFA0F1A00BA378B /* BKEventState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EC21AFA0F1A00BA378B /* BKEventState.m */; };
+		4AF62EC71AFA0F2900BA378B /* BKPrepareBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EC61AFA0F2900BA378B /* BKPrepareBox.m */; };
+		4AF62EC81AFA0F2900BA378B /* BKPrepareBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF62EC61AFA0F2900BA378B /* BKPrepareBox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,12 +103,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2E39E5C31AEFA3C200D13B00 /* BKEventState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEventState.h; sourceTree = "<group>"; };
-		2E39E5C41AEFA3C200D13B00 /* BKEventState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKEventState.m; sourceTree = "<group>"; };
-		2E39E5C61AEFAC3D00D13B00 /* BKFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKFrameBuffer.h; sourceTree = "<group>"; };
-		2E39E5C71AEFAC3D00D13B00 /* BKFrameBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKFrameBuffer.m; sourceTree = "<group>"; };
-		2E9F71331ADCAE3C00133483 /* BKPrepareBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKPrepareBox.h; sourceTree = "<group>"; };
-		2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKPrepareBox.m; sourceTree = "<group>"; };
 		2E9F71591ADCE26400133483 /* BKEventDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKEventDetector.h; sourceTree = "<group>"; };
 		2E9F715A1ADCE26400133483 /* BKEventDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKEventDetector.m; sourceTree = "<group>"; };
 		2E9F715C1ADCE40100133483 /* BKLeapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKLeapController.h; sourceTree = "<group>"; };
@@ -113,8 +111,6 @@
 		2E9F71611ADD04CA00133483 /* BKFrame+LeapAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BKFrame+LeapAddtions.m"; sourceTree = "<group>"; };
 		2E9F71631ADD0C9C00133483 /* BKVector+LeapAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BKVector+LeapAdditions.h"; sourceTree = "<group>"; };
 		2E9F71641ADD0C9C00133483 /* BKVector+LeapAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BKVector+LeapAdditions.m"; sourceTree = "<group>"; };
-		2EC068AB1AF0CEC90054C6EC /* BKFrameBuffer+Detector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BKFrameBuffer+Detector.h"; sourceTree = "<group>"; };
-		2EC068AC1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BKFrameBuffer+Detector.m"; sourceTree = "<group>"; };
 		2ECD90901AD266290057AC67 /* NetServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ECD90941AD266290057AC67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ECD90951AD266290057AC67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -185,6 +181,14 @@
 		4AF62EB01AF9DDD300BA378B /* BKMotionController+ServiceBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BKMotionController+ServiceBrowser.m"; sourceTree = "<group>"; };
 		4AF62EB51AF9DE5100BA378B /* BKStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKStream.h; sourceTree = "<group>"; };
 		4AF62EB61AF9DE5100BA378B /* BKStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKStream.m; sourceTree = "<group>"; };
+		4AF62EB91AFA0EFB00BA378B /* BKFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKFrameBuffer.h; path = Common/BKFrameBuffer.h; sourceTree = "<group>"; };
+		4AF62EBA1AFA0EFB00BA378B /* BKFrameBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKFrameBuffer.m; path = Common/BKFrameBuffer.m; sourceTree = "<group>"; };
+		4AF62EBD1AFA0F0900BA378B /* BKFrameBuffer+Detector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BKFrameBuffer+Detector.h"; path = "Common/BKFrameBuffer+Detector.h"; sourceTree = "<group>"; };
+		4AF62EBE1AFA0F0900BA378B /* BKFrameBuffer+Detector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BKFrameBuffer+Detector.m"; path = "Common/BKFrameBuffer+Detector.m"; sourceTree = "<group>"; };
+		4AF62EC11AFA0F1A00BA378B /* BKEventState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKEventState.h; path = Common/BKEventState.h; sourceTree = "<group>"; };
+		4AF62EC21AFA0F1A00BA378B /* BKEventState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKEventState.m; path = Common/BKEventState.m; sourceTree = "<group>"; };
+		4AF62EC51AFA0F2900BA378B /* BKPrepareBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKPrepareBox.h; path = Common/BKPrepareBox.h; sourceTree = "<group>"; };
+		4AF62EC61AFA0F2900BA378B /* BKPrepareBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKPrepareBox.m; path = Common/BKPrepareBox.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,25 +225,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E39E5C21AEFA3A200D13B00 /* State */ = {
-			isa = PBXGroup;
-			children = (
-				2EC068AB1AF0CEC90054C6EC /* BKFrameBuffer+Detector.h */,
-				2EC068AC1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m */,
-				2E39E5C31AEFA3C200D13B00 /* BKEventState.h */,
-				2E39E5C41AEFA3C200D13B00 /* BKEventState.m */,
-			);
-			name = State;
-			sourceTree = "<group>";
-		};
 		2E9F71301ADC9EDA00133483 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2E39E5C61AEFAC3D00D13B00 /* BKFrameBuffer.h */,
-				2E39E5C71AEFAC3D00D13B00 /* BKFrameBuffer.m */,
-				2E39E5C21AEFA3A200D13B00 /* State */,
-				2E9F71331ADCAE3C00133483 /* BKPrepareBox.h */,
-				2E9F71341ADCAE3C00133483 /* BKPrepareBox.m */,
 				2E9F71591ADCE26400133483 /* BKEventDetector.h */,
 				2E9F715A1ADCE26400133483 /* BKEventDetector.m */,
 				2EDC68F21AD7969B0072B21F /* BKEventManager.h */,
@@ -285,6 +273,14 @@
 			isa = PBXGroup;
 			children = (
 				4AF62E6E1AF9BCC600BA378B /* Common */,
+				4AF62EB91AFA0EFB00BA378B /* BKFrameBuffer.h */,
+				4AF62EBA1AFA0EFB00BA378B /* BKFrameBuffer.m */,
+				4AF62EBD1AFA0F0900BA378B /* BKFrameBuffer+Detector.h */,
+				4AF62EBE1AFA0F0900BA378B /* BKFrameBuffer+Detector.m */,
+				4AF62EC11AFA0F1A00BA378B /* BKEventState.h */,
+				4AF62EC21AFA0F1A00BA378B /* BKEventState.m */,
+				4AF62EC51AFA0F2900BA378B /* BKPrepareBox.h */,
+				4AF62EC61AFA0F2900BA378B /* BKPrepareBox.m */,
 				2ECD90921AD266290057AC67 /* NetServer */,
 				4A8801F41AF79BF10072AC3A /* MusicPlayer */,
 				2EDC68E81AD794C30072B21F /* ExternalLib */,
@@ -645,6 +641,7 @@
 				4AF62E951AF9D78100BA378B /* BKOnlineEvent.m in Sources */,
 				2E9F71621ADD04CA00133483 /* BKFrame+LeapAddtions.m in Sources */,
 				4AF62EB11AF9DDD300BA378B /* BKMotionController.m in Sources */,
+				4AF62EC71AFA0F2900BA378B /* BKPrepareBox.m in Sources */,
 				4AF62EAA1AF9DD6000BA378B /* BKPacket.m in Sources */,
 				4AF62E871AF9D78100BA378B /* BKClaspEvent.m in Sources */,
 				2ECD90991AD266290057AC67 /* main.m in Sources */,
@@ -662,14 +659,13 @@
 				4AF62E991AF9D78100BA378B /* BKSwipeEvent.m in Sources */,
 				2ECD90B81AD276460057AC67 /* BKNetSession.m in Sources */,
 				2ECD90971AD266290057AC67 /* AppDelegate.m in Sources */,
-				2E39E5C51AEFA3C200D13B00 /* BKEventState.m in Sources */,
-				2EC068AD1AF0CEC90054C6EC /* BKFrameBuffer+Detector.m in Sources */,
 				4AF62E971AF9D78100BA378B /* BKStandbyEvent.m in Sources */,
-				2E9F71351ADCAE3C00133483 /* BKPrepareBox.m in Sources */,
+				4AF62EBF1AFA0F0900BA378B /* BKFrameBuffer+Detector.m in Sources */,
 				2ECD90B51AD266C50057AC67 /* BKNetService.m in Sources */,
 				2ECD90BE1AD27D9C0057AC67 /* BKNetService+Singleton.m in Sources */,
+				4AF62EC31AFA0F1A00BA378B /* BKEventState.m in Sources */,
 				2E9F715B1ADCE26400133483 /* BKEventDetector.m in Sources */,
-				2E39E5C81AEFAC3D00D13B00 /* BKFrameBuffer.m in Sources */,
+				4AF62EBB1AFA0EFB00BA378B /* BKFrameBuffer.m in Sources */,
 				4AF62EB31AF9DDD300BA378B /* BKMotionController+ServiceBrowser.m in Sources */,
 				4AF62EB71AF9DE5100BA378B /* BKStream.m in Sources */,
 				4AF62E8F1AF9D78100BA378B /* BKEvent.m in Sources */,
@@ -692,12 +688,15 @@
 				4AEB2DCC1AF7A0AE0073BC14 /* BKPlayListViewController.m in Sources */,
 				4AF62E9A1AF9D78100BA378B /* BKSwipeEvent.m in Sources */,
 				4AF62E961AF9D78100BA378B /* BKOnlineEvent.m in Sources */,
+				4AF62EBC1AFA0EFB00BA378B /* BKFrameBuffer.m in Sources */,
+				4AF62EC81AFA0F2900BA378B /* BKPrepareBox.m in Sources */,
 				4AF62E901AF9D78100BA378B /* BKEvent.m in Sources */,
 				4AF62EB21AF9DDD300BA378B /* BKMotionController.m in Sources */,
 				4AF62E8C1AF9D78100BA378B /* BKEnterBoxEvent.m in Sources */,
 				4AF62EB41AF9DDD300BA378B /* BKMotionController+ServiceBrowser.m in Sources */,
 				4AF62EA41AF9D94D00BA378B /* BKFrame.m in Sources */,
 				4AF62E941AF9D78100BA378B /* BKOfflineEvent.m in Sources */,
+				4AF62EC01AFA0F0900BA378B /* BKFrameBuffer+Detector.m in Sources */,
 				4A8801F81AF79BF10072AC3A /* main.m in Sources */,
 				4AF62EA61AF9D94D00BA378B /* BKVector.m in Sources */,
 				4AF62EAB1AF9DD6000BA378B /* BKPacket.m in Sources */,
@@ -707,6 +706,7 @@
 				4AF62E881AF9D78100BA378B /* BKClaspEvent.m in Sources */,
 				4AF62E8A1AF9D78100BA378B /* BKCountEvent.m in Sources */,
 				4AF62E981AF9D78100BA378B /* BKStandbyEvent.m in Sources */,
+				4AF62EC41AFA0F1A00BA378B /* BKEventState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 #import "BKVector.h"
 
 
-CGFloat const kRoundFactor = 1.0;
+double const kRoundFactor = 1000;
 
 
 @implementation BKVector
@@ -21,7 +21,7 @@ CGFloat const kRoundFactor = 1.0;
 @synthesize z = mZ;
 
 
-- (instancetype)initWithX:(CGFloat)aX y:(CGFloat)aY z:(CGFloat)aZ
+- (instancetype)initWithX:(double)aX y:(double)aY z:(double)aZ
 {
     self = [super init];
     
@@ -38,9 +38,9 @@ CGFloat const kRoundFactor = 1.0;
 
 - (instancetype)initWithJSONObject:(id)aJSONObject
 {
-    CGFloat sX = [[aJSONObject objectForKey:@"x"] doubleValue];
-    CGFloat sY = [[aJSONObject objectForKey:@"y"] doubleValue];
-    CGFloat sZ = [[aJSONObject objectForKey:@"z"] doubleValue];
+    double sX = [[aJSONObject objectForKey:@"x"] doubleValue];
+    double sY = [[aJSONObject objectForKey:@"y"] doubleValue];
+    double sZ = [[aJSONObject objectForKey:@"z"] doubleValue];
     
     return [self initWithX:sX y:sY z:sZ];
 }
