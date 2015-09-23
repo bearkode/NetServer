@@ -203,6 +203,11 @@ void BKSocketListeningCallback(CFSocketRef aSocketRef, CFSocketCallBackType aTyp
     
     sSockAddrLen = sizeof(sSockAddrIn);
     sError = getsockname(sFileDesc, (struct sockaddr *)&sSockAddrIn, &sSockAddrLen);
+    if (sError != 0)
+    {
+        NSLog(@"getsockname error");
+    }
+    
     sError = listen(sFileDesc, 5);
     if (sError != 0)
     {
